@@ -79,9 +79,9 @@ class C2D {
     for (let i = 0; i < data.length; i += 4) {
       const pixel = {
         r: data[i],
-        g: data[i + 2],
-        b: data[i + 3],
-        a: data[i + 4]
+        g: data[i + 1],
+        b: data[i + 2],
+        a: data[i + 3]
       }
       pixels.push(pixel)
     }
