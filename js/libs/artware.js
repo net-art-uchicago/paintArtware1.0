@@ -153,7 +153,7 @@ class Artware {
     main = main || this.ele.main
     let canvas
     // if we're using the canvas2d.js library, use that to create the canvas
-    if (C2D) {
+    if (window.C2D) {
       const style = window.getComputedStyle(main)
       const height = parseFloat(style.getPropertyValue('height')) || main.offsetHeight
       const width = parseFloat(style.getPropertyValue('width')) || main.offsetWidth
