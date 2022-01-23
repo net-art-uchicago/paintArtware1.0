@@ -36,6 +36,22 @@ class C2D {
     return this.canvas.height
   }
 
+  static get fill () {
+    return this.ctx.fillStyle
+  }
+
+  static set fill (v) {
+    this.ctx.fillStyle = v
+  }
+
+  static get stroke () {
+    return this.ctx.strokeStyle
+  }
+
+  static set stroke (v) {
+    this.ctx.strokeStyle = v
+  }
+
   static eventToMouse (e) {
     const offset = this.canvas.getBoundingClientRect()
     return {

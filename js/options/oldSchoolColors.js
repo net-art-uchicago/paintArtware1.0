@@ -97,10 +97,10 @@ window.options.oldSchoolColors = {
         const type = window.options.oldSchoolColors.state.selected
         if (type === 'fillStyle') {
           fs.style.background = color
-          C2D.ctx.fillStyle = color
+          C2D.fill = color
         } else if (type === 'strokeStyle') {
           ss.style.background = color
-          C2D.ctx.strokeStyle = color
+          C2D.stroke = color
         }
       })
       swatches.appendChild(swatch)
