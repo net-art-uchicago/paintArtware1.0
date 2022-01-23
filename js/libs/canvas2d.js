@@ -32,8 +32,16 @@ class C2D {
     return this.canvas.width
   }
 
+  static set width (v) {
+    this.canvas.width = v
+  }
+
   static get height () {
     return this.canvas.height
+  }
+
+  static set height (v) {
+    this.canvas.height = v
   }
 
   static get fill () {
