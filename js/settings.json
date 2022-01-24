@@ -1,9 +1,10 @@
 {
   "version": 1.0,
   "tools": [
-    "pencil",
     "oscCircles",
-    "vignette"
+    "pencil",
+    "vignette",
+    "doop"
   ],
   "filters": [
     "invert",
