@@ -25,6 +25,8 @@ The first thing you need to do in your JavaScript code is create a HTML5 canvas 
   C2D.ellipse(centerX, centerY, 100)
 ```
 
+Here's an [interactive example](https://netnet.studio/?layout=dock-left#code/eJxtkEFuwjAQRdfNKUZ0kYCimKIKASVZFOiq3fUCjj1NDMaO7IEUVb1744Aoqip5pPGb/79HXpZWnsDTSWM+2HNXKbOA8ROUXOwqZw9GLuB+9iDm88dBsWRBXURLL5xqCLwT+aAmavyCMe6o5Q4z3jRs65lWpWeCmyP3E5ltfXCfbVd/Ed2xEVTallzDarKGEYsgNJlwyAlXvTsZdvDCP5TWkEN82Si+YE/O7vCfgUNByTiF7oRrqyTV57ZGVdV0E32TsZmun6cv8d83f3GrjLRtxqXcHNHQq/KEBl0S7+3B494eMU4hwSHkBXx1egBhjSfox11WiMXgfLdvAXXSXtVzrVXToV6bfaZnU3ZKYTILFZTfw+j6mT8idIO2)
+
 ## API
 
 #### `createCanvas([width], [height])`
