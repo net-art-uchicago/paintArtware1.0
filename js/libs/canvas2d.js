@@ -32,8 +32,32 @@ class C2D {
     return this.canvas.width
   }
 
+  static set width (v) {
+    this.canvas.width = v
+  }
+
   static get height () {
     return this.canvas.height
+  }
+
+  static set height (v) {
+    this.canvas.height = v
+  }
+
+  static get fill () {
+    return this.ctx.fillStyle
+  }
+
+  static set fill (v) {
+    this.ctx.fillStyle = v
+  }
+
+  static get stroke () {
+    return this.ctx.strokeStyle
+  }
+
+  static set stroke (v) {
+    this.ctx.strokeStyle = v
   }
 
   static eventToMouse (e) {
@@ -55,9 +79,9 @@ class C2D {
     for (let i = 0; i < data.length; i += 4) {
       const pixel = {
         r: data[i],
-        g: data[i + 2],
-        b: data[i + 3],
-        a: data[i + 4]
+        g: data[i + 1],
+        b: data[i + 2],
+        a: data[i + 3]
       }
       pixels.push(pixel)
     }
@@ -79,7 +103,7 @@ class C2D {
 
   static ellipse (x, y, w, h) {
     this.ctx.beginPath()
-    this.ctx.ellipse(x, y, w, w || h, 0, 2 * Math.PI, false)
+    this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
     this.ctx.fill()
     this.ctx.stroke()

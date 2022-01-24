@@ -20,7 +20,7 @@ window.tools.vignette = {
         const b = Maths.randomInt(0, 255)
         grd.addColorStop(0, `rgb(${r}, ${g}, ${b})`)
         grd.addColorStop(1, `rgb(${r / 2}, ${g / 2}, ${b / 2})`)
-        C2D.ctx.fillStyle = grd
+        C2D.fill = grd
         C2D.rect(0, 0, C2D.width, C2D.height)
         C2D.ctx.fillStyle = prevColor
       }
