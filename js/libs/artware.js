@@ -28,6 +28,7 @@ class Artware {
       // ...then fetch settings file, load all the modules && setup the app
       const res = await window.fetch(opts.settings)
       const data = await res.json()
+      console.log(data) //
       this.setupMenu()
       this.setupLayers(data)
       this.loadModules(data)
@@ -44,6 +45,7 @@ class Artware {
         data.options.length
     }
     // load tool js file for each tool name in the settings file
+    data.tools.forEach(t => console.log(t))
     data.tools.forEach(t => this.loadTool(t))
     // load fitler js file for each fitler name in the settings file
     data.filters.forEach(f => this.loadMenuModule('filters', f))

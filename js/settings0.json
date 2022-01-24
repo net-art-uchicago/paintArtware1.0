@@ -1,0 +1,21 @@
+{
+  "version": 1.0,
+  "tools": [
+    "oscCircles",
+    "pencil",
+    "vignette",
+    "doop"
+  ],
+  "filters": [
+    "invert",
+    "waves"
+  ],
+  "options": [
+    "oldSchoolColors",
+    "strokeWidth"
+  ],
+  "functions": [
+    "export",
+    "addLayer"
+  ]
+}
