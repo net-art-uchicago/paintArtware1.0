@@ -19,6 +19,7 @@ class C2D {
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
+    ctx.newFillStyle = '#000'
 
     if (!this.canvas) {
       this.canvas = canvas
@@ -52,12 +53,12 @@ class C2D {
     this.ctx.fillStyle = v
   }
 
-  static get fill1 () {
-    return this.ctx.strokeStyle
+  static get newFill () {
+    return this.ctx.newFillStyle
   }
 
-  static set fill1 (v) {
-    this.ctx.strokeStyle = v
+  static set newFill (v) {
+    this.ctx.newFillStyle = v
   }
 
   static get stroke () {
@@ -122,7 +123,7 @@ class C2D {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
-    this.ctx.fill1()
+    this.ctx.newFill()
     this.ctx.stroke()
   }
 
