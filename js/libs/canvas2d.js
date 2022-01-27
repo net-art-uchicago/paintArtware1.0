@@ -125,8 +125,16 @@ class C2D {
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
     this.ctx.fill()
-    //this.ctx.stroke()
+    //t
   }
+
+  static rect_full (x, y, w, h) {
+    this.ctx.beginPath()
+    this.ctx.rect(x, y, w, h)
+    this.ctx.closePath()
+    this.ctx.fill()
+  }
+  //////
 
   static rect (x, y, w, h) {
     this.ctx.beginPath()
