@@ -14,7 +14,6 @@ window.tools.smile = {
       mouseup: function () {
           const state = window.tools.smile.state
           state.mousePressed = false
-          state.mousePressed = true
       },
       mousemove: function (e) {
           const state = window.tools.smile.state
