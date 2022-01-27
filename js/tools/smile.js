@@ -7,15 +7,15 @@ window.tools.smile = {
       },
       events: {
         mousedown: function () {
-          const state = window.tools.oscCircles.state
+          const state = window.tools.smile.state
           state.mousePressed = true
         },
         mouseup: function () {
-          const state = window.tools.oscCircles.state
+          const state = window.tools.smile.state
           state.mousePressed = false
         },
         mousemove: function (e) {
-          const state = window.tools.oscCircles.state
+          const state = window.tools.smile.state
           if (state.selected && state.mousePressed) {
             const time = Date.now()
             const speed = 0.01
