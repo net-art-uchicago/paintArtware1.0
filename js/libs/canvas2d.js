@@ -59,6 +59,15 @@ class C2D {
   static set stroke (v) {
     this.ctx.strokeStyle = v
   }
+  ////
+  static get fill1 () {
+    return this.ctx.stroke1Style
+  }
+
+  static set stroke1 (v) {
+    this.ctx.stroke1Style = v
+  }
+  /////
 
   static eventToMouse (e) {
     const offset = this.canvas.getBoundingClientRect()
@@ -106,6 +115,14 @@ class C2D {
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
     this.ctx.fill()
+    this.ctx.stroke()
+  }
+
+  static ellipse_full (x, y, w, h) {
+    this.ctx.beginPath()
+    this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
+    this.ctx.closePath()
+    this.ctx.fill1()
     this.ctx.stroke()
   }
 
