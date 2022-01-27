@@ -52,6 +52,14 @@ class C2D {
     this.ctx.fillStyle = v
   }
 
+  static get fill1 () {
+    return this.ctx.strokeStyle
+  }
+
+  static set fill1 (v) {
+    this.ctx.strokeStyle = v
+  }
+
   static get stroke () {
     return this.ctx.strokeStyle
   }
@@ -59,15 +67,7 @@ class C2D {
   static set stroke (v) {
     this.ctx.strokeStyle = v
   }
-  ////
-  static get fill1 () {
-    return this.ctx.fillStyle
-  }
 
-  static set fill1 (v) {
-    this.ctx.fillStyle = v
-  }
-  /////
 
   static eventToMouse (e) {
     const offset = this.canvas.getBoundingClientRect()
