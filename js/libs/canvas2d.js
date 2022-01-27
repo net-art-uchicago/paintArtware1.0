@@ -61,11 +61,11 @@ class C2D {
   }
   ////
   static get fill1 () {
-    return this.ctx.stroke1Style
+    return this.ctx.fillStyle
   }
 
-  static set stroke1 (v) {
-    this.ctx.stroke1Style = v
+  static set fill1 (v) {
+    this.ctx.fillStyle = v
   }
   /////
 
