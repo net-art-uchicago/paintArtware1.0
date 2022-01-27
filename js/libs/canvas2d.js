@@ -115,7 +115,7 @@ class C2D {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
-    this.ctx.newFill()
+    this.ctx.fill()
     this.ctx.stroke()
   }
 
@@ -123,7 +123,7 @@ class C2D {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
-    this.ctx.newFill()
+    this.ctx.fill()
     this.ctx.stroke()
   }
 
