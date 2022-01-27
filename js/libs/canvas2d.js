@@ -55,11 +55,11 @@ class C2D {
   }
 //////
   static get newFill () {
-    return this.ctx.newFillStyle
+    return this.ctx.strokeStyle
   }
 
   static set newFill (v) {
-    this.ctx.newFillStyle = v
+    this.ctx.strokeStyle = v
   }
 ///////
   static get stroke () {
@@ -124,8 +124,7 @@ class C2D {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
-    this.ctx.fill()
-    //t
+    this.ctx.newFill()
   }
 
   static rect_full (x, y, w, h) {
