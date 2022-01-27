@@ -24,7 +24,7 @@ window.tools.smile = {
             // const size = Math.abs(oscilation)
             const mouse = C2D.eventToMouse(e)
     
-            C2D.ellipse(mouse.x, mouse.y, size)
+            C2D.ellipse(mouse.x, mouse.y, scale)
           }
         }
       }
