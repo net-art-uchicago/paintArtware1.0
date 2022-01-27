@@ -21,11 +21,11 @@ window.tools.smile = {
           if (state.selected && state.mousePressed) {
             const mouse = C2D.eventToMouse(e)
             C2D.ellipse(mouse.x, mouse.y, size)
-            C2D.ellipse(mouse.x + (size/4), mouse.y + (size/4), size)
-            C2D.ellipse(mouse.x - (size/4), mouse.y + (size/4), size/5)
-            C2D.ellipse(mouse.x - (size/4), mouse.y + (size/4), size/5)
-            C2D.ellipse(mouse.x , mouse.y - (size/4), size/2)
-            C2D.rectangle(mouse.x, mouse.y - (size/6), size/2)
+            // C2D.ellipse(mouse.x + (size/4), mouse.y + (size/4), size)
+            // C2D.ellipse(mouse.x - (size/4), mouse.y + (size/4), size/5)
+            // C2D.ellipse(mouse.x - (size/4), mouse.y + (size/4), size/5)
+            // C2D.ellipse(mouse.x , mouse.y - (size/4), size/2)
+            // C2D.rectangle(mouse.x, mouse.y - (size/6), size/2)
 
           }
       }
