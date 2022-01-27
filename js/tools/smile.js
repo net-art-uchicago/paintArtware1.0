@@ -19,6 +19,11 @@ window.tools.smile = {
           if (state.selected && state.mousePressed) {
             const mouse = C2D.eventToMouse(e)
             C2D.ellipse(mouse.x, mouse.y, 100)
+            C2D.ellipse(mouse.x + (100/4), mouse.y + (100/4), 100)
+            C2D.ellipse(mouse.x - (100/4), mouse.y + (100/4), 100/5)
+            C2D.ellipse(mouse.x - (100/4), mouse.y + (100/4), 100/5)
+            C2D.ellipse(mouse.x , mouse.y - (100/4), 100/2)
+            C2D.rectangle(mouse.x, mouse.y - (100/6), 100/2)
           }
         }
       }
@@ -48,12 +53,7 @@ window.tools.smile = {
 //         const size = Math.abs(oscilation)
 //         const mouse = C2D.eventToMouse(e)
 //         C2D.ellipse(mouse.x, mouse.y, size)
-//             //C2D.ellipse(mouse.x, mouse.y, size)
-//             // C2D.ellipse(mouse.x + (size/4), mouse.y + (size/4), size)
-//             // C2D.ellipse(mouse.x - (size/4), mouse.y + (size/4), size/5)
-//             // C2D.ellipse(mouse.x - (size/4), mouse.y + (size/4), size/5)
-//             // C2D.ellipse(mouse.x , mouse.y - (size/4), size/2)
-//             // C2D.rectangle(mouse.x, mouse.y - (size/6), size/2)
+//             
 
 //           }
 //       }
