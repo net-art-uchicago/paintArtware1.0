@@ -33,8 +33,8 @@ window.tools.smile = {
             C2D.fill = features
             C2D.stroke = skin
             C2D.ellipse(mouse.x , mouse.y + (100/3), 100/1.5, 100/2.5)
-            C2D.ellipse(mouse.x + (100/3), mouse.y - 25, 100/10)
-            C2D.ellipse(mouse.x - (100/3), mouse.y - 25, 100/10)
+            C2D.ellipse(mouse.x + (100/3), mouse.y - 20, 100/8)
+            C2D.ellipse(mouse.x - (100/3), mouse.y - 20, 100/8)
             skin = C2D.stroke
             features = C2D.stroke
             C2D.fill = features
