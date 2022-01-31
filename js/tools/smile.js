@@ -18,6 +18,13 @@ window.tools.smile = {
           const state = window.tools.smile.state
           if (state.selected && state.mousePressed) {
             const mouse = C2D.eventToMouse(e)
+            skin = C2D.fill
+            features = C2D.stroke
+            //C2D.ctx.fillStyle = "red"
+            //C2D.fill = "red"
+            C2D.fill = features
+            C2D.stroke = skin
+            
             C2D.ellipse(mouse.x, mouse.y, 100)
             C2D.ellipse(mouse.x , mouse.y + (100/3), 100/2)
             C2D.ellipse(mouse.x + (100/3), mouse.y - (100/3), 100/10)
