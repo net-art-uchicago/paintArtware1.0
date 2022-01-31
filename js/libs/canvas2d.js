@@ -16,7 +16,7 @@ class C2D {
     canvas.height = height || window.innerHeight
     document.body.appendChild(canvas)
 
-    const _fontOptions = {
+    this._fontOptions = {
       size: 48,
       style: 'serif',
       align: 'center',
@@ -26,16 +26,16 @@ class C2D {
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
-    ctx.font = `${_fontOptions.size}px ${_fontOptions.style}`
-    ctx.textAlign = _fontOptions.align
-    ctx.textBaseline = _fontOptions.baseline
+    ctx.font = `${this._fontOptions.size}px ${this._fontOptions.style}`
+    ctx.textAlign = this._fontOptions.align
+    ctx.textBaseline = this._fontOptions.baseline
 
     if (!this.canvas) {
       this.canvas = canvas
       this.ctx = ctx
     }
 
-    return { canvas, ctx, _fontOptions }
+    return { canvas, ctx }
   }
 
   static get width () {
@@ -109,7 +109,8 @@ class C2D {
 
   static set fontAlign (v) {
     if (!(v in ['left', 'right', 'center', 'start', 'end'])) {
-      throw new Error(`Invalid text align option "${v}". Font align values should be "left", "right", "center", "start", or "end".`)
+      throw new Error(`Invalid text align option "${v}". Font align values
+      should be "left", "right", "center", "start", or "end".`)
     }
     this._fontOptions.align = v
     this._updateFontOptions()
@@ -124,8 +125,9 @@ class C2D {
   }
 
   static set fontBaseline (v) {
-    if (!(v in ['text', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'])) {
-      throw new Error(`Invalid font baselign option "${v}". Font baseline values should be "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom"`)
+    if (!(v in ['top', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'])) {
+      throw new Error(`Invalid font baselign option "${v}". Font baseline
+      values should be "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom"`)
     }
     this._fontOptions.baseline = v
     this._updateFontOptions()
@@ -188,10 +190,9 @@ class C2D {
     this.ctx.stroke()
   }
 
-  // modeled after p5, but it may be worth splitting stroke text into a
-  // different command, or adding an option to this one.
-  static text (text, x1, y1) {
-    this.ctx.fillText(text, x1, y1)
+  static text (text, x, y, stroke = false) {
+    if (!stroke) this.ctx.fillText(text, x, y)
+    else this.ctx.strokeText(text, x, y)
   }
 }
 
