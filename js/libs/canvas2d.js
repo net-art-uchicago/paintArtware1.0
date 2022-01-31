@@ -16,21 +16,26 @@ class C2D {
     canvas.height = height || window.innerHeight
     document.body.appendChild(canvas)
 
+    const _fontOptions = {
+      fontSize: 48,
+      fontStyle: 'serif',
+      textAlign: 'center',
+      textBaseline: 'middle'
+    }
+
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
-
-    const fontOptions = {
-      fontSize: 48,
-      fontStyle: 'serif'
-    }
+    ctx.font = `${_fontOptions.fontSize}px ${_fontOptions.fontStyle}`
+    ctx.textAlign = _fontOptions.textAlign
+    ctx.textBaseline = _fontOptions.textBaseline
 
     if (!this.canvas) {
       this.canvas = canvas
       this.ctx = ctx
     }
 
-    return { canvas, ctx }
+    return { canvas, ctx, _fontOptions }
   }
 
   static get width () {
@@ -73,22 +78,42 @@ class C2D {
     }
   }
 
+  // ~ Font Options ~
+
+  // maybe this should update a (private) variable elsewhere?
+  // it's ugly to have this call ALL of these again, but.. it's nicer
+  // than risking calling all of this *every time* stuff is written to canvas?
+  static _updateFontOptions () {
+    this.ctx.font = `${this.fontStyle.fontSize}px ${this._fontOptions.fontStyle}`
+    this.ctx.textAlign = `${this._fontOptions.textAlign}`
+    this.ctx.textBaseline = `${this._fontOptions.textAlign}`
+  }
+
   static get fontSize () {
-    return this.fontOptions.fontSize
+    return this._fontOptions.fontSize
   }
 
   static set fontSize (v) {
-    this.fontOptions.fontSize = v
-    this.ctx.font = `${this.fontStyle.fontSize}px ${this.fontOptions.fontStyle}`
+    this._fontOptions.fontSize = v
+    this._updateFontOptions()
   }
 
   static get fontStyle () {
-    return this.fontOptions.fontStyle
+    return this._fontOptions.fontStyle
   }
 
   static set fontStyle (v) {
-    this.fontOptions.fontStyle = v
-    this.ctx.font = `${this.fontStyle.fontSize}px ${this.fontOptions.fontStyle}`
+    this._fontOptions.fontStyle = v
+    this._updateFontOptions()
+  }
+
+  static set textAlign (v) {
+    this._fontOptions.textAlign = v
+    this._updateFontOptions()
+  }
+
+  static get textAlign () {
+    return this._fontOptions.textAlign
   }
 
   static getPixelData () {
@@ -148,7 +173,9 @@ class C2D {
     this.ctx.stroke()
   }
 
-  static fillText (text, x1, y1) {
+  // modeled after p5, but it may be worth splitting stroke text into a
+  // different command, or adding an option to this one.
+  static text (text, x1, y1) {
     this.ctx.fillText(text, x1, y1)
   }
 }
