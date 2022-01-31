@@ -12,7 +12,8 @@
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth"
+    "strokeWidth",
+    "textOptions"
   ],
   "functions": [
     "export",

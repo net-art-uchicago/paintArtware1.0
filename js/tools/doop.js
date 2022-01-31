@@ -17,12 +17,13 @@ window.tools.doop = {
     },
     mousemove: function (e) {
       const state = window.tools.doop.state
+      const textOptions = window.options.textOptions.state
       if (state.selected && state.mousePressed) {
         const mouse = C2D.eventToMouse(e)
-        C2D.ctx.font = '48px serif'
+        C2D.ctx.font = `${textOptions.fontSize}px serif`
         C2D.ctx.textAlign = 'center'
         C2D.ctx.textBaseline = 'middle'
-        C2D.ctx.fillText('doop!', mouse.x, mouse.y)
+        C2D.ctx.fillText(textOptions.text, mouse.x, mouse.y)
       }
     }
   }
