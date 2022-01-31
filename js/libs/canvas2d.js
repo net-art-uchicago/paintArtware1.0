@@ -20,6 +20,11 @@ class C2D {
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
 
+    const fontOptions = {
+      fontSize: 48,
+      fontStyle: 'serif'
+    }
+
     if (!this.canvas) {
       this.canvas = canvas
       this.ctx = ctx
@@ -66,6 +71,24 @@ class C2D {
       x: e.clientX - offset.x,
       y: e.clientY - offset.y
     }
+  }
+
+  static get fontSize () {
+    return this.fontOptions.fontSize
+  }
+
+  static set fontSize (v) {
+    this.fontOptions.fontSize = v
+    this.ctx.font = `${this.fontStyle.fontSize}px ${this.fontOptions.fontStyle}`
+  }
+
+  static get fontStyle () {
+    return this.fontOptions.fontStyle
+  }
+
+  static set fontStyle (v) {
+    this.fontOptions.fontStyle = v
+    this.ctx.font = `${this.fontStyle.fontSize}px ${this.fontOptions.fontStyle}`
   }
 
   static getPixelData () {
@@ -123,6 +146,10 @@ class C2D {
     this.ctx.lineTo(x2, y2)
     this.ctx.closePath()
     this.ctx.stroke()
+  }
+
+  static fillText (text, x1, y1) {
+    this.ctx.fillText(text, x1, y1)
   }
 }
 
