@@ -38,6 +38,10 @@ window.tools.smile = {
             C2D.fill = features
             C2D.stroke = skin
             C2D.rect(mouse.x - 100/3, mouse.y- 100/3, mouse.x+ 100/3, mouse.y + 100/3) 
+            skin = C2D.fill
+            features = C2D.stroke
+            C2D.fill = features
+            C2D.stroke = skin
             
           }
         }
