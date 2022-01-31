@@ -17,18 +17,18 @@ class C2D {
     document.body.appendChild(canvas)
 
     const _fontOptions = {
-      fontSize: 48,
-      fontStyle: 'serif',
-      textAlign: 'center',
-      textBaseline: 'middle'
+      size: 48,
+      style: 'serif',
+      align: 'center',
+      baseline: 'middle'
     }
 
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
-    ctx.font = `${_fontOptions.fontSize}px ${_fontOptions.fontStyle}`
-    ctx.textAlign = _fontOptions.textAlign
-    ctx.textBaseline = _fontOptions.textBaseline
+    ctx.font = `${_fontOptions.size}px ${_fontOptions.style}`
+    ctx.textAlign = _fontOptions.align
+    ctx.textBaseline = _fontOptions.baseline
 
     if (!this.canvas) {
       this.canvas = canvas
@@ -80,40 +80,55 @@ class C2D {
 
   // ~ Font Options ~
 
-  // maybe this should update a (private) variable elsewhere?
-  // it's ugly to have this call ALL of these again, but.. it's nicer
-  // than risking calling all of this *every time* stuff is written to canvas?
+  // if someone makes a tool that rapidly updates font options (e.g. by
+  // randomizing text size) then this should be cleaned up to be more
+  // efficient
   static _updateFontOptions () {
-    this.ctx.font = `${this.fontStyle.fontSize}px ${this._fontOptions.fontStyle}`
-    this.ctx.textAlign = `${this._fontOptions.textAlign}`
-    this.ctx.textBaseline = `${this._fontOptions.textAlign}`
+    this.ctx.font = `${this.fontStyle.size}px ${this._fontOptions.style}`
+    this.ctx.textAlign = `${this._fontOptions.align}`
+    this.ctx.textBaseline = `${this._fontOptions.baseline}`
   }
 
   static get fontSize () {
-    return this._fontOptions.fontSize
+    return this._fontOptions.size
   }
 
   static set fontSize (v) {
-    this._fontOptions.fontSize = v
+    this._fontOptions.size = v
     this._updateFontOptions()
   }
 
   static get fontStyle () {
-    return this._fontOptions.fontStyle
+    return this._fontOptions.style
   }
 
   static set fontStyle (v) {
-    this._fontOptions.fontStyle = v
+    this._fontOptions.style = v
     this._updateFontOptions()
   }
 
-  static set textAlign (v) {
-    this._fontOptions.textAlign = v
+  static set fontAlign (v) {
+    if (!(v in ['left', 'right', 'center', 'start', 'end'])) {
+      throw new Error(`Invalid text align option "${v}". Font align values should be "left", "right", "center", "start", or "end".`)
+    }
+    this._fontOptions.align = v
     this._updateFontOptions()
   }
 
-  static get textAlign () {
-    return this._fontOptions.textAlign
+  static get fontAlign () {
+    return this._fontOptions.align
+  }
+
+  static get fontBaseline () {
+    return this._fontOptions.baseline
+  }
+
+  static set fontBaseline (v) {
+    if (!(v in ['text', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'])) {
+      throw new Error(`Invalid font baselign option "${v}". Font baseline values should be "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom"`)
+    }
+    this._fontOptions.baseline = v
+    this._updateFontOptions()
   }
 
   static getPixelData () {
