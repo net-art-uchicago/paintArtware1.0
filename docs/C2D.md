@@ -60,6 +60,7 @@ These internal properties can be used to interact with any aspect of the Web's [
 | `fontStyle` | string | 'serif' | the actual style of text drawn on the canvas. Allows for easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font).|
 |  `fontAlign` | string | 'center' |the [text align](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textAlign) for text drawn on the canvas, an alias for `C2D.ctx.textAlign`. Must be either 'left', 'right, 'center', 'start', or 'end', or an error will be thrown. See the linked Mozilla docs for more on each option.
 | `fontBaseline` | string | 'baseline' |the [text baseline](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textBaseline) of text drawn on the canvas, an alias for `C2D.ctx.textBaseline`. Must be either 'top', 'hanging', 'middle', 'alphabetic', 'ideographic', or 'bottom'. See the linked Mozilla docs for more on each option.
+
 #### `ellipse(x, y, w, [h])`
 
 This method draws an ellipse (oval) onto the canvas. It's first two arguments set the ellipse's `x` (horizontal) and `y` (vertical) position relative to the canvas. It's third argument, `w`, can be used to set both the ellipse's width and height. An optional fourth argument can be used to set a height value different from it's width.
