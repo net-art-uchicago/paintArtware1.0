@@ -106,6 +106,6 @@ This method returns the canvas's current raw [image data](https://developer.mozi
   // ...etc
 ```
 
-#### `text(text, x, y, [stroke])`
+#### `text(text, x, y, [style])`
 
-This method writes the inputted `text` to the canvas. Accepts a string `text`, telling it what to write, as well as two numbers `x` and `y` that control the horizontal position and vertical position, respectively. `[stroke]` is an optional parameter defaults to `false`. If set to `true`, the function will draw [stroke text](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeText) instead of [fill text](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText).
+This method writes the inputted `text` to the canvas. Accepts a string `text`, telling it what to write, as well as two numbers `x` and `y` that control the horizontal position and vertical position, respectively. `[style]` is an optional parameter accepting strings that determines how text is drawn, and can be set to `'fill'`, `'stroke'`, `'both'`, or `'-both'`. When set to `'fill'`, `text()` will draw [fill text](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText). When set to `'stroke'`, `text()` will draw [stroke text](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeText). If set to `'both'`, `text()` will first draw filled text and then stroked text. If set to `'-both'`, `text()` will first draw stroked text and then draw filled text.  

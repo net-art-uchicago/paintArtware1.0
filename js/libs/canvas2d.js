@@ -190,9 +190,26 @@ class C2D {
     this.ctx.stroke()
   }
 
-  static text (text, x, y, stroke = false) {
-    if (!stroke) this.ctx.fillText(text, x, y)
-    else this.ctx.strokeText(text, x, y)
+  static text (text, x, y, style = 'fill') {
+    switch (style) {
+      case 'fill':
+        this.ctx.fillText(text, x, y)
+        break
+      case 'stroke':
+        this.ctx.strokeText(text, x, y)
+        break
+      case 'both':
+        this.ctx.fillText(text, x, y)
+        this.ctx.strokeText(text, x, y)
+        break
+      case '-both':
+        this.ctx.strokeText(text, x, y)
+        this.ctx.fillText(text, x, y)
+        break
+      default:
+        throw new Error(`Expected style value of 'stroke', 'fill', 'both', or
+        '-both', but was recieved ${style}.`)
+    }
   }
 }
 
