@@ -50,16 +50,16 @@ These internal properties can be used to interact with any aspect of the Web's [
 
 #### properties
 
-| property | type | description |
-|:---:|:---:|:---:|
-| `width` | number | the [width](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/width) of the canvas, an alias for `C2D.canvas.width` |
-| `height` | number | the [height](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/height) of the canvas, an alias for `C2D.canvas.height` |
-| `fill` | string | the current [fill style](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle) of the drawing context, an alias for `C2D.ctx.fillStyle` |
-| `stroke` | string | the current [stroke style](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle) of the drawing context, an alias for `C2D.ctx.strokeStyle` |
-| `fontSize` | number | the font size in pixels of any font drawn on the canvas. Allows easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font) Defaults to 48. |
-| `fontStyle` | string | the actual style of text drawn on the canvas. Allows for easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font). Defaults to `'serif'`|
-|  `fontAlign` | string | the [text align](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textAlign) for text drawn on the canvas, an alias for `C2D.ctx.textAlign`. Must be either 'left', 'right, 'center', 'start', or 'end', or an error will be thrown. See the linked Mozilla docs for more on each option. Is set to `'center'`.
-| `fontBaseline` | string | the [text baseline](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textBaseline) of text drawn on the canvas, an alias for `C2D.ctx.textBaseline`. Must be either 'top', 'hanging', 'middle', 'alphabetic', 'ideographic', or 'bottom'. See the linked Mozilla docs for more on each option. Is set to `'middle'` by default.
+| property | type | description | default |
+|:---:|:---:|:---:|:---:|
+| `width` | number | n/a |the [width](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/width) of the canvas, an alias for `C2D.canvas.width` |
+| `height` | number | n/a | the [height](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/height) of the canvas, an alias for `C2D.canvas.height` |
+| `fill` | string | '#fff' | the current [fill style](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle) of the drawing context, an alias for `C2D.ctx.fillStyle` |
+| `stroke` | string | '#000' | the current [stroke style](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle) of the drawing context, an alias for `C2D.ctx.strokeStyle` |
+| `fontSize` | number | 48 | the font size in pixels of any font drawn on the canvas. Allows easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font) |
+| `fontStyle` | string | 'serif' | the actual style of text drawn on the canvas. Allows for easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font).|
+|  `fontAlign` | string | 'center' |the [text align](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textAlign) for text drawn on the canvas, an alias for `C2D.ctx.textAlign`. Must be either 'left', 'right, 'center', 'start', or 'end', or an error will be thrown. See the linked Mozilla docs for more on each option.
+| `fontBaseline` | string | 'baseline' |the [text baseline](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textBaseline) of text drawn on the canvas, an alias for `C2D.ctx.textBaseline`. Must be either 'top', 'hanging', 'middle', 'alphabetic', 'ideographic', or 'bottom'. See the linked Mozilla docs for more on each option.
 #### `ellipse(x, y, w, [h])`
 
 This method draws an ellipse (oval) onto the canvas. It's first two arguments set the ellipse's `x` (horizontal) and `y` (vertical) position relative to the canvas. It's third argument, `w`, can be used to set both the ellipse's width and height. An optional fourth argument can be used to set a height value different from it's width.
