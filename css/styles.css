@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  cursor: crosshair;
 }
 
 body {
@@ -64,7 +65,7 @@ nav > .sub-menu > * {
 nav > .menu-item:hover,
 nav > .sub-menu > *:hover {
   text-decoration: underline;
-  cursor: pointer;
+  cursor: crosshair;
 }
 
 main {
