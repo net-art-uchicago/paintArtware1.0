@@ -16,7 +16,7 @@ class C2D {
     canvas.height = height || window.innerHeight
     document.body.appendChild(canvas)
 
-    this._fontOptions = {
+    this._font = {
       size: 48,
       style: 'serif',
       align: 'center',
@@ -26,9 +26,9 @@ class C2D {
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
-    ctx.font = `${this._fontOptions.size}px ${this._fontOptions.style}`
-    ctx.textAlign = this._fontOptions.align
-    ctx.textBaseline = this._fontOptions.baseline
+    ctx.font = `${this._font.size}px ${this._font.style}`
+    ctx.textAlign = this._font.align
+    ctx.textBaseline = this._font.baseline
 
     if (!this.canvas) {
       this.canvas = canvas
@@ -84,26 +84,26 @@ class C2D {
   // randomizing text size) then this should be cleaned up to be more
   // efficient
   static _updateFontOptions () {
-    this.ctx.font = `${this.fontStyle.size}px ${this._fontOptions.style}`
-    this.ctx.textAlign = `${this._fontOptions.align}`
-    this.ctx.textBaseline = `${this._fontOptions.baseline}`
+    this.ctx.font = `${this.fontStyle.size}px ${this._font.style}`
+    this.ctx.textAlign = `${this._font.align}`
+    this.ctx.textBaseline = `${this._font.baseline}`
   }
 
   static get fontSize () {
-    return this._fontOptions.size
+    return this._font.size
   }
 
   static set fontSize (v) {
-    this._fontOptions.size = v
+    this._font.size = v
     this._updateFontOptions()
   }
 
   static get fontStyle () {
-    return this._fontOptions.style
+    return this._font.style
   }
 
   static set fontStyle (v) {
-    this._fontOptions.style = v
+    this._font.style = v
     this._updateFontOptions()
   }
 
@@ -112,16 +112,16 @@ class C2D {
       throw new Error(`Invalid text align option "${v}". Font align values
       should be "left", "right", "center", "start", or "end".`)
     }
-    this._fontOptions.align = v
+    this._font.align = v
     this._updateFontOptions()
   }
 
   static get fontAlign () {
-    return this._fontOptions.align
+    return this._font.align
   }
 
   static get fontBaseline () {
-    return this._fontOptions.baseline
+    return this._font.baseline
   }
 
   static set fontBaseline (v) {
@@ -129,7 +129,7 @@ class C2D {
       throw new Error(`Invalid font baselign option "${v}". Font baseline
       values should be "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom"`)
     }
-    this._fontOptions.baseline = v
+    this._font.baseline = v
     this._updateFontOptions()
   }
 
