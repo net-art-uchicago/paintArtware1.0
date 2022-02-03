@@ -52,7 +52,7 @@ window.tools.hackerText = {
 
       if (state.selected && state.mousePressed) {
         if (state.startTime + 45 < Date.now()) { // time delay for readability
-          const width = window.options.strokeWidth.state.width
+          const width = C2D.ctx.lineWidth
           const randomCode = codeSnippets[state.codeLine]
           const fontSize = 35 * Math.log10(width + 1)
           C2D.ctx.font = fontSize + ' px math'
