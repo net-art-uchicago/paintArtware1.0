@@ -55,7 +55,7 @@ window.tools.hackerText = {
           const width = C2D.ctx.lineWidth
           const randomCode = codeSnippets[state.codeLine]
           const fontSize = 35 * Math.log10(width + 1)
-          C2D.ctx.font = fontSize + ' px math'
+          C2D.ctx.font = fontSize + 'px math'
           C2D.ctx.fillText(randomCode, mouse.x, mouse.y)
           state.startTime = Date.now()
           state.codeLine++
