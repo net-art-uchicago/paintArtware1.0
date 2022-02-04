@@ -1,0 +1,12 @@
+
+window.tools.airBrush = {
+  name: 'airbrush',
+  icon: '/images/airbrush.png',
+  state: {
+    selected: false
+    // other state properties go here
+  },
+  events: {
+    // window events go here
+  }
+}
