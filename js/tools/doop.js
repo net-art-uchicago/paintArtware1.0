@@ -4,12 +4,14 @@ window.tools.doop = {
   icon: '/images/app-icon.png',
   state: {
     selected: false,
-    mousePressed: false
+    mousePressed: false,
+    text: 'doop'
   },
   events: {
     mousedown: function () {
       const state = window.tools.doop.state
       state.mousePressed = true
+      state.text = window.options.textOptions.state.text
     },
     mouseup: function () {
       const state = window.tools.doop.state
@@ -17,13 +19,9 @@ window.tools.doop = {
     },
     mousemove: function (e) {
       const state = window.tools.doop.state
-      const textOptions = window.options.textOptions.state
       if (state.selected && state.mousePressed) {
         const mouse = C2D.eventToMouse(e)
-        C2D.ctx.font = `${textOptions.fontSize}px serif`
-        C2D.ctx.textAlign = 'center'
-        C2D.ctx.textBaseline = 'middle'
-        C2D.ctx.fillText(textOptions.text, mouse.x, mouse.y)
+        C2D.text(state.text, mouse.x, mouse.y)
       }
     }
   }
