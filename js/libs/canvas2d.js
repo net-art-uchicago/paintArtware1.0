@@ -84,7 +84,7 @@ class C2D {
   // randomizing text size) then this should be cleaned up to be more
   // efficient
   static _updateFontOptions () {
-    this.ctx.font = `${this.fontStyle.size}px ${this._font.family}`
+    this.ctx.font = `${this._font.size}px ${this._font.family}`
     this.ctx.textAlign = `${this._font.align}`
     this.ctx.textBaseline = `${this._font.baseline}`
   }
@@ -98,11 +98,11 @@ class C2D {
     this._updateFontOptions()
   }
 
-  static get fontStyle () {
+  static get fontFamily () {
     return this._font.family
   }
 
-  static set fontStyle (v) {
+  static set fontFamily (v) {
     this._font.family = v
     this._updateFontOptions()
   }
