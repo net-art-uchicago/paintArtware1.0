@@ -1,9 +1,8 @@
-/* not even global C2D */
+/* global C2D */
 window.options.textOptions = {
   name: 'Text Options',
   state: {
-    text: 'doop!',
-    fontSize: 48
+    text: 'doop!'
   },
 
   run: function () {
@@ -31,8 +30,20 @@ window.options.textOptions = {
           minlength="4" maxlength="8" size="10">
       </div>
       <div class="text-options">
-        <label for="font-sizer"> Font Size: ${state.fontSize}</label>
-        <input type="range" name="font-sizer" min="1" max="128" value="${state.fontSize}px">
+        <label for="font-sizer"> Font Size: ${C2D.fontSize}</label>
+        <input type="range" name="font-sizer" min="1" max="128" value="${C2D.fontSize}px">
+      </div>
+      <div class="text-options">
+        <label for="font-family"> Font Family: ${C2D.fontFamily}</label>
+        <input type="range" name="font-family" min="1" max="128" value="${C2D.fontSize}px">
+      </div>
+      <div class="text-options">
+        <label for="font-align"> Font Size: ${C2D.fontSize}</label>
+        <input type="range" name="font-sizer" min="1" max="128" value="${C2D.fontSize}px">
+      </div>
+      <div class="text-options">
+        <label for="font-baseline"> Font Size: ${C2D.fontSize}</label>
+        <input type="range" name="font-sizer" min="1" max="128" value="${C2D.fontSize}px">
       </div>
     `
 
@@ -48,8 +59,8 @@ window.options.textOptions = {
     const slider = div.querySelector('input[name="font-sizer"]')
     slider.addEventListener('input', (e) => {
       const inputFontSize = e.target.value
-      state.fontSize = inputFontSize
-      sizeLabel.textContent = `Font Size: ${state.fontSize}`
+      C2D.fontSize = inputFontSize
+      sizeLabel.textContent = `Font Size: ${C2D.fontSize}`
     })
 
     return div
