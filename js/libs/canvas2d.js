@@ -18,7 +18,7 @@ class C2D {
 
     this._font = {
       size: 48,
-      style: 'serif',
+      family: 'serif',
       align: 'center',
       baseline: 'middle'
     }
@@ -26,7 +26,7 @@ class C2D {
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
-    ctx.font = `${this._font.size}px ${this._font.style}`
+    ctx.font = `${this._font.size}px ${this._font.family}`
     ctx.textAlign = this._font.align
     ctx.textBaseline = this._font.baseline
 
@@ -84,7 +84,7 @@ class C2D {
   // randomizing text size) then this should be cleaned up to be more
   // efficient
   static _updateFontOptions () {
-    this.ctx.font = `${this.fontStyle.size}px ${this._font.style}`
+    this.ctx.font = `${this.fontStyle.size}px ${this._font.family}`
     this.ctx.textAlign = `${this._font.align}`
     this.ctx.textBaseline = `${this._font.baseline}`
   }
@@ -99,16 +99,16 @@ class C2D {
   }
 
   static get fontStyle () {
-    return this._font.style
+    return this._font.family
   }
 
   static set fontStyle (v) {
-    this._font.style = v
+    this._font.family = v
     this._updateFontOptions()
   }
 
   static set fontAlign (v) {
-    if (!(v in ['left', 'right', 'center', 'start', 'end'])) {
+    if (!['left', 'right', 'center', 'start', 'end'].includes(v)) {
       throw new Error(`Invalid text align option "${v}". Font align values
       should be "left", "right", "center", "start", or "end".`)
     }
@@ -125,7 +125,7 @@ class C2D {
   }
 
   static set fontBaseline (v) {
-    if (!(v in ['top', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'])) {
+    if (!['top', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'].includes(v)) {
       throw new Error(`Invalid font baselign option "${v}". Font baseline
       values should be "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom"`)
     }

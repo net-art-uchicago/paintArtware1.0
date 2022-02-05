@@ -50,7 +50,7 @@ These internal properties can be used to interact with any aspect of the Web's [
 
 #### properties
 
-| property | type | description | default |
+| property | type | default | description |
 |:---:|:---:|:---:|:---:|
 | `width` | number | n/a |the [width](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/width) of the canvas, an alias for `C2D.canvas.width` |
 | `height` | number | n/a | the [height](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/height) of the canvas, an alias for `C2D.canvas.height` |
