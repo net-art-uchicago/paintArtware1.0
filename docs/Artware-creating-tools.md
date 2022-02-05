@@ -22,10 +22,13 @@ Your tool's object should contain the following properties:
 |:---:|:---:|:---:|
 | `name` | string | the display name as you want it to appear in the app |
 | `icon` | string | path to the tool's icon which should appear in the tool bar |
+| `cursor` | string | path to the tool's custom cursor image |
 | `state` | object | your tool's internal state object |
 | `events` | object | your tool's window event object  |
 
 Once you've finished creating your JavaScript file containing a tool object you can add it to the Artware app by updating the app's `/js/settings.json` file and adding your tool's name (which should also match your filename) as a string in the setting's `tools` array. Then refresh your app and you should see your new tool appear in the tool bar.
+
+**NOTE**: your browser may cash the `/js/settings.json` file, if this happens you'll need to replace the chached file with the new one by requesting it directly in a separate tab in your browser, for example, by visiting: http://localhost:8000/js/settings.json (replacing '8000' with your local development server's port number)
 
 ### state
 
