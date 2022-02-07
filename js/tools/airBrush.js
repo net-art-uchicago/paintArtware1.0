@@ -7,6 +7,7 @@ window.tools.airBrush = {
     mousePressed: false,
     prevMouse: { x: null, y: null }
   },
+
   events: {
     mousedown: function () {
       const state = window.tools.airBrush.state
@@ -18,9 +19,9 @@ window.tools.airBrush = {
       state.prevMouse = { x: null, y: null }
     },
     mousemove: function (e) {
-      C2D.globalAlpha = 0.5
       const state = window.tools.airBrush.state
       if (state.selected && state.mousePressed) {
+        C2D.globalAlpha = 0.5
         const mouse = C2D.eventToMouse(e)
         const px = state.prevMouse.x || mouse.x
         const py = state.prevMouse.y || mouse.y
