@@ -27,6 +27,8 @@ window.tools.airBrush = {
         const py = state.prevMouse.y || mouse.y
         C2D.ctx.lineCap = 'butt'
         C2D.ctx.fill = 'rgba(255, 0, 0, 0.5)'
+        C2D.ctx.shadowOffsetX = 4
+        C2D.ctx.shadowOffsetY = 4
         C2D.ctx.shadowBlur = 4
         C2D.line(mouse.x, mouse.y, px, py)
         state.prevMouse = { x: mouse.x, y: mouse.y }
