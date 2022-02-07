@@ -8,13 +8,11 @@
   ],
   "filters": [
     "invert",
-    "waves",
-    "saturation"
+    "waves"
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth",
-    "saturationValue"
+    "strokeWidth"
   ],
   "functions": [
     "export",
