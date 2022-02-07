@@ -20,6 +20,8 @@ Your filter's object should contain the following properties:
 
 Once you've finished creating your JavaScript file containing a filter object you can add it to the Artware app by updating the app's `/js/settings.json` file and adding your filter's name (which should also match your filename) as a string in the setting's `filters` array. Then refresh your app and you should see your new filter appear in the app's filters menu.
 
+**NOTE**: your browser may cash the `/js/settings.json` file, if this happens you'll need to replace the cached file with the new one by requesting it directly in a separate tab in your browser, for example, by visiting: http://localhost:8000/js/settings.json (replacing '8000' with your local development server's port number)
+
 ### the `run` function
 
 While you can *technically* use this function to execute any arbitrary code when the user selects your filter from the menu, the purpose of these filter functions is to apply some algorithmic process to the pixels currently in the canvas, which can be done using the Canvas API directly (see MDN's docs on [Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)), for example:

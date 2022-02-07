@@ -16,9 +16,20 @@ class C2D {
     canvas.height = height || window.innerHeight
     document.body.appendChild(canvas)
 
+    this._font = {
+      size: 48,
+      family: 'serif',
+      align: 'center',
+      baseline: 'middle'
+    }
+
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
+    ctx.font = `${this._font.size}px ${this._font.family}`
+    ctx.textAlign = this._font.align
+    ctx.textBaseline = this._font.baseline
+
     if (!this.canvas) {
       this.canvas = canvas
       this.ctx = ctx
@@ -68,6 +79,61 @@ class C2D {
     }
   }
 
+  // ~ Font Options ~
+
+  // if someone makes a tool that rapidly updates font options (e.g. by
+  // randomizing text size) then this should be cleaned up to be more
+  // efficient
+  static _updateFontOptions () {
+    this.ctx.font = `${this._font.size}px ${this._font.family}`
+    this.ctx.textAlign = `${this._font.align}`
+    this.ctx.textBaseline = `${this._font.baseline}`
+  }
+
+  static get fontSize () {
+    return this._font.size
+  }
+
+  static set fontSize (v) {
+    this._font.size = v
+    this._updateFontOptions()
+  }
+
+  static get fontFamily () {
+    return this._font.family
+  }
+
+  static set fontFamily (v) {
+    this._font.family = v
+    this._updateFontOptions()
+  }
+
+  static set fontAlign (v) {
+    if (!['left', 'right', 'center', 'start', 'end'].includes(v)) {
+      throw new Error(`Invalid text align option "${v}". Font align values
+      should be "left", "right", "center", "start", or "end".`)
+    }
+    this._font.align = v
+    this._updateFontOptions()
+  }
+
+  static get fontAlign () {
+    return this._font.align
+  }
+
+  static get fontBaseline () {
+    return this._font.baseline
+  }
+
+  static set fontBaseline (v) {
+    if (!['top', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'].includes(v)) {
+      throw new Error(`Invalid font baselign option "${v}". Font baseline
+      values should be "top", "hanging", "middle", "alphabetic", "ideographic", or "bottom"`)
+    }
+    this._font.baseline = v
+    this._updateFontOptions()
+  }
+
   static getPixelData () {
     const imageData = this.ctx.getImageData(0, 0, this.width, this.height)
     return imageData.data
@@ -101,6 +167,11 @@ class C2D {
     this.ctx.putImageData(imageData, 0, 0)
   }
 
+  static change_colors(x,y){
+    C2D.fill = y
+    C2D.stroke = x
+  }
+
   static ellipse (x, y, w, h) {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
@@ -125,15 +196,27 @@ class C2D {
     this.ctx.stroke()
   }
 
-  static change_colors(x,y){
-    C2D.fill = y
-    C2D.stroke = x
+  static text (text, x, y, style = 'fill') {
+    switch (style) {
+      case 'fill':
+        this.ctx.fillText(text, x, y)
+        break
+      case 'stroke':
+        this.ctx.strokeText(text, x, y)
+        break
+      case 'both':
+        this.ctx.fillText(text, x, y)
+        this.ctx.strokeText(text, x, y)
+        break
+      case '-both':
+        this.ctx.strokeText(text, x, y)
+        this.ctx.fillText(text, x, y)
+        break
+      default:
+        throw new Error(`Expected style value of 'stroke', 'fill', 'both', or
+        '-both', but was recieved ${style}.`)
+    }
   }
-  static one_color(x){
-    C2D.fill = x
-    C2D.stroke = x
-  }
-
 }
 
 window.C2D = C2D
