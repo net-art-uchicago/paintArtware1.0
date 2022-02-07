@@ -3,6 +3,7 @@ function getFilesFromIndex () {
   // extract the source js files from the html
   const scripts = document.getElementsByTagName('script')
   const sources = []
+  sources.push('/index.html')
   for (const i in scripts) {
     const source = scripts[i].src // get src from script
     if (source) {
