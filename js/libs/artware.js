@@ -108,7 +108,7 @@ class Artware {
   updateCursor (img) {
     // if we passed in an image path, make that the cursor
     // otherwise make cursor "null" (ie. reset it to default)
-    const cursor = img ? `url(${img}), auto` : null
+    const cursor = img ? `url(${img}), auto` : crosshair
     // upate the appropriate element's cursor style
     if (this.ele.main) {
       this.ele.main.style.cursor = cursor

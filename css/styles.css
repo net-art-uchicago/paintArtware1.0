@@ -69,6 +69,7 @@ nav > .sub-menu > *:hover {
 }
 
 main {
+  cursor: crosshair;
   display: flex;
   align-items: flex-start;
   border-top: 2px solid white;
