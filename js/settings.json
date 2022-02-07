@@ -3,7 +3,8 @@
   "tools": [
     "pencil",
     "oscCircles",
-    "vignette"
+    "vignette",
+    "circle"
   ],
   "filters": [
     "invert",
