@@ -21,7 +21,7 @@ window.tools.airBrush = {
     mousemove: function (e) {
       const state = window.tools.airBrush.state
       if (state.selected && state.mousePressed) {
-        C2D.globalAlpha = 0.5
+        C2D.ctx.strokeStyle = 'rgba(255, 0, 0, 0.2)'
         const mouse = C2D.eventToMouse(e)
         const px = state.prevMouse.x || mouse.x
         const py = state.prevMouse.y || mouse.y
