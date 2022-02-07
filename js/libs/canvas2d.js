@@ -19,9 +19,6 @@ class C2D {
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = '#fff'
     ctx.strokeStyle = '#000'
-    /////
-    ctx.newFillStyle = '#000'
-
     if (!this.canvas) {
       this.canvas = canvas
       this.ctx = ctx
@@ -53,15 +50,7 @@ class C2D {
   static set fill (v) {
     this.ctx.fillStyle = v
   }
-//////
-  static get newFill () {
-    return this.ctx.strokeStyle
-  }
 
-  static set newFill (v) {
-    this.ctx.strokeStyle = v
-  }
-///////
   static get stroke () {
     return this.ctx.strokeStyle
   }
@@ -116,24 +105,9 @@ class C2D {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
     this.ctx.closePath()
-    //this.ctx.fill()
+    this.ctx.fill()
     this.ctx.stroke()
   }
-
-  static ellipse_full (x, y, w, h) {
-    this.ctx.beginPath()
-    this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
-    this.ctx.closePath()
-    this.ctx.newFill()
-  }
-
-  static rect_full (x, y, w, h) {
-    this.ctx.beginPath()
-    this.ctx.rect(x, y, w, h)
-    this.ctx.closePath()
-    this.ctx.fill()
-  }
-  //////
 
   static rect (x, y, w, h) {
     this.ctx.beginPath()
@@ -150,6 +124,22 @@ class C2D {
     this.ctx.closePath()
     this.ctx.stroke()
   }
+
+  static switch_colors(){
+    //2 colors switched
+    new_stroke = C2D.fill
+    new_fill = C2D.stroke
+    C2D.fill = new_fill
+    C2D.stroke = new_stroke
+  }
+  static one_color(x){
+    C2D.fill = x
+    C2D.stroke = x
+  }
+  static original_colors(x){
+    colors.forEach()
+  }
+
 }
 
 window.C2D = C2D
