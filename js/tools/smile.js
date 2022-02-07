@@ -20,7 +20,7 @@ window.tools.smile = {
             const mouse = C2D.eventToMouse(e)
             o_fill = C2D_fill
             o_stroke = C2D.stroke
-            switch_colors()
+            //switch_colors()
             C2D.ellipse(mouse.x, mouse.y, 100)
             switch_colors()
             C2D.ellipse(mouse.x , mouse.y + (100/4), 100/1.5, 100/2.5)
