@@ -1,21 +1,19 @@
 /* global C2D */
-// rotate(i,j) = (j, w-1-i)
-// index(i,j) = i*w + j
-// index_inverse(x) = (floor(x/w), x mod w)
 window.filters.rotate = {
   name: 'rotate right',
   run: function () {
-    const pixels = C2D.getPixels()
-    const pixels2 = C2D.getPixels()
-    const w = C2D.width
-    for (let x = 0; x < pixels.length; x++) {
-      // calculate (i,j) value for index x
-      const i = Math.floor(x / w)
-      const j = x % w
-      // calculate index value for (j, w-1-i)
-      const y = (j * w) + w - 1 - i
-      pixels2[y] = pixels[x]
-    }
-    C2D.setPixels(pixels2)
+    const ctx = C2D.ctx
+    // copy canvas to redraw
+    const canvasCopy = document.createElement('canvas')
+    canvasCopy.width = C2D.width
+    canvasCopy.height = C2D.height
+    const ctxCopy = canvasCopy.getContext('2d')
+    ctxCopy.drawImage(C2D.canvas, 0, 0)
+    // clear canvas
+    C2D.setPixels([...Array(C2D.getPixels().length).fill(0).map(x => ({ r: 0, g: 0, b: 0, a: 0 }))])
+    // rotate and redraw
+    ctx.rotate(90 * Math.PI / 180)
+    ctx.drawImage(canvasCopy, 0, -C2D.height)
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
   }
 }
