@@ -23,8 +23,8 @@ window.tools.airBrush = {
       const state = window.tools.airBrush.state
       if (state.selected && state.mousePressed) {
         C2D.ctx.lineCap = 'butt'
-        C2D.ctx.shadowOffsetX = 4
-        C2D.ctx.shadowOffsetY = 4
+        C2D.ctx.shadowOffsetX = 10
+        C2D.ctx.shadowOffsetY = 10
         C2D.ctx.shadowBlur = 10
         C2D.ctx.shadowColor = C2D.fill
         const mouse = C2D.eventToMouse(e)
