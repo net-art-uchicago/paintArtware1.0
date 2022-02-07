@@ -1,6 +1,6 @@
 /* global C2D */
 window.options.textOptions = {
-  name: 'Text Options',
+  name: 'text option',
   state: {
     text: 'doop!'
   },
@@ -11,30 +11,43 @@ window.options.textOptions = {
     div.innerHTML = `
       <style>
 
-       .text-options {
-          display: flex;
-          align-items: center;
-          justify-items: center;
-          margin: 0 10px;
+        input {
+          maxlegth: 30;
+          size: 15;
         }
 
-        .text-options > label {
-          margin: 0px 10px;
+        input, select {
+          width: 125px;
         }
+
+       .text-options {
+          display: grid;
+          grid-template-columns: 200px 200px 200 px 200px;
+          grid-template-rows: auto;
+          grid-template-areas:
+           "wordlab word fontSizeLab fontSize"
+           "fontFamilyLab fontFamily fontAlignLab fontAlign"
+           ". fontBaselineLab fontBaseline .";
+        }
+
+        label.input-text { grid-area: wordlab; }
+        input.input-text { grid-area: word; }
+        label.font-sizer { grid-area: fontSizeLab; }
+        input.font-sizer { grid-area: fontSize; }
 
       </style>
 
       <div class="text-options">
-        <label for="input-text"> What to Write:  </label>
-        <input value=${state.text} type="text" id="input-text"
-          minlength="4" maxlength="8" size="10">
+        <label for="input-text" class="input-text"> What to Write:  </label>
+        <input value=${state.text} type="text" id="input-text" class="input-text">
       </div>
       <div class="text-options">
-        <label for="font-sizer"> Font Size: ${C2D.fontSize}</label>
-        <input type="range" id="font-sizer" min="1" max="128" value="${C2D.fontSize}px">
+        <label for="font-sizer" class="font-sizer"> Font Size: ${C2D.fontSize}</label>
+        <input type="range" id="font-sizer" class="font-sizer" min="1" max="128" value="${C2D.fontSize}px">
       </div>
       <div class="text-options">
-        <select id="font-family" aria-label="Font Family Select">
+        <label for="font-family" class="font-family">Font Family</label>
+        <select id="font-family" class="font-family">
           <option value="Serif">Serif</option>
           <option value="Verdana">Verdana</option>
           <option value="Helvetica">Helvetica</option>
@@ -45,8 +58,8 @@ window.options.textOptions = {
         </select>
       </div>
       <div class="text-options">
-        <label for="font-align">Font Align</label>
-        <select id="font-align">
+        <label for="font-align" class="font-align">Font Align</label>
+        <select id="font-align" class="font-align">
           <option value="center">center</option>
           <option value="start">start</option>
           <option value="left">left</option>
@@ -55,8 +68,8 @@ window.options.textOptions = {
         </select>
       </div>
       <div class="text-options">
-        <label for="font-baseline">Font Baseline</label>
-        <select id="font-baseline">
+        <label for="font-baseline" class="font-baseline">Font Baseline</label>
+        <select id="font-baseline" class="font-baseline">
           <option value="middle">Middle</option>
           <option value="alphabetic">Alphabetic</option>
           <option value="top">Top</option>
