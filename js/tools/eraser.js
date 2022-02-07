@@ -1,7 +1,7 @@
 /* global C2D */
 window.tools.eraser = {
   name: 'eraser',
-  icon: '/images/EXAMPLE.png',
+  icon: '/images/eraser.png',
   state: {
     selected: false,
     mousePressed: false
