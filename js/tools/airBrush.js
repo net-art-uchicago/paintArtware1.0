@@ -27,6 +27,7 @@ window.tools.airBrush = {
         const py = state.prevMouse.y || mouse.y
         C2D.ctx.lineCap = 'butt'
         C2D.ctx.fill = 'rgba(255, 0, 0, 0.5)'
+        C2D.ctx.createRadialGradient(mouse.x, mouse.y, C2D.options.strokeWidth, C2D.options.strokeWidth, px, py)
         C2D.line(mouse.x, mouse.y, px, py)
         state.prevMouse = { x: mouse.x, y: mouse.y }
       }
