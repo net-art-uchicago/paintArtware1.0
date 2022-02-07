@@ -125,19 +125,13 @@ class C2D {
     this.ctx.stroke()
   }
 
-  static switch_colors(){
-    //2 colors switched
-    new_stroke = C2D.fill
-    new_fill = C2D.stroke
-    C2D.fill = new_fill
-    C2D.stroke = new_stroke
+  static change_colors(x,y){
+    C2D.fill = y
+    C2D.stroke = x
   }
   static one_color(x){
     C2D.fill = x
     C2D.stroke = x
-  }
-  static original_colors(x){
-    colors.forEach()
   }
 
 }
