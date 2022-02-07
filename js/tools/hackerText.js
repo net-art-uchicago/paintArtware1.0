@@ -1,18 +1,4 @@
 /* global C2D */
-function getFilesFromIndex () {
-  // extract the source js files from the html
-  const scripts = document.getElementsByTagName('script')
-  const sources = []
-  sources.push('/index.html')
-  for (const i in scripts) {
-    const source = scripts[i].src // get src from script
-    if (source) {
-      sources.push(source)
-    }
-  }
-  return sources
-}
-
 window.tools.hackerText = {
   name: 'hacker text',
   icon: '/images/hacker-icon.png',
@@ -27,7 +13,7 @@ window.tools.hackerText = {
     mousedown: async function () {
       const state = window.tools.hackerText.state
       state.mousePressed = true
-      const files = getFilesFromIndex()
+      const files = window.tools.hackerText.functions.getFilesFromIndex()
       for (const i in files) {
         const file = files[i]
         // this line loads the file's raw data
@@ -64,6 +50,22 @@ window.tools.hackerText = {
           }
         }
       }
+    }
+  },
+  
+  functions: {
+    getFilesFromIndex: function () {
+      // extract the source js files from the html
+      const scripts = document.getElementsByTagName('script')
+      const sources = []
+      sources.push('/index.html')
+      for (const i in scripts) {
+        const source = scripts[i].src // get src from script
+        if (source) {
+          sources.push(source)
+        }
+      }
+      return sources
     }
   }
 }
