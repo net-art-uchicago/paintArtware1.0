@@ -22,11 +22,11 @@ window.tools.airBrush = {
     mousemove: function (e) {
       const state = window.tools.airBrush.state
       if (state.selected && state.mousePressed) {
-        C2D.ctx.lineCap = 'butt'
-        C2D.ctx.fill = 'rgba(255, 0, 0, 0.5)'
         const mouse = C2D.eventToMouse(e)
         const px = state.prevMouse.x || mouse.x
         const py = state.prevMouse.y || mouse.y
+        C2D.ctx.lineCap = 'butt'
+        C2D.ctx.fill = 'rgba(255, 0, 0, 0.5)'
         C2D.line(mouse.x, mouse.y, px, py)
         state.prevMouse = { x: mouse.x, y: mouse.y }
       }
