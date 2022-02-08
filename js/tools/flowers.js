@@ -1,7 +1,7 @@
 /* global C2D */
 window.tools.flowers = {
   name: 'flowers',
-  icon: '/images/flower-icon.png',
+  icon: '/images/new-flower-icon.png',
   state: {
     selected: false,
     mousePressed: false
@@ -19,15 +19,20 @@ window.tools.flowers = {
       const state = window.tools.flowers.state
       if (state.selected && state.mousePressed) {
         const mouse = C2D.eventToMouse(e)
-        C2D.ellipse(mouse.X, mouse.Y, 70)
-        C2D.ellipse(mouse.X - 60, mouse.Y, 60)
-        C2D.ellipse(mouse.X + 60, mouse.Y, 60)
-        C2D.ellipse(mouse.X + 45, mouse.y + 45, 60)
-        C2D.ellipse(mouse.X - 45, mouse.Y - 45, 60)
-        C2D.ellipse(mouse.X, mouse.Y - 60, 60)
-        C2D.ellipse(mouse.X - 45, mouse.Y + 45, 60)
-        C2D.ellipse(mouse.X + 45, mouse.Y - 45, 60)
-        C2D.ellipse(mouse.X, mouse.Y + 60, 60)
+        const scale = 3
+        //  center of flower
+        C2D.fill = 'rgba(235, 219, 52)'
+        C2D.ellipse(mouse.x, mouse.y, 10 * scale + 3)
+        //  flower petals
+        C2D.fill = 'rgba(208, 85, 230)'
+        C2D.ellipse(mouse.x - 60, mouse.y, 10 * scale)
+        C2D.ellipse(mouse.x + 60, mouse.y, 10 * scale)
+        C2D.ellipse(mouse.x + 45, mouse.y + 45, 10 * scale)
+        C2D.ellipse(mouse.x - 45, mouse.y - 45, 10 * scale)
+        C2D.ellipse(mouse.x, mouse.y - 60, 10 * scale)
+        C2D.ellipse(mouse.x - 45, mouse.y + 45, 10 * scale)
+        C2D.ellipse(mouse.x + 45, mouse.y - 45, 10 * scale)
+        C2D.ellipse(mouse.x, mouse.y + 60, 10 * scale)
       }
     }
   }
