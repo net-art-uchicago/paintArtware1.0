@@ -8,7 +8,8 @@
   ],
   "filters": [
     "invert",
-    "waves"
+    "waves",
+    "rotate"
   ],
   "options": [
     "oldSchoolColors",
