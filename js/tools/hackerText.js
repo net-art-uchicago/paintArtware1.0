@@ -39,12 +39,12 @@ window.tools.hackerText = {
       const mouse = C2D.eventToMouse(e)
       if (state.selected && state.mousePressed) {
         if (state.startTime + 45 < Date.now()) { // time delay for readability
-          const width = C2D.ctx.lineWidth
           const code = state.codeSnippets[state.codeLine]
           // set font and size
-          const fontSize = 35 * Math.log10(width + 1)
-          C2D.ctx.font = fontSize + 'px math'
-          C2D.ctx.fillText(code, mouse.x, mouse.y)
+          const oldFontSize = C2D.fontSize
+          C2D.fontSize /= 4
+          C2D.text(code, mouse.x, mouse.y)
+          C2D.fontSize = oldFontSize
           state.startTime = Date.now()
           state.codeLine++
           if (state.codeLine >= state.codeSnippets.length) {
@@ -54,7 +54,6 @@ window.tools.hackerText = {
       }
     }
   },
-
   functions: {
     getFilesFromIndex: function () {
       // extract the source js files from the html
