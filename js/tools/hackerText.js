@@ -13,17 +13,19 @@ window.tools.hackerText = {
     mousedown: async function () {
       const state = window.tools.hackerText.state
       state.mousePressed = true
-      const files = window.tools.hackerText.functions.getFilesFromIndex()
-      for (const i in files) {
-        const file = files[i]
-        // this line loads the file's raw data
-        const res = await window.fetch(file)
-        // this line converts it into a string
-        const string = await res.text()
-        // this line turns that string into an Array,
-        // by splitting it at each line break "\n"
-        const codeLines = string.split('\n')
-        state.codeSnippets = state.codeSnippets.concat(codeLines)
+      if (!state.codeSnippets.length) {
+        const files = window.tools.hackerText.functions.getFilesFromIndex()
+        for (const i in files) {
+          const file = files[i]
+          // this line loads the file's raw data
+          const res = await window.fetch(file)
+          // this line converts it into a string
+          const string = await res.text()
+          // this line turns that string into an Array,
+          // by splitting it at each line break "\n"
+          const codeLines = string.split('\n')
+          state.codeSnippets = state.codeSnippets.concat(codeLines)
+        }
       }
     },
 
@@ -52,7 +54,7 @@ window.tools.hackerText = {
       }
     }
   },
-  
+
   functions: {
     getFilesFromIndex: function () {
       // extract the source js files from the html
