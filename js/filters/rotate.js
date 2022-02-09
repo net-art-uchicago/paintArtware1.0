@@ -10,7 +10,7 @@ window.filters.rotate = {
     const ctxCopy = canvasCopy.getContext('2d')
     ctxCopy.drawImage(C2D.canvas, 0, 0)
     // clear canvas
-    C2D.setPixels([...Array(C2D.getPixels().length).fill(0).map(x => ({ r: 0, g: 0, b: 0, a: 0 }))])
+    ctx.clearRect(0, 0, C2D.width, C2D.height)
     // rotate and redraw
     ctx.rotate(90 * Math.PI / 180)
     ctx.drawImage(canvasCopy, 0, -C2D.height)
