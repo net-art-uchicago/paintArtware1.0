@@ -211,6 +211,23 @@ class C2D {
         '-both', but was recieved ${style}.`)
     }
   }
+
+  static resize (width, height) {
+    // create canvas copy
+    console.log('Fill before: ', this.fill)
+    const canvasCopy = document.createElement('canvas')
+    canvasCopy.width = this.width
+    canvasCopy.height = this.height
+    canvasCopy.fill = this.fill
+    const ctxCopy = canvasCopy.getContext('2d')
+    ctxCopy.drawImage(this.canvas, 0, 0)
+    // resize canvas
+    this.width = width
+    this.height = height
+    this.fill = canvasCopy.fill
+    // scale and draw copy back onto canvas
+    this.ctx.drawImage(canvasCopy, 0, 0, width, height)
+  }
 }
 
 window.C2D = C2D
