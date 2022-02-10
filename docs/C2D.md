@@ -57,7 +57,7 @@ These internal properties can be used to interact with any aspect of the Web's [
 | `fill` | string | '#fff' | the current [fill style](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle) of the drawing context, an alias for `C2D.ctx.fillStyle` |
 | `stroke` | string | '#000' | the current [stroke style](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle) of the drawing context, an alias for `C2D.ctx.strokeStyle` |
 | `fontSize` | number | 48 | the font size in pixels of any font drawn on the canvas. Allows easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font) |
-| `fontStyle` | string | 'serif' | the actual style of text drawn on the canvas. Allows for easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font).|
+| `fontFamily` | string | 'serif' | the actual typeface of text drawn on the canvas. Allows for easier writing to [`C2D.ctx.font`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font).|
 |  `fontAlign` | string | 'center' |the [text align](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textAlign) for text drawn on the canvas, an alias for `C2D.ctx.textAlign`. Must be either 'left', 'right, 'center', 'start', or 'end', or an error will be thrown. See the linked Mozilla docs for more on each option.
 | `fontBaseline` | string | 'baseline' |the [text baseline](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/textBaseline) of text drawn on the canvas, an alias for `C2D.ctx.textBaseline`. Must be either 'top', 'hanging', 'middle', 'alphabetic', 'ideographic', or 'bottom'. See the linked Mozilla docs for more on each option.
 
@@ -110,3 +110,15 @@ This method returns the canvas's current raw [image data](https://developer.mozi
 #### `text(text, x, y, [style])`
 
 This method writes the inputted `text` to the canvas. Accepts a string `text`, telling it what to write, as well as two numbers `x` and `y` that control the horizontal position and vertical position, respectively. `[style]` is an optional parameter accepting strings that determines how text is drawn, and can be set to `'fill'`, `'stroke'`, `'both'`, or `'-both'`. When set to `'fill'`, `text()` will draw [fill text](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText). When set to `'stroke'`, `text()` will draw [stroke text](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeText). If set to `'both'`, `text()` will first draw filled text and then stroked text. If set to `'-both'`, `text()` will first draw stroked text and then draw filled text.  
+
+
+### `eventToMouse(event)`
+
+This method takes a window event object (the kind passed into an event listener's event handler function) and returns an object with `x` and `y` properties for the mouse's position relative to the canvas (rather than being relative to the window). For example:
+
+```js
+  window.addEventListener('mousemove', (e) => {
+    const mouse = C2D.eventToMouse(e)
+    C2D.ellipse(mouse.x, mouse.y, 100)
+  })
+```
