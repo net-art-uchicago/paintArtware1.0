@@ -70,7 +70,6 @@ class C2D {
     this.ctx.strokeStyle = v
   }
 
-
   static eventToMouse (e) {
     const offset = this.canvas.getBoundingClientRect()
     return {
@@ -167,7 +166,7 @@ class C2D {
     this.ctx.putImageData(imageData, 0, 0)
   }
 
-  static change_colors(x,y){
+  static changeColors (x, y) {
     C2D.fill = y
     C2D.stroke = x
   }
