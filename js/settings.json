@@ -5,10 +5,12 @@
     "oscCircles",
     "vignette",
     "smile"
+    "hackerText"
   ],
   "filters": [
     "invert",
-    "waves"
+    "waves",
+    "rotate"
   ],
   "options": [
     "oldSchoolColors",
