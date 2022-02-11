@@ -21,7 +21,7 @@ window.tools.eraser = {
         const mouse = C2D.eventToMouse(e)
         const ctx = C2D.ctx
         const width = window.options.strokeWidth.state.width
-        ctx.clearRect(mouse.x, mouse.y, width, width)
+        ctx.clearRect(mouse.x - width / 2, mouse.y - width / 2, width, width)
       }
     }
   }
