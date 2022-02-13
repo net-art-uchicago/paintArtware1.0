@@ -4,11 +4,13 @@
     "airBrush",
     "pencil",
     "oscCircles",
-    "vignette"
+    "vignette",
+    "hackerText"
   ],
   "filters": [
     "invert",
-    "waves"
+    "waves",
+    "rotate"
   ],
   "options": [
     "oldSchoolColors",
