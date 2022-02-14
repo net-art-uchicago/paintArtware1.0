@@ -17,7 +17,7 @@ window.tools.rippleCircle = {
             let interval = 0
             if (state.selected) {
                 state.timer = setInterval(() =>{
-                    interval = interval + 2
+                    interval += 2
                     state.radius = state.radius + 5 * interval
                     C2D.fill = "rgba(255, 255, 255, .5)"
                     C2D.ellipse(mouse.x, mouse.y, state.radius)
