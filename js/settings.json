@@ -5,6 +5,7 @@
     "oscCircles",
     "vignette",
     "concentricCircle",
+    "rippleCircle",
     "hackerText"
   ],
   "filters": [
