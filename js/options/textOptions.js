@@ -1,6 +1,8 @@
 /* global C2D */
 window.options.textOptions = {
   name: 'text option',
+  // not sure how relevant this state variable is
+  // leaving it in case someone wants a "global" text variable for a tool or smth
   state: {
     text: 'doop!'
   },
@@ -83,7 +85,7 @@ window.options.textOptions = {
         animation: t1 5s step-start infinite alternate;
       }
 
-      div.text-options > div > input:hover {
+      div.text-options > div > input:hover, div.text-options > div > select:hover {
         animation-play-state: paused;
       }
 
@@ -92,64 +94,52 @@ window.options.textOptions = {
         position: absolute;
       }
 
-      /* div.floaty1  {
-        animation: stutter1 .25s step-start infinite alternate;
-      } */
-
       div.floaty1:before  {
-        animation: stutter11 .25s step-start infinite alternate;
+        animation: stutter11 .3s step-start infinite alternate;
       }
 
       div.floaty1:after  {
         animation: stutter12 .25s step-start infinite alternate;
       }
 
-      /* div.floaty2  {
-        animation: stutter2 .25s step-start infinite alternate;
-      } */
-
       div.floaty2:before  {
-        animation: stutter21 .25s step-start infinite alternate;
+        animation: stutter21 .251s step-start infinite alternate;
       }
 
       div.floaty2:after  {
-        animation: stutter22 .25s step-start infinite alternate;
+        animation: stutter22 .225s step-start infinite alternate;
       }
-
-      /* div.floaty3  {
-        animation: stutter3 .25s step-start infinite alternate;
-      } */
 
       div.floaty3:before  {
         animation: stutter31 .25s step-start infinite alternate;
       }
 
       div.floaty3:after  {
-        animation: stutter32 .25s step-start infinite alternate;
+        animation: stutter32 .26s step-start infinite alternate;
       }
 
       div.floaty4  {
-        animation: stutter4 .25s step-start infinite alternate;
+        animation: stutter4 .24s step-start infinite alternate;
       }
 
       div.floaty4:before  {
-        animation: stutter41 .25s step-start infinite alternate;
+        animation: stutter41 .29s step-start infinite alternate;
       }
 
       div.floaty4:after  {
-        animation: stutter42 .25s step-start infinite alternate;
+        animation: stutter42 .23s step-start infinite alternate;
       }
 
       div.floaty5:before {
-        animation: stutter51 .25s step-start infinite alternate;
+        animation: stutter51 .225s step-start infinite alternate;
       }
 
       div.floaty5:after {
-        animation: stutter52 .25s step-start infinite alternate;
+        animation: stutter52 .31s step-start infinite alternate;
       }
 
       div.floaty6:before {
-        animation: stutter61 .25s step-start infinite alternate;
+        animation: stutter61 .19s step-start infinite alternate;
       }
 
       div.floaty6:after {
@@ -613,6 +603,14 @@ window.options.textOptions = {
           <label for="font-sizer" class="font-sizer"> Font Size: ${C2D.fontSize}</label>
           <input type="range" id="font-sizer" class="font-sizer" min="1" max="128" value="${C2D.fontSize}px">
         </div>
+        <div>
+          <label for="font-family">Font Family:</label>
+          <select id="font-family" class="font-family">
+            <option value="Serif">Serif</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Helvetica">Helvetica</option>
+          </select>
+        </div>
       </div>
     `
 
@@ -630,6 +628,12 @@ window.options.textOptions = {
       const inputFontSize = e.target.value
       C2D.fontSize = inputFontSize
       sizeLabel.textContent = `Font Size: ${C2D.fontSize}`
+    })
+
+    // event listener to control the font family of text objects
+    const familySelect = div.querySelector('select[id="font-family"]')
+    familySelect.addEventListener('input', (e) => {
+      C2D.fontFamily = familySelect.value
     })
 
     return div
