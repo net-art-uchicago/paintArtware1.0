@@ -15,17 +15,18 @@ window.tools.rippleCircle = {
             state.mousePressed = true
             state.prevColor = C2D.fill
             let interval = 0
-            state.timer = setInterval(() =>{
-                interval = interval + 2
-                state.radius = state.radius + 5 * interval
-                C2D.fill = "rgba(255, 255, 255, .5)"
-                C2D.ellipse(mouse.x, mouse.y, state.radius)
-            }, 1000)
+            if (state.selected) {
+                state.timer = setInterval(() =>{
+                    interval = interval + 2
+                    state.radius = state.radius + 5 * interval
+                    C2D.fill = "rgba(255, 255, 255, .5)"
+                    C2D.ellipse(mouse.x, mouse.y, state.radius)
+                }, 1000)
+            }
         },
         mouseup: function () {
             const state = window.tools.rippleCircle.state
             state.mousePressed = false
-            state.selected = false
             C2D.fill = state.prevColor
             clearInterval(state.timer)
             state.radius = 0
