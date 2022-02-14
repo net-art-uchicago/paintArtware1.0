@@ -22,7 +22,7 @@ window.tools.concentricCircle = {
             C2D.fill = state.prevColor
           },
         mousemove: function (e) {
-            const state = window.tools.concentricCircle.state;
+            const state = window.tools.concentricCircle.state
             if (state.selected && state.mousePressed)
             {
                 const mouse = C2D.eventToMouse(e)
