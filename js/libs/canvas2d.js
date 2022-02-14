@@ -212,21 +212,39 @@ class C2D {
     }
   }
 
+  static save () {
+    const ctx = this.ctx
+    this._stack = []
+    const state = {}
+    for (const property in ctx) {
+      if (property === 'canvas') { continue }
+      if (typeof ctx[property] === 'function') { continue }
+      state[property] = ctx[property]
+    }
+    this._stack.push(state)
+  }
+
+  static restore () {
+    const state = this._stack.pop() || {}
+    for (const property in state) {
+      this.ctx[property] = state[property]
+    }
+  }
+
   static resize (width, height) {
     // create canvas copy
-    console.log('Fill before: ', this.fill)
     const canvasCopy = document.createElement('canvas')
     canvasCopy.width = this.width
     canvasCopy.height = this.height
-    canvasCopy.fill = this.fill
     const ctxCopy = canvasCopy.getContext('2d')
     ctxCopy.drawImage(this.canvas, 0, 0)
     // resize canvas
+    this.save()
     this.width = width
     this.height = height
-    this.fill = canvasCopy.fill
     // scale and draw copy back onto canvas
     this.ctx.drawImage(canvasCopy, 0, 0, width, height)
+    this.restore()
   }
 }
 
