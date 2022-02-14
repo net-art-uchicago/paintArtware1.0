@@ -4,12 +4,15 @@
     "pencil",
     "oscCircles",
     "vignette",
-    "hackerText"
+    "hackerText",
+    "ten_print"
   ],
   "filters": [
     "invert",
     "waves",
-    "rotate"
+    "rotate",
+    "glitch",
+    "rainbow"
   ],
   "options": [
     "oldSchoolColors",
