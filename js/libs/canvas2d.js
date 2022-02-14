@@ -166,9 +166,9 @@ class C2D {
     this.ctx.putImageData(imageData, 0, 0)
   }
 
-  static changeColors (x, y) {
-    C2D.fill = y
-    C2D.stroke = x
+  static setColors (x, y) {
+    C2D.fill = x
+    C2D.stroke = y
   }
 
   static ellipse (x, y, w, h) {
