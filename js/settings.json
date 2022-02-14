@@ -5,11 +5,13 @@
     "oscCircles",
     "vignette",
     "concentricCircle",
-    "Circles"
+    "Circles",
+    "hackerText"
   ],
   "filters": [
     "invert",
-    "waves"
+    "waves",
+    "rotate"
   ],
   "options": [
     "oldSchoolColors",
