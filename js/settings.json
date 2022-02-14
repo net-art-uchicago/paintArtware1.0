@@ -4,7 +4,8 @@
     "pencil",
     "oscCircles",
     "vignette",
-    "circle"
+    "concentricCircle",
+    "Circles"
   ],
   "filters": [
     "invert",
