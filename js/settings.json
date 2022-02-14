@@ -1,8 +1,8 @@
 {
   "version": 1.0,
   "tools": [
-    "pencil",
     "oscCircles",
+    "pencil",
     "vignette",
     "hackerText"
   ],
@@ -13,7 +13,8 @@
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth"
+    "strokeWidth",
+    "textOptions"
   ],
   "functions": [
     "export",
