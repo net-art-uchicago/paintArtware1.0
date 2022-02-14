@@ -23,8 +23,7 @@ window.tools.concentricCircle = {
         },
         mousemove: function (e) {
             const state = window.tools.concentricCircle.state
-            if (state.selected && state.mousePressed)
-            {
+            if (state.selected && state.mousePressed) {
                 const mouse = C2D.eventToMouse(e)
                 let X = state.prevMouse.x
                 let Y = state.prevMouse.y
