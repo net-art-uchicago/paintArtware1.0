@@ -45,9 +45,9 @@ window.options.textOptions = {
         'rgba(251, 7, 217, 1)',
         'rgba(255, 0, 0, 1)']
       // debugging purposes
-      setBackgroundRainbow(textoption, colors)
+      //setBackgroundRainbow(textoption, colors)
       // realsies function
-      //setInterval(setBackgroundRainbow, 100, textoption, colors)
+      setInterval(setBackgroundRainbow, 100, textoption, colors)
       setInterval(function () {
         colors = scootch(colors)
       }, 100)
@@ -65,6 +65,11 @@ window.options.textOptions = {
         margin-right: 0px;
       }
 
+      div.text-options {
+        width: 100%;
+        height: 30%;
+      }
+
       div.text-options > div > * {
         position: relative;
         animation: t1 5s step-start infinite, t2 10s step-end infinite;
@@ -78,70 +83,79 @@ window.options.textOptions = {
         animation: t1 5s step-start infinite alternate;
       }
 
-      div.floaty1:before, div.floaty1:after, div.floaty2:before, div.floaty2:after, div.floaty3:before, div.floaty3:after, div.floaty4:before, div.floaty4:after {
+      div.text-options > div > input:hover {
+        animation-play-state: paused;
+      }
+
+      div.floaty1:before, div.floaty1:after, div.floaty2:before, div.floaty2:after, div.floaty3:before, div.floaty3:after, div.floaty4:before, div.floaty4:after, div.floaty5:before, div.floaty5:after, div.floaty6:before, div.floaty6:after {
         content: "";
         position: absolute;
       }
 
-      div.floaty1  {
-        background-color: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
-        height: ${Math.random() * 80}px;
-        width: ${Math.random() * 100}px;
-        animation: stutter1 1s step-start infinite alternate;
-      }
+      /* div.floaty1  {
+        animation: stutter1 .25s step-start infinite alternate;
+      } */
 
       div.floaty1:before  {
-        animation: stutter11 1s step-start infinite alternate;
+        animation: stutter11 .25s step-start infinite alternate;
       }
 
       div.floaty1:after  {
-        animation: stutter12 1s step-start infinite alternate;
+        animation: stutter12 .25s step-start infinite alternate;
       }
 
-      div.floaty2  {
-        background-color: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
-        height: ${Math.random() * 80}px;
-        width: ${Math.random() * 100}px;
-        animation: stutter2 1s step-start infinite alternate;
-      }
+      /* div.floaty2  {
+        animation: stutter2 .25s step-start infinite alternate;
+      } */
 
       div.floaty2:before  {
-        animation: stutter21 1s step-start infinite alternate;
+        animation: stutter21 .25s step-start infinite alternate;
       }
 
       div.floaty2:after  {
-        animation: stutter22 1s step-start infinite alternate;
+        animation: stutter22 .25s step-start infinite alternate;
       }
 
-      div.floaty3  {
-        background-color: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
-        height: ${Math.random() * 80}px;
-        width: ${Math.random() * 100}px;
-        animation: stutter3 1s step-start infinite alternate;
-      }
+      /* div.floaty3  {
+        animation: stutter3 .25s step-start infinite alternate;
+      } */
 
       div.floaty3:before  {
-        animation: stutter31 1s step-start infinite alternate;
+        animation: stutter31 .25s step-start infinite alternate;
       }
 
       div.floaty3:after  {
-        animation: stutter32 1s step-start infinite alternate;
+        animation: stutter32 .25s step-start infinite alternate;
       }
 
       div.floaty4  {
-        background-color: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
-        height: ${Math.random() * 80}px;
-        width: ${Math.random() * 100}px;
-        animation: stutter4 1s step-start infinite alternate;
+        animation: stutter4 .25s step-start infinite alternate;
       }
 
       div.floaty4:before  {
-        animation: stutter41 1s step-start infinite alternate;
+        animation: stutter41 .25s step-start infinite alternate;
       }
 
       div.floaty4:after  {
-        animation: stutter 42 1s step-start infinite alternate;
+        animation: stutter42 .25s step-start infinite alternate;
       }
+
+      div.floaty5:before {
+        animation: stutter51 .25s step-start infinite alternate;
+      }
+
+      div.floaty5:after {
+        animation: stutter52 .25s step-start infinite alternate;
+      }
+
+      div.floaty6:before {
+        animation: stutter61 .25s step-start infinite alternate;
+      }
+
+      div.floaty6:after {
+        animation: stutter62 .25s step-start infinite alternate;
+      }
+
       @keyframes t1 {
         0% {
           top: ${Math.random() * 10}%;
@@ -236,21 +250,6 @@ window.options.textOptions = {
         }
       }
 
-      @keyframes stutter1 {
-        0% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        50% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        100% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-      }
-
       @keyframes stutter11 {
         0% {
           background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
@@ -306,21 +305,6 @@ window.options.textOptions = {
           left: ${Math.random() * 100}%;
           height: ${Math.random() * 80}px;
           width: ${Math.random() * 180}px;
-        }
-      }
-
-      @keyframes stutter2 {
-        0% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        50% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        100% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
         }
       }
 
@@ -382,21 +366,6 @@ window.options.textOptions = {
         }
       }
 
-      @keyframes stutter3 {
-        0% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        50% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        100% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-      }
-
       @keyframes stutter31 {
         0% {
           background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
@@ -452,21 +421,6 @@ window.options.textOptions = {
           left: ${Math.random() * 100}%;
           height: ${Math.random() * 80}px;
           width: ${Math.random() * 180}px;
-        }
-      }
-
-      @keyframes stutter4 {
-        0% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        50% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
-        }
-        100% {
-          top: ${Math.random() * 200 - 100}%;
-          left: ${Math.random() * 200 - 100}%
         }
       }
 
@@ -528,20 +482,129 @@ window.options.textOptions = {
         }
       }
 
+      @keyframes stutter51 {
+        0% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          top: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+        33% {
+          bottom: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+        66% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          top: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+        100% {
+          bottom: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+      }
+
+      @keyframes stutter52 {
+        0% {
+          top: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+        33% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          bottom: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+        66% {
+          top: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+        100% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          bottom: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+      }
+      @keyframes stutter61 {
+        0% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          top: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+        33% {
+          bottom: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+        66% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          top: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+        100% {
+          bottom: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 160}px;
+          width: ${Math.random() * 100}px;
+        }
+      }
+
+      @keyframes stutter62 {
+        0% {
+          top: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+        33% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          bottom: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+        66% {
+          top: ${Math.random() * 100}%;
+          right: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+        100% {
+          background: rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255});
+          bottom: ${Math.random() * 100}%;
+          left: ${Math.random() * 100}%;
+          height: ${Math.random() * 80}px;
+          width: ${Math.random() * 180}px;
+        }
+      }
+
       </style>
       <div class="text-options">
-        <div style="left:${Math.random() * 50}%">
-          <div class="floaty1"></div>
-        </div>
-        <div>
-          <div class="floaty2"></div>
-        </div>
-        <div>
-          <div class="floaty3"></div>
-        </div>
-        <div>
-          <div class="floaty4"></div>
-        </div>
+        <div class="floaty1"></div>
+        <div class="floaty2"></div>
+        <div class="floaty3"></div>
+        <div class="floaty4"></div>
+        <div class="floaty5"></div>
+        <div class="floaty6"></div>
         <div>
           <label for="input-text" class="input-text"> What to Write:  </label>
           <input value=${state.text} type="text" id="input-text" class="input-text">
