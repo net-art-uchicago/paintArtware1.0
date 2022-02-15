@@ -13,6 +13,7 @@
   "filters": [
     "invert",
     "waves",
+    "pixel",
     "rotate"
   ],
   "options": [
