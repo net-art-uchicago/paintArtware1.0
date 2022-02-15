@@ -4,7 +4,10 @@
     "pencil",
     "oscCircles",
     "vignette",
-    "eraser"
+    "eraser",
+    "concentricCircle",
+    "rippleCircle",
+    "hackerText"
   ],
   "filters": [
     "invert",
