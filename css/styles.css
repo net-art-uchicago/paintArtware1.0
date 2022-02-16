@@ -1,18 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Rubik+Beastly&family=UnifrakturMaguntia&display=swap');
 * {
+  font-family: 'Gideon Roman', cursive;
   box-sizing: border-box;
   cursor: crosshair;
+  border-radius: 25px;
+  margin: 10px;
 }
 
 body {
   margin: 0;
-  background-color: #bcbcbc;
+  background-color: #fffff;
   font-family: sans-serif;
 }
 
 #paint-app {
+  margin: 20px;
   width: 100vw;
   height: 100vh;
-  border: 4px inset white;
+  border: 2px inset white;
 }
 
 @keyframes rainbow {
@@ -22,8 +27,12 @@ body {
 
 header {
   /* background-color: #000f78; */
+  float: center;
+  margin-top: 10px;
+  border-radius: 25px;
+  width: 80%;
   background: linear-gradient(to left, #a0a, #0aa, #00a, #0a0, #aa0, #a00, #a0a);
-  background-size: 200%;
+  background-size: 300%;
   color: white;
   display: flex;
   align-items: center;
@@ -77,12 +86,17 @@ main {
 }
 
 #tool-bar {
+  border-radius: 25px;
   border: 2px inset black;
-  padding: 4px;
+  padding: 8px;
   width: 6vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+#tool-bar:hover{
+  background-color: #9af5db;
 }
 
 #tool-bar img {
@@ -93,7 +107,7 @@ main {
   border: 2px solid #171717;
   border-top-color: #f3f3f3;
   border-left-color: #f3f3f3;
-  cursor: pointer;
+  cursor: crosshair;
 }
 
 #tool-bar img.selected {
@@ -115,6 +129,8 @@ main {
   100vh - 17vh = 83vh
 */
 #draw-area {
+  border-radius: 20px;
+  margin: 15px;
   position: relative;
   width: 80vw;
   height: calc(83vh - 128px);
@@ -138,7 +154,7 @@ main {
   display: flex;
   align-items: center;
   padding: 10px;
-  cursor: pointer;
+  cursor: crosshair;
 }
 
 #layer-select > *.selected {
@@ -153,7 +169,7 @@ main {
 }
 
 #tool-options {
-  padding: 20px 4px;
+  padding: 25px 4px;
   height: 16vh;
   overflow-y: scroll;
   border-top: 2px solid white;
@@ -161,5 +177,5 @@ main {
 
 #tool-info {
   border: 2px inset black;
-  padding: 5px;
+  padding: 8px;
 }
