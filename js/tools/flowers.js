@@ -4,16 +4,19 @@ window.tools.flowers = {
   icon: '/images/new-flower-icon.png',
   state: {
     selected: false,
-    mousePressed: false
+    mousePressed: false,
+    prevColor: null
   },
   events: {
     mousedown: function () {
       const state = window.tools.flowers.state
       state.mousePressed = true
+      state.prevColor = C2D.fill
     },
     mouseup: function () {
       const state = window.tools.flowers.state
       state.mousePressed = false
+      C2D.fill = state.prevColor
     },
     mousemove: function (e) {
       const state = window.tools.flowers.state
@@ -21,10 +24,8 @@ window.tools.flowers = {
         const mouse = C2D.eventToMouse(e)
         const scale = 3
         //  center of flower
-        C2D.fill = 'rgba(235, 219, 52)'
         C2D.ellipse(mouse.x, mouse.y, 10 * scale + 3)
         //  flower petals
-        C2D.fill = 'rgba(208, 85, 230)'
         C2D.ellipse(mouse.x - 60, mouse.y, 10 * scale)
         C2D.ellipse(mouse.x + 60, mouse.y, 10 * scale)
         C2D.ellipse(mouse.x + 45, mouse.y + 45, 10 * scale)
