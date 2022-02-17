@@ -9,13 +9,13 @@ window.options.saturationValue = {
     const div = document.createElement('div')
     div.innerHTML = `
       <style>
-        .stroke-width {
+        .saturation-value {
           display: flex;
           align-items: center;
           margin: 0 10px;
         }
 
-        .stroke-width > span {
+        .saturation-value > span {
           margin-right: 10px;
           width: 38px;
         }
