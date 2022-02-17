@@ -21,7 +21,7 @@ window.options.saturationValue = {
         }
       </style>
 
-      <div class="stroke-width">
+      <div class="saturation-value">
         <span>${saturation}</span>
         <input type="range" min="1" max="100" value="${saturation}">
       </div>
