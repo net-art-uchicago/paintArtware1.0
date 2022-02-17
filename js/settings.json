@@ -1,9 +1,12 @@
 {
   "version": 1.0,
   "tools": [
+    "airBrush",
     "pencil",
     "oscCircles",
     "vignette",
+    "eraser",
+    "smile",
     "concentricCircle",
     "rippleCircle",
     "hackerText"
@@ -11,6 +14,7 @@
   "filters": [
     "invert",
     "waves",
+    "pixel",
     "rotate",
     "saturation"
   ],

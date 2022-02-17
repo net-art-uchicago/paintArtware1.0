@@ -166,6 +166,11 @@ class C2D {
     this.ctx.putImageData(imageData, 0, 0)
   }
 
+  static setColors (x, y) {
+    C2D.fill = x
+    C2D.stroke = y
+  }
+
   static ellipse (x, y, w, h) {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
