@@ -15,11 +15,13 @@
     "invert",
     "waves",
     "pixel",
-    "rotate"
+    "rotate",
+    "saturation"
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth"
+    "strokeWidth",
+    "saturationValue"
   ],
   "functions": [
     "export",
