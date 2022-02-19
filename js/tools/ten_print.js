@@ -29,18 +29,25 @@ window.tools.ten_print = {
       }
 
       if (state.selected && state.mousePressed &&
-        (((Math.abs(mouse.x - currentPos[0]) >= desiredWidth)) ||
-        (Math.abs(mouse.y - currentPos[1]) >= desiredWidth))) {
+        (((Math.abs(mouse.x - currentPos[0]) >= 3 * desiredWidth)) ||
+        (Math.abs(mouse.y - currentPos[1]) >= 6 * desiredWidth))) {
         window.tools.ten_print.currentPos = [mouse.x, mouse.y]
-        let add1, add2
+        let add1, add2, add3
+        let mouse_x = Math.floor(mouse.x / 10) * 10
+        let mouse_y = Math.floor(mouse.y / 10) * 10
+
         if (Math.random() < 0.5) { add1 = desiredWidth } else { add1 = -desiredWidth }
 
         if (Math.random() < 0.5) { add2 = desiredWidth } else { add2 = -desiredWidth }
 
-        C2D.line(mouse.x, mouse.y, (mouse.x + add1),
-          (mouse.y - 2 * desiredWidth))
-        C2D.line(mouse.x, mouse.y, (mouse.x + add2),
-          (mouse.y + desiredWidth))
+        if (Math.random() < 0.5) { add3 = desiredWidth } else { add3 = -desiredWidth }
+
+        C2D.line(mouse_x, mouse_y, (mouse_x + add1),
+          (mouse_y - 2 * desiredWidth))
+        C2D.line(mouse_x, mouse_y, (mouse_x + add2),
+          (mouse_y + 2 * desiredWidth))
+        C2D.line((mouse_x + add2), (mouse_y + 2 * desiredWidth),
+        (mouse_x + add2 + add3), (mouse_y + 4 * desiredWidth))
       }
     }
   }

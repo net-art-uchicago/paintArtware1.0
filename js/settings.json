@@ -5,14 +5,14 @@
     "oscCircles",
     "vignette",
     "hackerText",
-    "ten_print"
+    "ten_print",
+    "glitch",
+    "rainbow"
   ],
   "filters": [
     "invert",
     "waves",
-    "rotate",
-    "glitch",
-    "rainbow"
+    "rotate"
   ],
   "options": [
     "oldSchoolColors",
