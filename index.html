@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>paintArtware</title>
+    <meta name="description" content="Experimental online drawing application by Media Art and Design students at the University of Chicago">
+
+    <!-- social media stuff -->
+    <meta property="og:title" content="paintArtware">
+    <meta property="og:description" content="Experimental online drawing application by Media Art and Design students at the University of Chicago">
+    <meta property="og:image" content="/images/app-icon.png">
+    <!-- <meta property="og:url" content="..."> -->
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- <meta property="og:site_name" content="..."> -->
+    <meta name="twitter:site" content="@nbriz">
+
+    <link rel="icon" type="image/png" href="/images/app-icon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+  </head>
+  <body>
+
+    <section id="paint-app">
+      <header>
+        <div>
+          <img src="/images/app-icon.png" alt="paintArtware icon">
+        </div>
+        <h3>untitled - paintArtware</h3>
+      </header>
+      <nav id="main-menu"></nav>
+      <main>
+        <section id="tool-bar"></section>
+        <section id="draw-area"></section>
+        <section id="layer-select"></section>
+      </main>
+      <section id="tool-options"></section>
+      <section id="tool-info">Welcome!</section>
+    </section>
+
+    <script src="/js/libs/Maths.js"></script>
+    <script src="/js/libs/canvas2d.js"></script>
+    <script src="/js/libs/artware.js"></script>
+    <script src="/js/libs/sentiment.js"></script>
+    <script>
+      const app = new Artware({
+        settings: '/js/settings.json',
+        elements: {
+          menu: '#main-menu',
+          tools: '#tool-bar',
+          main: '#draw-area',
+          layers: '#layer-select',
+          options: '#tool-options',
+          info: '#tool-info'
+        }
+      })
+    </script>
+  </body>
+</html>
