@@ -9,7 +9,8 @@
     "smile",
     "concentricCircle",
     "rippleCircle",
-    "hackerText"
+    "hackerText",
+    "bezier"
   ],
   "filters": [
     "invert",
