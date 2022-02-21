@@ -32,6 +32,15 @@ class Artware {
       this.setupLayers(data)
       this.loadModules(data)
     })
+
+    // resize canvas when window is resized
+    window.addEventListener('resize', () => {
+      const main = this.ele.layers ? this.ele.main : document.body
+      const style = window.getComputedStyle(main)
+      const height = parseFloat(style.getPropertyValue('height')) || main.offsetHeight
+      const width = parseFloat(style.getPropertyValue('width')) || main.offsetWidth
+      C2D.resize(width, height)
+    })
   }
 
   loadModules (data) {
