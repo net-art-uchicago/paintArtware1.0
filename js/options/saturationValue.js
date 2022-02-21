@@ -1,30 +1,29 @@
-/* global C2D */
-window.options.strokeWidth = {
-  name: 'stroke width',
+window.options.saturationValue = {
+  name: 'saturation value',
   state: {
-    width: 1
+    saturation: 50
   },
   run: function () {
-    const width = window.options.strokeWidth.state.width
+    const saturation = window.options.saturationValue.state.saturation
 
     const div = document.createElement('div')
     div.innerHTML = `
       <style>
-        .stroke-width {
+        .saturation-value {
           display: flex;
           align-items: center;
           margin: 0 10px;
         }
 
-        .stroke-width > span {
+        .saturation-value > span {
           margin-right: 10px;
           width: 38px;
         }
       </style>
 
-      <div class="stroke-width">
-        <span>${width}</span>
-        <input type="range" min="1" max="100" value="${width}">
+      <div class="saturation-value">
+        <span>${saturation}</span>
+        <input type="range" min="1" max="100" value="${saturation}">
       </div>
     `
 
@@ -32,13 +31,9 @@ window.options.strokeWidth = {
     const slider = div.querySelector('input')
     slider.addEventListener('input', (e) => {
       const num = Number(e.target.value)
-      window.options.strokeWidth.state.width = num
-      C2D.ctx.lineWidth = num
+      window.options.saturationValue.state.saturation = num
       span.textContent = num
     })
-
-    C2D.ctx.lineJoin = 'round'
-
     return div
   }
 }
