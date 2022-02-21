@@ -11,6 +11,7 @@ class Artware {
     window.filters = {}
     window.functions = {}
     window.options = {}
+    window.assets = {}
 
     // if dev past an "elements" object with selectors for specific
     // elements on the page to inject our modules into, create an
@@ -60,6 +61,8 @@ class Artware {
     data.functions.forEach(f => this.loadMenuModule('functions', f))
     // load option js file for each option name in the settings file
     data.options.forEach(o => this.loadMenuModule('options', o))
+    // load asset js file for each asset name in the settings file
+    data.assets.forEach(a => this.loadAsset(a))
   }
 
   moduleLoaded (type, name, callback) {
@@ -305,6 +308,23 @@ class Artware {
     const ele = opt.run()
     this.ele.options.innerHTML = ''
     this.ele.options.appendChild(ele)
+  }
+
+  // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*
+  // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*
+  // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• Asset Methods
+  // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*
+
+  /* global Sent */
+  loadAsset (name) {
+    // load the assets JS file into a new `<script>` tag
+    const script = document.createElement('script')
+    script.onload = () => {
+      const asset = window.assets[name]
+      Sent.loadModels(asset)
+    }
+    script.src = `/js/assets/${name}.js`
+    document.body.appendChild(script)
   }
 }
 
