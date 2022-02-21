@@ -1,34 +1,38 @@
 /* global C2D */
-window.tools.multiplePen = {
-  name: 'Layered Pen Tool',
-  icon: 'images/multiplePen2.png',
+window.tools.airBrush = {
+  name: 'airbrush',
+  icon: '/images/airbrush.png',
   state: {
     selected: false,
     mousePressed: false,
     prevMouse: { x: null, y: null }
   },
+
   events: {
     mousedown: function () {
-      const state = window.tools.multiplePen.state
+      const state = window.tools.airBrush.state
       state.mousePressed = true
     },
     mouseup: function () {
-      const state = window.tools.multiplePen.state
+      const state = window.tools.airBrush.state
       state.mousePressed = false
       state.prevMouse = { x: null, y: null }
+      C2D.ctx.shadowOffsetX = 0
+      C2D.ctx.shadowOffsetY = 0
+      C2D.ctx.shadowBlur = 0
+      C2D.ctx.shadowColor = C2D.fill
     },
     mousemove: function (e) {
-      const state = window.tools.multiplePen.state
+      const state = window.tools.airBrush.state
       if (state.selected && state.mousePressed) {
+        C2D.ctx.shadowOffsetX = 2
+        C2D.ctx.shadowOffsetY = 2
+        C2D.ctx.shadowBlur = 20
+        C2D.ctx.shadowColor = C2D.stroke
         const mouse = C2D.eventToMouse(e)
         const px = state.prevMouse.x || mouse.x
         const py = state.prevMouse.y || mouse.y
-        // console.log("no")
         C2D.line(mouse.x, mouse.y, px, py)
-        C2D.line(mouse.x + 4, mouse.y, px + 4, py)
-        C2D.line(mouse.x + 8, mouse.y, px + 8, py)
-        C2D.line(mouse.x + 12, mouse.y, px + 12, py)
-        C2D.line(mouse.x + 16, mouse.y, px + 16, py)
         state.prevMouse = { x: mouse.x, y: mouse.y }
       }
     }
