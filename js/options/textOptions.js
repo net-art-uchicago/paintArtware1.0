@@ -13,6 +13,10 @@ window.options.textOptions = {
   run: function () {
     const state = window.options.textOptions.state
 
+    // ---------~~~~~~~~~~~~~~~~~
+    // --------| Rainbow Chaos |~
+    // ---------~~~~~~~~~~~~~~~~~
+
     // ensure that I don't have two rainbow-chaos scripts present
     if (document.querySelector('script[id="rainbow-chaos"]') === null) {
       // append rainbow-chaos to document
@@ -65,10 +69,14 @@ window.options.textOptions = {
       document.body.appendChild(sc)
     }
 
-    const div = document.createElement('div')
+    // ----------~~~~~~~~~~~~~~~~~~~~~~~~
+    // ---------| Overwhelm Rectangles |~
+    // ---------| and Teleporting Text |~
+    // ---------|        Options       |~
+    // ----------~~~~~~~~~~~~~~~~~~~~~~~~
 
-    let styles = ''
-    let divs = ''
+    let styles = '' // holds the styleing + animations for rectangles
+    let divs = '' // holds the divs that i'm using to make the rectangles
     for (let i = 0; i < state.numberOfHorrors; i++) {
       styles += `
         div.floaty${i}:before, div.floaty${i}:after {
@@ -145,6 +153,32 @@ window.options.textOptions = {
       divs += `<div class="floaty${i}"></div>\n`
     }
 
+    let t1 = ''
+    let t2 = ''
+    for (let i = 0; i <= 50; i++) {
+      t1 += `
+        ${i * 10}% {
+          top: ${Math.random() * 10}%;
+          left: ${Math.random() * 50}%;
+        }
+        ${(i + 1) * 10}% {
+          bottom: ${Math.random() * 10}%;
+          left: ${Math.random() * 50}%;
+        }
+      `
+      t2 += `
+        ${i * 10}% {
+          top: ${Math.random() * 10}%;
+          left: ${Math.random() * 50}%;
+        }
+        ${(i + 1) * 10}$ {
+          top: ${Math.random() * 10}%;
+          left: ${Math.random() * 50}%;
+        }
+      `
+    }
+    // put it all together
+    const div = document.createElement('div')
     div.innerHTML = `
     <style>
     label.input-text {
@@ -176,99 +210,14 @@ window.options.textOptions = {
 
     div.text-options > div > input:hover, div.text-options > div > select:hover {
       animation-play-state: paused;
-    }\n
+    }
+
     @keyframes t1 {
-      0% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      10% {
-        bottom: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      20% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      30% {
-        bottom: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      40% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      50% {
-        bottom: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      60% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      70% {
-        bottom: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      80% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      90% {
-        bottom: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      100% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
+      ${t1}
     }
 
     @keyframes t2 {
-      0% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      10% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      20% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      30% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      40% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      50% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      60% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      70% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      80% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      90% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
-      100% {
-        top: ${Math.random() * 10}%;
-        left: ${Math.random() * 50}%;
-      }
+      ${t2}
     }
     ${styles}
     </style>
