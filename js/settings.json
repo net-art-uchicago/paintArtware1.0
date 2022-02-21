@@ -5,15 +5,12 @@
     "pencil",
     "oscCircles",
     "vignette",
-<<<<<<< HEAD
-    "flowers"
-=======
     "eraser",
     "smile",
     "concentricCircle",
     "rippleCircle",
-    "hackerText"
->>>>>>> 158b78b4f540aef9e0d3d7840276cbbd929c8dcd
+    "hackerText",
+    "flowers"
   ],
 
   "filters": [
