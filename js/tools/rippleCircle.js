@@ -1,7 +1,7 @@
 /* global C2D */
 window.tools.rippleCircle = {
   name: 'Ripple Circle',
-  icon: '/images/circle-icon.png',
+  icon: '/images/ripples-icon.png',
   state: {
     selected: false,
     mousePressed: false,
