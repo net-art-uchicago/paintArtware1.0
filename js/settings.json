@@ -11,7 +11,10 @@
     "concentricCircle",
     "rippleCircle",
     "hackerText",
-    "flowers"
+    "flowers",
+    "ten_print",
+    "glitch",
+    "rainbow"
   ],
   "filters": [
     "invert",
