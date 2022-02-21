@@ -2,6 +2,7 @@
   "version": 1.0,
   "tools": [
     "pencil",
+    "highlighter",
     "oscCircles",
     "vignette"
   ],
@@ -11,7 +12,8 @@
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth"
+    "strokeWidth",
+    "strokeOpacity"
   ],
   "functions": [
     "export",
