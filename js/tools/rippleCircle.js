@@ -6,8 +6,8 @@ window.tools.rippleCircle = {
     selected: false,
     mousePressed: false,
     prevColor: null,
-    timer: null,
-    radius: 0,
+    // timer: null,
+    // radius: 0,
     rippleEffect: true
   },
   events: {
@@ -15,23 +15,22 @@ window.tools.rippleCircle = {
       const state = window.tools.rippleCircle.state
       state.mousePressed = true
       state.prevColor = C2D.fill
-      state.radius = 0
       state.rippleEffect = true
-      clearInterval(state.timer)
     },
     mouseup: function (e) {
       const state = window.tools.rippleCircle.state
       const mouse = C2D.eventToMouse(e)
-      let interval = 0;
+      let interval = 0
+      let radius = 0
       if (state.selected && state.rippleEffect) {
-        state.timer = setInterval(() => {
+        const timer = setInterval(() => {
           interval += 2
-          state.radius = state.radius + 5 * interval
+          radius = radius + 5 * interval
           C2D.fill = 'rgba(255, 255, 255, .5)'
-          C2D.ellipse(mouse.x, mouse.y, state.radius)
+          C2D.ellipse(mouse.x, mouse.y, radius)
           if (interval == 30) {
             state.rippleEffect = false
-            clearInterval(state.timer)
+            clearInterval(timer)
           }
           console.log(interval)
         }, 250)
