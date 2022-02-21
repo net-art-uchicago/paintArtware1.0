@@ -8,7 +8,7 @@ class Sent {
   static generateRandomString () {
     let result = ''
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    const charactersLength = characters.length;
+    const charactersLength = characters.length
     for (let i = 0; i < 16; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength))
     }
@@ -34,7 +34,7 @@ class Sent {
     window.location = url
   }
 
-  static async getTopSong () {
+  static async getTopTrack () {
     const token = window.localStorage.getItem('spotifyToken')
     if (!token) {
       return console.error('must run spotifyAuth first')
@@ -49,43 +49,66 @@ class Sent {
       }
     })
     const data = await response.json()
-    console.log(data)
+    return data.items[0].id
   }
 
   //  need to communicate that these are async methods so need await keyword
   //  functions they are used in also need the aysnc
   static async getTempo () {
-    const topSong = await this.getTopSong().items[0]
+    const token = window.localStorage.getItem('spotifyToken')
+    const topSongID = await this.getTopTrack()
+    const request = `https://api.spotify.com/v1/audio-analysis/${topSongID}`
+    const response = await window.fetch(request, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      }
+    })
+    const songData = await response.json()
+    return songData.track.tempo
   }
 
-  static getColor () {
-    const tempo = this.getTempo()
-    if (tempo > 200) {}
-    //  is it possible to do a range?
-    else if (tempo >= 168 && tempo < 200) {
-      //  red bright colors
+  static async getMood () {
+    const tempo = await this.getTempo()
+    if (tempo > 200) {
+      const mood = 'happy'
+      return mood
+    } else if (tempo >= 168 && tempo < 200) {
+      const mood = 'exuberant'
+      return mood
+    } else if (tempo >= 120 && tempo < 168) {
+      const mood = 'energetic'
+      return mood
+    } else if (tempo >= 108 && tempo < 120) {
+      const mood = 'sad'
+      return mood
+    } else if (tempo >= 76 && tempo < 108) {
+      const mood = 'contentment'
+      return mood
+    } else if (tempo >= 66 && tempo < 76) {
+      const mood = 'calm'
+      return mood
+    } else if (tempo >= 60 && tempo < 66) {
+      const mood = 'chill'
+      return mood
+    } else if (tempo < 60) {
+      const mood = 'depressive'
+      return mood
     }
-    else if (tempo >= 120 && tempo < 168) {
-      //  medium colors, like orange, yellow, pink
-    }
-    else if (tempo >= 108 && tempo < 120) {
-      //  greens
-    }
-    else if (tempo >= 76 && tempo < 108) {
-      //  purples, pastels
-    }
-    else if (tempo >= 66 && tempo < 76) {
-      //  blues
-    }
-    else if (tempo >= 60 && tempo < 66) {
-      //  add opacity? 
-    }
-    else if (tempo >= 40 && tempo < 60) {
-      //  grays
-    }
-    else if (tempo < 40) {
-      //  black and white
-    }
+  }
+
+  static getColors () {
+    const mood = this.getMood()
+    if (mood === 'happy') {} 
+    else if (mood === 'exuberant') {}
+    else if (mood === 'energetic') {}
+    else if (mood === 'sad') {}
+    else if (mood === 'contentment') {}
+    else if (mood === 'calm') {}
+    else if (mood === 'chill') {}
+    else if (mood === 'depressive') {}
   }
 }
 
