@@ -122,3 +122,22 @@ This method takes a window event object (the kind passed into an event listener'
     C2D.ellipse(mouse.x, mouse.y, 100)
   })
 ```
+
+### `rgb2hsv(r, g, b)`
+
+This method converts an RGB encoded color value to an [HSV encoded value](https://en.wikipedia.org/wiki/HSL_and_HSV). This method takes 3 values representing a color: r (red), g (green), and b (blue). It returns an array of the form [h, s, v].
+
+```js
+  const pixels = C2D.getPixels()
+  let [h, s, v] = C2D.rgb2hsv(pixels[i].r, pixels[i].g, pixels[i].b)
+```
+
+### `hsv2rgb(h, s, v)`
+
+This method converts an HSV encoded color value to ann RGB encoded value. The method accepts 3 values representing hue, saturation, and value respectively. It accepts three values representing a color: h (hue), s (saturation), and v (value). It returns an array in the form of [r, g, b].
+
+```js
+  let [r, g, b] = C2D.hsv2rgb(h, s, v)
+```
+
+
