@@ -28,13 +28,17 @@ window.tools.ten_print = {
         desiredWidth = 5
       }
 
+      let x_var = 2 * desiredWidth;
+      let y_var = 6 * desiredWidth;
+
+      let mouse_x = Math.floor(mouse.x / x_var) * x_var
+      let mouse_y = Math.floor(mouse.y / y_var) * y_var
+
       if (state.selected && state.mousePressed &&
-        (((Math.abs(mouse.x - currentPos[0]) >= 3 * desiredWidth)) ||
-        (Math.abs(mouse.y - currentPos[1]) >= 6 * desiredWidth))) {
-        window.tools.ten_print.currentPos = [mouse.x, mouse.y]
+        (((Math.abs(mouse_x - currentPos[0]) >= 0)) ||
+        (Math.abs(mouse_y - currentPos[1]) >= 0))) {
+        window.tools.ten_print.currentPos = [mouse_x, mouse_y]
         let add1, add2, add3
-        let mouse_x = Math.floor(mouse.x / 10) * 10
-        let mouse_y = Math.floor(mouse.y / 10) * 10
 
         if (Math.random() < 0.5) { add1 = desiredWidth } else { add1 = -desiredWidth }
 
