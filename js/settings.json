@@ -30,6 +30,7 @@
   ],
   "functions": [
     "export",
-    "addLayer"
+    "addLayer",
+    "paintText"
   ]
 }
