@@ -28,11 +28,11 @@ window.tools.ten_print = {
         desiredWidth = 5
       }
 
-      let x_var = 2 * desiredWidth;
-      let y_var = 6 * desiredWidth;
+      const x_var = 2 * desiredWidth
+      const y_var = 6 * desiredWidth
 
-      let mouse_x = Math.floor(mouse.x / x_var) * x_var
-      let mouse_y = Math.floor(mouse.y / y_var) * y_var
+      const mouse_x = Math.floor(mouse.x / x_var) * x_var
+      const mouse_y = Math.floor(mouse.y / y_var) * y_var
 
       if (state.selected && state.mousePressed &&
         (((Math.abs(mouse_x - currentPos[0]) >= 0)) ||
@@ -51,7 +51,7 @@ window.tools.ten_print = {
         C2D.line(mouse_x, mouse_y, (mouse_x + add2),
           (mouse_y + 2 * desiredWidth))
         C2D.line((mouse_x + add2), (mouse_y + 2 * desiredWidth),
-        (mouse_x + add2 + add3), (mouse_y + 4 * desiredWidth))
+          (mouse_x + add2 + add3), (mouse_y + 4 * desiredWidth))
       }
     }
   }
