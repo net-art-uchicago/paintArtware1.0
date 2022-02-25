@@ -1,7 +1,7 @@
 /* global C2D */
 window.tools.concentricCircle = {
   name: 'Concentric Circle',
-  icon: '/images/circle-icon.png',
+  icon: '/images/concentricCircles-icon.png',
   state: {
     selected: false,
     mousePressed: false,
