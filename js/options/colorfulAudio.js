@@ -87,7 +87,7 @@ window.options.colorfulAudio = {
       if (window.options.colorfulAudio.state.selected) {
         btn.innerHTML = state1
         window.options.colorfulAudio.state.selected = false
-        UserMedia.recordAudio(record = false)
+        UserMedia.recordAudio(null, null, false)
         colorfulSounds()
       } else {
         btn.innerHTML = state2

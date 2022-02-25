@@ -52,16 +52,12 @@ class UserMedia {
         const audioData = new Blob(audios,
           { type: 'audio/mp3;' })
 
-        // clean up audios
-        audios = []
-
         // create audio url to reference
         // saved audio
         const audioSrc = window.URL
           .createObjectURL(audioData)
 
         savedAudio.src = audioSrc
-        console.log('Recorded audio at: ', audioSrc)
       }
     }
   }
