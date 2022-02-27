@@ -16,7 +16,8 @@
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth"
+    "strokeWidth",
+    "recorder"
   ],
   "functions": [
     "export",
