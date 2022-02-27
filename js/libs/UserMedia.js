@@ -52,6 +52,9 @@ class UserMedia {
         const audioData = new Blob(audios,
           { type: 'audio/mp3;' })
 
+        // empty array
+        audios = []
+
         // create audio url to reference
         // saved audio
         const audioSrc = window.URL
