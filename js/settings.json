@@ -22,7 +22,8 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
-    "saturationValue"
+    "saturationValue",
+    "handy"
   ],
   "functions": [
     "export",
