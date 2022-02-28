@@ -1,3 +1,5 @@
+//  const { cp } = require("fs")
+
 class Sent {
   static async loadModels () {}
 
@@ -101,14 +103,36 @@ class Sent {
 
   static getColors () {
     const mood = this.getMood()
-    if (mood === 'happy') {} 
-    else if (mood === 'exuberant') {}
-    else if (mood === 'energetic') {}
-    else if (mood === 'sad') {}
-    else if (mood === 'contentment') {}
-    else if (mood === 'calm') {}
-    else if (mood === 'chill') {}
-    else if (mood === 'depressive') {}
+    console.log(window.options.oldSchoolColors.state.colors)
+    while (window.options.oldSchoolColors.state.colors.length > 0) {
+      window.options.oldSchoolColors.state.colors.pop()
+    }
+    if (mood === 'happy') {
+      //  lawn green, red, gold, yellow, dodger blue
+      window.options.oldSchoolColors.state.colors.push('#ffff', '#ffd700', '#7cfc00', '#FFFF00', '#1e90ff')
+    } else if (mood === 'exuberant') {
+      //  fuschia, hot pink, aqua, orange, purple
+      window.options.oldSchoolColors.state.colors.push('#FF00FF', '#00FFFF', '#ff1493', '#ffa500', '#800080')
+    } else if (mood === 'energetic') {
+      //  lime, firebrick, lawn green, turqoise, magenta
+      window.options.oldSchoolColors.state.colors.push('#00ff00', '#b22222', '#7cfc00', '#40e0d0', '#ff00ff')
+    } else if (mood === 'sad') {
+      //  navy, dark gray, dark blue, dim gray, seagreen
+      window.options.oldSchoolColors.state.colors.push('#000080', '#a9a9a9', '#00008b', '#696969', '#2e8b57')
+    } else if (mood === 'contentment') {
+      //  light pink, light sky blue, misty rose, coral, lavender
+      window.options.oldSchoolColors.state.colors.push('#ffb6c1', '#87cefa', '#ffe4e1', '#ff7f50', '#e6e6fa')
+    } else if (mood === 'calm') {
+      //  medium turquoise, cadet blue, azure, silver, lavender
+      window.options.oldSchoolColors.state.colors.push('#48d1cc', '#5f9ea0', '#f0ffff', '#C0C0C0', '#e6e6fa')
+    } else if (mood === 'chill') {
+      //  cornflower blue, sky blue, lavender, light steel blue, pale turquoise
+      window.options.oldSchoolColors.state.colors.push('#6495ed', '#00bfff', '#e6e6fa', '#b0c4de', '#afeeee')
+    } else if (mood === 'depressive') {
+      //  black, gray, dark slate gray, whitesmoke, white
+      window.options.oldSchoolColors.state.colors.push('#000000', '#808080', '#2f4f4f', '#f5f5f5', '#ffffff')
+    }
+    console.log(window.options.oldSchoolColors.state.colors)
   }
 }
 
