@@ -104,6 +104,9 @@ main > #tool-bar {
   flex-wrap: wrap;
   justify-content: flex-end;
 margin-right: 20px;
+position: absolute;
+right: 10px;
+z-index: 2;
 }
 /* #tool-bar:hover{ */
 
