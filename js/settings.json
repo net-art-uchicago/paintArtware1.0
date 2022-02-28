@@ -26,6 +26,8 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
+    "textOptions",
+    "saturationValue"
     "saturationValue",
     "colorfulAudio"
   ],
