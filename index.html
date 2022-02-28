@@ -21,6 +21,18 @@
 
   </head>
   <body>
+    <video autoplay="true" id="videoElement"></video>
+    <script>
+      var video = document.querySelector("#videoElement");
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (err0r) {
+          console.log("Something went wrong!");
+        });
+    }</script>
 
     <section id="paint-app">
       <header>
@@ -55,6 +67,8 @@
           info: '#tool-info'
         }
       })
+
+      Sent.loadModels('/js/assets/models')
     </script>
   </body>
 </html>
