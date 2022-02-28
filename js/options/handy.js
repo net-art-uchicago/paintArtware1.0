@@ -1,7 +1,11 @@
-/* global C2D */
+/* global Handsfree */
 window.options.handy = {
   name: 'handy',
-  state: { afterhand: false },
+  state: {
+    afterhand: false,
+    tool: null
+  },
+
   run: function () {
     const state = window.options.handy.state
 
@@ -9,7 +13,7 @@ window.options.handy = {
     div.innerHTML = `
         <style>
         .startButton{
-            color:red;
+            color:blue;
         }
         </style>
   
@@ -19,27 +23,25 @@ window.options.handy = {
     const button = div.querySelector('button')
 
     button.addEventListener('click', (e) => {
+      console.log('clicked')
+
       const handsfree = new Handsfree({
-        hands: {
-          enabled: true,
-          // The maximum number of hands to detect [0 - 4]
-          maxNumHands: 2,
-
-          // Minimum confidence [0 - 1] for a hand to be considered detected
-          minDetectionConfidence: 0.5,
-
-          // Minimum confidence [0 - 1] for the landmark tracker to be considered detected
-          // Higher values are more robust at the expense of higher latency
-          minTrackingConfidence: 0.75
-        }
+        hands: true
       })
-
       handsfree.start()
+
+      // Scroll a little slower
+      handsfree.plugin.pinchScroll.enable()
+      handsfree.plugin.pinchScroll.config.speed = 2
     })
 
     if (!state.afterhand) {
       // From an event
       state.afterhand = true
+      app.on('tools-select', tool => {
+        console.log(tool)
+        state.tool = tool
+      })
       document.addEventListener('handsfree-data', event => {
         const data = event.detail
         if (!data.hands) return
@@ -49,7 +51,22 @@ window.options.handy = {
           const x = data.hands.landmarks[1][8].x
           const y = data.hands.landmarks[1][8].y
 
-          console.log('x:', x, 'y:', y)
+          // console.log('x:', x, 'y:', y)
+          //console.log(data.hands.pinchState[1][0])
+
+          // if pinched down run mousedown
+          if (data.hands.pinchState[1][0] == 'start') {
+            state.tool.events.mousedown({ clientX: x, clientY: y })
+          }
+          // if held run mousemove
+          if (data.hands.pinchState[1][0] == 'held') {
+            // console.log('mf hold on')
+            state.tool.events.mousemove({ clientX: x, clientY: y })
+          }
+          // if released run mouse up
+          if (data.hands.pinchState[1][0] == 'released') {
+            state.tool.events.mouseup({ clientX: x, clientY: y })
+          }
         }
       })
     }
