@@ -96,39 +96,40 @@ class Sent {
 
   static getColors () {
     const mood = this.getMood()
+    const color = []
     if (mood === 'happy') {
       //  lawn green, red, gold, yellow, dodger blue
-      const colors = ['#ffff', '#ffd700', '#7cfc00', '#FFFF00', '#1e90ff']
-      return colors
+      color.push('#ffff', '#ffd700', '#7cfc00', '#FFFF00', '#1e90ff')
+      return color
     } else if (mood === 'exuberant') {
       //  fuschia, hot pink, aqua, orange, purple
-      const colors = ['#FF00FF', '#00FFFF', '#ff1493', '#ffa500', '#800080']
-      return colors
+      color.push('#FF00FF', '#00FFFF', '#ff1493', '#ffa500', '#800080')
+      return color
     } else if (mood === 'energetic') {
       //  lime, firebrick, lawn green, turqoise, magenta
-      const colors = ['#00ff00', '#b22222', '#7cfc00', '#40e0d0', '#ff00ff']
-      return colors
+      color.push('#00ff00', '#b22222', '#7cfc00', '#40e0d0', '#ff00ff')
+      return color
     } else if (mood === 'sad') {
       //  navy, dark gray, dark blue, dim gray, seagreen
-      const colors = ['#000080', '#a9a9a9', '#00008b', '#696969', '#2e8b57']
-      return colors
+      color.push('#000080', '#a9a9a9', '#00008b', '#696969', '#2e8b57')
+      return color
     } else if (mood === 'contentment') {
       //  light pink, light sky blue, misty rose, coral, lavender
-      const colors = ['#ffb6c1', '#87cefa', '#ffe4e1', '#ff7f50', '#e6e6fa']
-      console.log(colors)
-      return colors
+      color.push('#ffb6c1', '#87cefa', '#ffe4e1', '#ff7f50', '#e6e6fa')
+      console.log(color)
+      return color
     } else if (mood === 'calm') {
       //  medium turquoise, cadet blue, azure, silver, lavender
-      const colors = ['#48d1cc', '#5f9ea0', '#f0ffff', '#C0C0C0', '#e6e6fa']
-      return colors
+      color.push('#48d1cc', '#5f9ea0', '#f0ffff', '#C0C0C0', '#e6e6fa')
+      return color
     } else if (mood === 'chill') {
       //  cornflower blue, sky blue, lavender, light steel blue, pale turquoise
-      const colors = ['#6495ed', '#00bfff', '#e6e6fa', '#b0c4de', '#afeeee']
-      return colors
+      color.push('#6495ed', '#00bfff', '#e6e6fa', '#b0c4de', '#afeeee')
+      return color
     } else if (mood === 'depressive') {
       //  black, gray, dark slate gray, whitesmoke, white
-      const colors = ['#000000', '#808080', '#2f4f4f', '#f5f5f5', '#ffffff']
-      return colors
+      color.push('#000000', '#808080', '#2f4f4f', '#f5f5f5', '#ffffff')
+      return color
     }
   }
 }
