@@ -155,6 +155,7 @@ main {
   height: 16vh;
   overflow-y: scroll;
   border-top: 2px solid white;
+  
 }
 
 #tool-info {
