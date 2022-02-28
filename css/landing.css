@@ -1,11 +1,25 @@
-  body{
-    background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); 
-}
+  /* body{ */
+    /* background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);  */
+/* } */
   
+  #landingpage{
+    position: fixed;
+    background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+    height: 100vh;
+    width: 100vw;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    overflow: hidden;
+    /* overflow-y: hidden; */
+    /* overflow-x: hidden; */
+  }
+
+
   .font-time{
 	color: white;
-  	font-size: 5em;
-  	font-family: Helvetica, sans-serif;
+  font-size: 5em;
+  font-family: Helvetica, sans-serif;
 	text-align: center;
     
 }
@@ -20,7 +34,7 @@
     color: white;
   	font-size: 2em;
   	font-family: Helvetica, sans-serif;
-	text-align: center; 
+	  text-align: center; 
   }
   
   .font-un{
@@ -125,6 +139,7 @@
     height: 5vh;
     border-radius: 20px 20px 20px 20px;
 	background: rgba(189, 185, 183, 0.6);
+  text-align: center;
   }
   
   @keyframes upDown {

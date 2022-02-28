@@ -1,67 +1,67 @@
-
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
   
 body {
-    background: linear-gradient(90.9deg, rgb(3, 195, 195) 0.3%, rgb(37, 84, 112) 87.8%);
-    width: 100vw;
-    height: 100vh;
-    font-family: "Barrio";
-    font-size: 2em;
+  background: linear-gradient(90.9deg, rgb(3, 195, 195) 0.3%, rgb(37, 84, 112) 87.8%);
+  width: 100vw;
+  height: 100vh;
+  font-family: "Barrio";
+  font-size: 2em;
+  overflow: hidden;
 }
   
 #paint-app {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
   
 @keyframes popup {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
   
 header {
-    position: absolute;
-    width: 98vw;
-    height: 5vh;
-    background: #1b385a;
-    top: 5%;
-    border-radius: 20px 20px 20px 20px;
-    align-items: center;
-    display: flex;    
+  position: absolute;
+  width: 98vw;
+  height: 5vh;
+  background: #1b385a;
+  top: 5%;
+  border-radius: 20px 20px 20px 20px;
+  align-items: center;
+  display: flex;    
 }
   
 header > * {
-    margin: 4px 10px;
+  margin: 4px 10px;
 }
   
 header img {
-    width: 0px;
-    height: 0px;
-    image-rendering: pixelated;
+  width: 0px;
+  height: 0px;
+  image-rendering: pixelated;
 }
   
 nav {
-    position: absolute;
-    display: flex;
-    padding: 10px;
-    top: 2%;
-    left: 87.5%;
+  position: absolute;
+  display: flex;
+  padding: 10px;
+  top: 2%;
+  left: 53.5%;
 }
   
 nav > .menu-item {
     margin-right: 20px;
-    position: absolute;
+    /* position: absolute; */
     width: 10vw;
     height: 10vh;
     background: rgba(71, 93, 117, 0.7);
@@ -76,11 +76,14 @@ nav > .menu-item {
 }
   
 nav > .sub-menu {
-    background-color: #76a176;
-    padding: 10px;
-    border: 2px solid #171717;
-    border-top-color: #fff;
-    border-left: none;
+  background-color: rgba(71, 93, 117, 0.7);
+  padding: 10px;
+  border: 2px solid #171717;
+  border-top-color: #fff;
+  border-left: none;
+  width: 10vw;
+  height: 8vh;
+  border-radius: 50%;
 }
   
 nav > .sub-menu > * {
@@ -127,7 +130,7 @@ nav > .sub-menu > *:hover {
     padding-top: 8px;
     padding-left: 10px;
     border-radius: 50%;
-    background: #d6f1bb;
+    background: rgba(71, 93, 117, 0.7);
     display: table;
     border: 2px solid #171717;
     border-top-color: #f3f3f3;
@@ -154,25 +157,25 @@ nav > .sub-menu > *:hover {
     100vh - 17vh = 83vh
   */
   #draw-area {
-    position: absolute;
-    top: 20%;
-    right: 3%;
-    width: 70vw;
-    height: 70vh;
-    background: white;
-    border-radius: 61% 16% 47% 64% / 29% 54% 33% 49% ;
-    overflow: auto;
+  position: absolute;
+  top: 20%;
+  right: 3%;
+  width: 70vw;
+  height: 70vh;
+  background: white;
+  border-radius: 61% 16% 47% 64% / 29% 54% 33% 49% ;
+  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
   }
   
   #layer-select {
+    display: none;
     width: 0vw;
   }
   
   #layer-select > * {
-    display: flex;
-    align-items: center;
-    padding: 0px;
-    cursor: pointer;
+    display: none;
   }
   
   #layer-select > *.selected {

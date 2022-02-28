@@ -8,6 +8,7 @@ body {
   height: 100vh;
   font-family: "Akronim";
   font-size: 2em;
+  overflow: hidden;
 }
 
 #paint-app {
@@ -48,13 +49,13 @@ nav {
   display: flex;
   padding: 10px;
   top: 7%;
-  left: 87.5%;
+  left: 60.5%;
 }
 
 nav > .menu-item {
   margin-right: 20px;
-  position: absolute;
-  width: 10vw;
+  /* position: absolute; */
+  width: 8vw;
   height: 10vh;
 	background: rgba(148, 177, 192, 0.7);
   padding-top: 25px;
@@ -73,6 +74,9 @@ nav > .sub-menu {
   border: 2px solid #171717;
   border-top-color: #fff;
   border-left: none;
+  width: 10vw;
+  height: 8vh;
+  border-radius: 50%;
 }
 
 nav > .sub-menu > * {
@@ -154,10 +158,13 @@ main {
   background: white;
   border-radius: 61% 16% 47% 64% / 29% 54% 33% 49% ;
   overflow: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #layer-select {
   width: 0vw;
+  display: none;
 }
 
 #layer-select > * {
