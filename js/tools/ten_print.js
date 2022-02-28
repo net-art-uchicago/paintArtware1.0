@@ -2,7 +2,7 @@
 window.tools.ten_print = {
   name: 'ten_print',
   icon: '/images/ten-print.png',
-  currentPos: [0, 0],
+  AllPos: [],
   state: {
     selected: false,
     mousePressed: false
@@ -19,7 +19,7 @@ window.tools.ten_print = {
     mousemove: function (e) {
       const state = window.tools.ten_print.state
       const mouse = C2D.eventToMouse(e)
-      const currentPos = window.tools.ten_print.currentPos
+      const allPos = window.tools.ten_print.AllPos
       let desiredWidth = 5
 
       try {
@@ -34,10 +34,21 @@ window.tools.ten_print = {
       const mouse_x = Math.floor(mouse.x / x_var) * x_var
       const mouse_y = Math.floor(mouse.y / y_var) * y_var
 
-      if (state.selected && state.mousePressed &&
-        (((Math.abs(mouse_x - currentPos[0]) >= 0)) ||
-        (Math.abs(mouse_y - currentPos[1]) >= 0))) {
-        window.tools.ten_print.currentPos = [mouse_x, mouse_y]
+      let clearanceX = true
+      let clearanceY = true
+      let clearance = true
+
+      for (let i = 0; i < allPos.length; i++) {
+        clearanceX = true
+        clearanceY = true
+        if ((Math.abs(mouseX - allPos[i][0]) < xVar)) { clearanceX = false }
+        if ((Math.abs(mouseY - allPos[i][1]) < yVar)) { clearanceY = false }
+
+        if (!clearanceX && !clearanceY) { clearance = false }
+      }
+
+      if (state.selected && state.mousePressed && clearance) {
+        window.tools.ten_print.AllPos.push([mouseX, mouseY])
         let add1, add2, add3
 
         if (Math.random() < 0.5) { add1 = desiredWidth } else { add1 = -desiredWidth }
