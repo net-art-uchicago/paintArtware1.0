@@ -27,7 +27,9 @@
     "oldSchoolColors",
     "strokeWidth",
     "recorder",
-    "saturationValue"
+    "textOptions",
+    "saturationValue",
+    "colorfulAudio"
   ],
   "functions": [
     "export",
