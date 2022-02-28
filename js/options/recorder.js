@@ -43,19 +43,17 @@ window.options.recorder = {
       mediaRecorder.stop()
       stream.getVideoTracks()[0].stop()
     })
-    // let recorder, stream
-
     async function startRecording () {
       stream = await navigator.mediaDevices.getDisplayMedia({
-        video: { mediaSource: 'screen' }
+        video: { mediaSource: 'canvas2d' }
       })
+      return stream
     }
 
     function createRecorder (stream, mimeType) {
-    // the stream data is stored in this array
       let recordedChunks = []
 
-      const mediaRecorder = new MediaRecorder(stream)
+      const mediaRecorder = new window.MediaRecorder(stream)
 
       mediaRecorder.ondataavailable = function (e) {
         if (e.data.size > 0) {
@@ -66,12 +64,11 @@ window.options.recorder = {
         saveFile(recordedChunks)
         recordedChunks = []
       }
-      mediaRecorder.start(200) // For every 200ms the stream data will be stored in a separate chunk.
+      mediaRecorder.start(200)
       return mediaRecorder
     }
-    let Blob
     function saveFile (recordedChunks) {
-      const blob = new Blob(recordedChunks, {
+      const blob = new window.Blob(recordedChunks, {
         type: 'video/webm'
       })
       const filename = window.prompt('Enter file name')
@@ -81,7 +78,7 @@ window.options.recorder = {
 
       document.body.appendChild(downloadLink)
       downloadLink.click()
-      URL.revokeObjectURL(blob) // clear from memory
+      URL.revokeObjectURL(blob)
       document.body.removeChild(downloadLink)
     }
 
