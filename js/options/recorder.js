@@ -9,16 +9,53 @@ window.options.recorder = {
     const div = document.createElement('div')
     div.innerHTML = `
     <html>
-    <b>Recording Buttons</b>
-    
+    <head>
+   
+    <style>
+    .title {
+      font-family: "Impact", Impact, sans-serif;
+    }
+    .start-button {
+      width: 70px;
+      height: 70px;
+      border: none;
+      border-radius: 100px;
+      outline: none;
+      background: #228b22;
+      color: white; 
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+    .start-button:hover {
+      background: #90EE90;
+    }
+    .stop-button {
+      width: 70px;
+      height: 70px;
+      border: none;
+      border-radius: 100px;
+      outline: none;
+      background: #B22222;
+      color: white; 
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+    .stop-button:hover {
+      background: #FF6347;
+    }
+    </style>
+    </head>
+    <body>
+    <div class = "title" > <b> Screen Recording Buttons: </b> </div>
     <div class="recorder">
-        <button id="start">
+        <button class="start-button" id="start"> 
           Start 
         </button>
-        <button id="stop" disabled>
+        <button class="stop-button" id="stop" disabled>
           Stop 
-        </button> 
-        </div>   
+        </button>
+        </div>  
+
     <html>
     
     `
