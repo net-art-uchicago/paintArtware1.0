@@ -33,7 +33,7 @@ This method can be used to classify the emotion of the face in image. It takes i
 ```
 If no face is detected, the function will return null.
 
-This is an asynchronous function, so it needs to be called in an [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) with the await keyword. 
+This is an asynchronous function, so to run it you can use an [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) with the await keyword. 
 
 Example usage: 
 ```js
@@ -48,7 +48,7 @@ static async exampleFunction () {
   // out: emotionString = 'happy'
  
   // for the verbose version:
-  const emotionProbabilities = await Sent.readFacialExpression(video, verbose = true)
+  const emotionProbabilities = await Sent.readFacialExpression(video, true)
   const angryProbability = emotionProbabilities.angry
   // out: angryProbability = 0.5
 }
@@ -59,7 +59,7 @@ This method can be used to score the sentiment of the given text with a value be
 
 Example usage:
 ```js
-Sent.textPredict('I hate your guts, but I love you', verbose=true)
+Sent.textPredict('I hate your guts, but I love you', true)
 
 Out:
   {
