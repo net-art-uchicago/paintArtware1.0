@@ -1,7 +1,7 @@
 /* global C2D */
 window.tools.sonicText = {
   name: 'Text(2Speech)',
-  icon: '/images/EXAMPLE.png', 
+  icon: '/images/EXAMPLE.png',
   state: {
     selected: false,
     mousePressed: false,
@@ -10,14 +10,9 @@ window.tools.sonicText = {
     talkingLoop: null, // initially null
     voice: 0,
     pitch: 1000,
-    rate: 2, // used to pick which voice we're using
+    rate: 2 // used to pick which voice we're using
   },
   events: {
-    // on mousedown:
-    // - set mousepressed to true,
-    // - set word to windows.tools.textOptions.text
-    // - instantiate the talking loop
-    // - increment voice
     mousedown: function () {
       const state = window.tools.sonicText.state
       state.mousePressed = true
@@ -27,18 +22,14 @@ window.tools.sonicText = {
       state.talkingLoop = setInterval(window.tools.sonicText.functions.talk, 100, state.text)
       state.voice++ // so that we pick a different voice next time, if possible
     },
-    // mouseup:
-    // - set mousePressed to false,
-    // - end the talking loop
     mouseup: function () {
       const state = window.tools.sonicText.state
+      state.mousePressed = false
       clearInterval(state.talkingLoop)
       // not strictly necessary, but it makes it clear what to
       // expect when interacting with a (currently unused) state.talkingLoop
       state.talkingLoop = null
     },
-    // when mousemove:
-    // - draw new word
     mousemove: function (e) {
       const state = window.tools.sonicText.state
       if (state.selected && state.mousePressed) {
@@ -46,7 +37,6 @@ window.tools.sonicText = {
         C2D.text(state.text, mouse.x, mouse.y, '-both')
       }
     }
-    // function that should be used to.. Talk.
   },
   functions: {
     talk: function (text) {
