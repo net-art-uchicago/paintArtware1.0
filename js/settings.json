@@ -1,23 +1,33 @@
 {
   "version": 1.0,
   "tools": [
+    "airBrush",
     "pencil",
     "oscCircles",
     "vignette",
+    "multiplePen",
+    "eraser",
     "smile",
     "concentricCircle",
     "rippleCircle",
-    "hackerText"
+    "hackerText",
+    "flowers",
+    "ten_print",
+    "glitch",
+    "rainbow"
   ],
   "filters": [
     "invert",
     "waves",
-    "rotate"
+    "pixel",
+    "rotate",
+    "saturation"
   ],
   "options": [
     "oldSchoolColors",
     "strokeWidth",
-    "recorder"
+    "recorder",
+    "saturationValue"
   ],
   "functions": [
     "export",
