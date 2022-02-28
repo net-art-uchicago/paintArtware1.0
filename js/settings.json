@@ -5,6 +5,8 @@
     "pencil",
     "oscCircles",
     "vignette",
+    "eraser",
+    "smile",
     "concentricCircle",
     "rippleCircle",
     "hackerText"
@@ -24,8 +26,5 @@
   "functions": [
     "export",
     "addLayer"
-  ],
-  "assets": [
-    "face-api"
   ]
 }
