@@ -1,5 +1,4 @@
-/* 2:07 */
-/* @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 @keyframes popup {
 0% { transform: translate(1px, 1px) rotate(0deg); }
 10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -19,84 +18,95 @@
   margin: 10px;
   font-family: 'Abel', sans-serif;
 }
+
 body {
-background: #C6DBF0;
+background: #B0E298;
 }
+
 #paint-app {
-    width: 100vw;
-    height: 100vh;
+
 }
 
 @keyframes rainbow {
   0% { background-position-x: -200%; }
   100% { background-position-x: 0%; }
 }
+
 header {
   float: center;
   width: 90%;
   height: 120px;
   border-radius: 40% 14% 28% 30% / 27% 26% 34% 32%;
-  background: #CFE8EF;
+  background: #F9F9F9;
   background-size: 300%;
   animation: popup;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 header h3 {
   font-size: 40px;
   text-align: center;
 }
+
 header h3:hover {
-  color: #B7CE63;
+  color: #F9F9F9;
 }
 header > * {
-  margin: 4px 8px;
+  margin: 4px 10px;
 }
+
 header img {
   width: 32px;
   height: 32px;
   image-rendering: pixelated;
+
 }
+
 nav {
   float: left;
   display: inline;
-  position: absolute;
-  top: 80px;
-  z-index: 2;
-}
-nav > .menu-item {
-  float: center;
-  display: inline;
-  border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
-  background-color: #ffff;
+
 }
 
-nav > .menu-item: hover{
-  background-color: #fffff;
+nav > .menu-item {
+  float: left;
+  border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
+  color: #3D3B8E;
+  background-color: #000000;
+
 }
 
 nav > .sub-menu {
   border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
   background-color: rgb(170,150,116);
+
 }
+
 nav > .sub-menu > * {
 font-size: 20px;
 }
 
+nav > .menu-item:hover,
 nav > .sub-menu > *:hover {
-    text-decoration: underline white 5px;
-    cursor: pointer;
+
 }
+
 main {
 width: 100%;
 height: inherit;
 position: absolute;
+
 }
+
 main > #tool-bar {
- background-color:#B7CE63;
+background-color: #F9F9F9;
+
 }
+
 #tool-bar {
+ background-color: #DFCC74;
  float: right;
  height: auto;
  width: 60px;
@@ -104,29 +114,32 @@ main > #tool-bar {
   flex-wrap: wrap;
   justify-content: flex-end;
 margin-right: 20px;
-position: absolute;
-right: 10px;
-z-index: 2;
 }
-/* #tool-bar:hover{ */
 
-/* } */
+#tool-bar:hover{
+
+}
+
 #tool-bar img {
   animation: popup;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 30% 70% 70% 30% / 30% 42% 58% 70%;
   width: 30px;
   height: 30px;
+
 }
+
 #tool-bar img.selected {
   border-top-color: #171717;
   border-left-color: #171717;
-  border-bottom-color: #F3F3F3;
-  border-right-color: #F3F3F3;
+  border-bottom-color: #f3f3f3;
+  border-right-color: #f3f3f3;
+
 }
+
 /*
   this bit could probably be written a little better,
   trying to fill the remaining space while keeping things responsive.
@@ -143,52 +156,30 @@ z-index: 2;
   border-radius: 20px;
   margin-top: 60px;
   position: relative;
-  top: -10%;
-  left: 0%;
   width: 70%;
   height: 83vh;
-  border: 4px inset #747B7A;
-  background-color: #FFFFFF;
+  border: 4px inset #747b7a;
+  background-color: #ffffff;
   border-width: 4px;
   border-radius: 40% 50% 14% 73% / 27% 26% 34% 42%;
   box-sizing: content-box;
-  /* background-image: */
+  background-image:
   background-size:10px 10px;
   background-position:0 0, 0 0, -5px -5px, 5px 5px;
   animation: popup;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+
+
 }
 
-#layer-select {
-    width: 0vw;
-    display: none;
-  }
-
-  #layer-select > * {
-    display: flex;
-    align-items: center;
-    padding: 0px;
-    cursor: pointer;
-  }
-
-  #layer-select > *.selected {
-    background-color: rgba(0, 0, 0, 0.25);
-  }
-
-  #layer-select input[type="text"] {
-    width: 0px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
 #tool-options {
   float: right;
   margin: 50px;
   width: 30%;
-  background: #586A6A;
+  background: #3D3B8E;
   top: 7%;
   left: 60%;
   border-radius: 61% 67% 47% 64% / 69% 96% 33% 55% ;
@@ -196,7 +187,10 @@ z-index: 2;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+
+
 }
+
 #tool-info {
   float: right;
   animation: popup;
@@ -207,8 +201,6 @@ z-index: 2;
   justify-content: center;
   height: 100px;
   border-radius: 81% 77% 82% 80% / 76% 92% 76% 86%;
-  background-color: #B7CE63;
+  background-color: #DFCC74;
+
 }
-/* white_check_mark */
-/* eyes */
-/* raised_hands */
