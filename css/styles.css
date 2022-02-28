@@ -1,17 +1,36 @@
+<<<<<<< HEAD
 * {
   box-sizing: border-box;
+=======
+
+* {
+  box-sizing: border-box;
+  border-radius: 25px;
+  margin: 10px;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
 
 body {
   margin: 0;
+<<<<<<< HEAD
   background-color: #bcbcbc;
+=======
+  background-color: #fffff;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
   font-family: sans-serif;
 }
 
 #paint-app {
+<<<<<<< HEAD
   width: 100vw;
   height: 100vh;
   border: 4px inset white;
+=======
+  margin: 20px;
+  width: 100vw;
+  height: 100vh;
+  border: 2px inset white;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
 
 @keyframes rainbow {
@@ -21,8 +40,17 @@ body {
 
 header {
   /* background-color: #000f78; */
+<<<<<<< HEAD
   background: linear-gradient(to left, #a0a, #0aa, #00a, #0a0, #aa0, #a00, #a0a);
   background-size: 200%;
+=======
+  float: center;
+  margin-top: 10px;
+  border-radius: 25px;
+  width: 80%;
+  background: linear-gradient(to left, #a0a, #0aa, #00a, #0a0, #aa0, #a00, #a0a);
+  background-size: 300%;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
   color: white;
   display: flex;
   align-items: center;
@@ -59,6 +87,10 @@ nav > .sub-menu {
 
 nav > .sub-menu > * {
   margin-bottom: 5px;
+<<<<<<< HEAD
+=======
+  background: #000;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
 
 nav > .menu-item:hover,
@@ -68,6 +100,10 @@ nav > .sub-menu > *:hover {
 }
 
 main {
+<<<<<<< HEAD
+=======
+  cursor: crosshair;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
   display: flex;
   align-items: flex-start;
   border-top: 2px solid white;
@@ -75,14 +111,27 @@ main {
 }
 
 #tool-bar {
+<<<<<<< HEAD
   border: 2px inset black;
   padding: 4px;
+=======
+  border-radius: 25px;
+  border: 2px inset black;
+  padding: 8px;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
   width: 6vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
+<<<<<<< HEAD
+=======
+#tool-bar:hover{
+  background-color: #9af5db;
+}
+
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 #tool-bar img {
   width: 32px;
   height: 32px;
@@ -91,7 +140,11 @@ main {
   border: 2px solid #171717;
   border-top-color: #f3f3f3;
   border-left-color: #f3f3f3;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  cursor: crosshair;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
 
 #tool-bar img.selected {
@@ -113,7 +166,14 @@ main {
   100vh - 17vh = 83vh
 */
 #draw-area {
+<<<<<<< HEAD
   position: relative;
+=======
+  border-radius: 20px;
+  margin: 15px;
+  position: relative;
+  overflow: auto;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
   width: 80vw;
   height: calc(83vh - 128px);
   border: 4px inset #747b7a;
@@ -136,7 +196,11 @@ main {
   display: flex;
   align-items: center;
   padding: 10px;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  cursor: crosshair;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
 
 #layer-select > *.selected {
@@ -151,14 +215,25 @@ main {
 }
 
 #tool-options {
+<<<<<<< HEAD
   padding: 20px 4px;
   height: 16vh;
   overflow-y: scroll;
   border-top: 2px solid white;
 
+=======
+  padding: 25px 4px;
+  height: 16vh;
+  overflow-y: scroll;
+  border-top: 2px solid white;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
 
 #tool-info {
   border: 2px inset black;
+<<<<<<< HEAD
   padding: 5px;
+=======
+  padding: 8px;
+>>>>>>> 630bb6ca80dbd1eb52808e9474cdb4cbaf86ac9b
 }
