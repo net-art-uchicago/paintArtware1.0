@@ -115,6 +115,7 @@ class Sent {
     } else if (mood === 'contentment') {
       //  light pink, light sky blue, misty rose, coral, lavender
       const colors = ['#ffb6c1', '#87cefa', '#ffe4e1', '#ff7f50', '#e6e6fa']
+      console.log(colors)
       return colors
     } else if (mood === 'calm') {
       //  medium turquoise, cadet blue, azure, silver, lavender
