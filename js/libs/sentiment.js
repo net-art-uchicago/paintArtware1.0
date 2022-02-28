@@ -2,9 +2,8 @@
 class Sent {
   static async loadModels () {
     // load the ml models
-    this._PATH_TO_MODELS = 'js/assets/models'
-    await faceapi.loadFaceExpressionModel(this._PATH_TO_MODELS)
-    await faceapi.loadSsdMobilenetv1Model(this._PATH_TO_MODELS)
+    await faceapi.loadFaceExpressionModel('/js/assets/models')
+    await faceapi.loadSsdMobilenetv1Model('/js/assets/models')
   }
 
   static textPredict () {}

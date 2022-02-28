@@ -2,10 +2,6 @@
 
 Sent (or `sentiment.js`) is a JavaScript library for evaluating the mood or sentiment of media in the browser. It consists of a set of methods (documented below) which accept inputs of different media, and return the sentiment. 
 
-## getting started
-
-Include the library and dependent scripts in your HTML file, and run Sent.loadModels() to load the machine learning models for the library. The path to the models is stored in Sent._PATH_TO_MODELS.
-
 ## API
 
 #### `readFacialExpression (image, [verbose])`
