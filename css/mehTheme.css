@@ -61,12 +61,21 @@ header img {
 nav {
   float: left;
   display: inline;
+  position: absolute;
+  top: 80px;
+  z-index: 2;
 }
 nav > .menu-item {
-  float: left;
+  float: center;
+  display: inline;
   border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
-  background-color: #B7CE63;
+  background-color: #ffff;
 }
+
+nav > .menu-item: hover{
+  background-color: #fffff;
+}
+
 nav > .sub-menu {
   border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
   background-color: rgb(170,150,116);
@@ -74,10 +83,10 @@ nav > .sub-menu {
 nav > .sub-menu > * {
 font-size: 20px;
 }
-nav > .menu-item:hover,
+
 nav > .sub-menu > *:hover {
     text-decoration: underline white 5px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 main {
 width: 100%;
@@ -153,18 +162,18 @@ margin-right: 20px;
     width: 0vw;
     display: none;
   }
-  
+
   #layer-select > * {
     display: flex;
     align-items: center;
     padding: 0px;
     cursor: pointer;
   }
-  
+
   #layer-select > *.selected {
     background-color: rgba(0, 0, 0, 0.25);
   }
-  
+
   #layer-select input[type="text"] {
     width: 0px;
     white-space: nowrap;
@@ -200,17 +209,3 @@ margin-right: 20px;
 /* white_check_mark */
 /* eyes */
 /* raised_hands */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
