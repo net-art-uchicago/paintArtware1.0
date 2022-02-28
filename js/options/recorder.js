@@ -1,4 +1,3 @@
-/* global C2D */
 window.options.recorder = {
   name: 'recorder',
 
