@@ -27,7 +27,8 @@
     "oldSchoolColors",
     "strokeWidth",
     "saturationValue",
-    "colorfulAudio"
+    "colorfulAudio",
+    "randomizedAudio"
   ],
   "functions": [
     "export",
