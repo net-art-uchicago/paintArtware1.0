@@ -1,5 +1,5 @@
 
-class Sent {
+class SpotifyMoodColors {
   static generateRandomString () {
     let result = ''
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -130,7 +130,7 @@ class Sent {
   }
 }
 
-window.Sent = Sent
+window.SpotifyMoodColors = SpotifyMoodColors
 //  check if there's other hashes with access_token
 if (window.location.hash.includes('access_token')) {
   const hashArray = window.location.hash.split('=')
