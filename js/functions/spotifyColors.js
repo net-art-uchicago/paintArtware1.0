@@ -9,7 +9,7 @@ window.functions.spotifyColors = {
       const answer = window.confirm('Do you want to authenticate Spotify?')
       console.log(answer)
       if (answer) {
-        window.Sent.spotifyAuth('e948779f89ae493887fd4aa46fb8e8c7', 'http://localhost:8000')
+        window.Sent.spotifyAuth('d41b83c2f2224356bd94fbf83924e6d4', 'https://artware.app')
       }
     } else {
       const colors = await window.Sent.getColors()
