@@ -1,16 +1,20 @@
+/* global app */
+
 window.functions.spotifyColors = {
   name: 'spotify colors',
   type: 'Edit',
-  run: function () {
-    const spotifyAuth = window.Sent.getSpotifyAuth('d41b83c2f2224356bd94fbf83924e6d4', 'https://artware.app')
-    if (spotifyAuth) {
-      const colors = window.Sent.getColors()
-      while (window.options.oldSchoolColors.state.colors.length > 0) {
-        window.options.oldSchoolColors.state.colors.pop()
+  run: async function () {
+    const token = window.localStorage.getItem('spotifyToken')
+    if (!token) {
+      const answer = window.confirm('Do you want to authenticate Spotify?')
+      console.log(answer)
+      if (answer) {
+        window.Sent.spotifyAuth('e948779f89ae493887fd4aa46fb8e8c7', 'http://localhost:8000')
       }
-      window.options.oldSchoolColors.state.colors.push(colors)
     } else {
-      return console.error('Spotify auth failed')
+      const colors = await window.Sent.getColors()
+      window.options.oldSchoolColors.state.colors = colors
+      app.displayOptionUI(window.options.oldSchoolColors)
     }
   }
 }
