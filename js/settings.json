@@ -28,7 +28,8 @@
     "oldSchoolColors",
     "strokeWidth",
     "textOptions",
-    "saturationValue"
+    "saturationValue",
+    "colorfulAudio"
   ],
   "functions": [
     "export",
