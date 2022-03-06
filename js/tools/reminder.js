@@ -54,7 +54,6 @@ window.tools.reminder = {
         var utterThis = new window.SpeechSynthesisUtterance(text)
         utterThis.voice = state.synth.getVoices()[state.voice]
         utterThis.pitch = state.basePitch + ((state.basePitch / 2) * Math.random())
-        // relies on Sent!
         utterThis.rate = state.baseRate + (Sent.textPredict(state.text) / 1.75) * Math.random()
         // used for debugging while awaiting the arrival of Sent
         // utterThis.rate = state.baseRate + (Math.random() * 2 - 1) * Math.random()
