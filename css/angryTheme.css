@@ -158,8 +158,8 @@ nav > .menu-item {
   animation-timing-function: linear;
 }
 
-nav > .menu-item: hover{
-  background-color: #fffff;
+nav > .menu-item:hover{
+  background-color: #ffffff;
 }
 
 nav > .sub-menu {

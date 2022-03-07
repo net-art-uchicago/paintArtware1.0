@@ -11,6 +11,9 @@ class Artware {
     window.filters = {}
     window.functions = {}
     window.options = {}
+    this.events = {
+      'tools-select': []
+    }
 
     // if dev past an "elements" object with selectors for specific
     // elements on the page to inject our modules into, create an
@@ -141,6 +144,8 @@ class Artware {
     tool.state.selected = true
     // if the tool has a custom cursor icon, apply it
     this.updateCursor(tool.cursor)
+
+    this.events['tools-select'].forEach((f) => f(tool))
   }
 
   // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*
@@ -255,7 +260,7 @@ class Artware {
       const subMenu = document.createElement('div')
       subMenu.className = 'sub-menu'
       subMenu.setAttribute('name', item)
-      subMenu.style.position = 'absolute'
+      subMenu.style.position = 'fixed'
       subMenu.style.zIndex = 10
       subMenu.style.display = 'none'
       this.ele.menu.appendChild(subMenu)
@@ -305,6 +310,12 @@ class Artware {
     const ele = opt.run()
     this.ele.options.innerHTML = ''
     this.ele.options.appendChild(ele)
+  }
+
+  // event listener system
+
+  on (event, func) {
+    this.events[event].push(func)
   }
 }
 

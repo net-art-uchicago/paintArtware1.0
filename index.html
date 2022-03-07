@@ -28,7 +28,7 @@
   <body>
 
     <div id="landingpage"></div>
-
+    
     <section id="paint-app">
       <header>
 
@@ -47,7 +47,15 @@
     <script src="/js/libs/Maths.js"></script>
     <script src="/js/libs/canvas2d.js"></script>
     <script src="/js/libs/artware.js"></script>
-    <script src="/js/libs/sentiment.js"></script>
+    <script src="/js/libs/sentibot.js"></script>
+    <script src="/js/libs/UserMedia.js"></script>
+    <script src="https://unpkg.com/handsfree@8.5.1/build/lib/handsfree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+    <script src="/js/libs/spotifyMoodColors.js"></script>
     <script src="/js/landingpage.js"></script>
     <script>
       const app = new Artware({
@@ -61,6 +69,8 @@
           info: '#tool-info'
         }
       })
+
+      Sent.loadModels('/js/assets/models')
     </script>
   </body>
 </html>
