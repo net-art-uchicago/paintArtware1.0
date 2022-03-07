@@ -7,6 +7,11 @@
     <title>paintArtware</title>
     <meta name="description" content="Experimental online drawing application by Media Art and Design students at the University of Chicago">
 
+    <link href='https://fonts.googleapis.com/css?family=Frijole' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+    <link href ='https://fonts.googleapis.com/css2?family=Abel&display=swap' rel = "stylesheet">
+
     <!-- social media stuff -->
     <meta property="og:title" content="paintArtware">
     <meta property="og:description" content="Experimental online drawing application by Media Art and Design students at the University of Chicago">
@@ -17,17 +22,17 @@
     <meta name="twitter:site" content="@nbriz">
 
     <link rel="icon" type="image/png" href="/images/app-icon.png">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/landing.css">
 
   </head>
   <body>
 
+    <div id="landingpage"></div>
+    
     <section id="paint-app">
       <header>
-        <div>
-          <img src="/images/app-icon.png" alt="paintArtware icon">
-        </div>
-        <h3>untitled - paintArtware</h3>
+
+        <h3>how are you feeling now?</h3>
       </header>
       <nav id="main-menu"></nav>
       <main>
@@ -36,16 +41,22 @@
         <section id="layer-select"></section>
       </main>
       <section id="tool-options"></section>
-      <section id="tool-info">Welcome!</section>
+      <section id="tool-info"></section>
     </section>
 
     <script src="/js/libs/Maths.js"></script>
     <script src="/js/libs/canvas2d.js"></script>
     <script src="/js/libs/artware.js"></script>
-    <script src="/js/libs/sentiment.js"></script>
+    <script src="/js/libs/sentibot.js"></script>
+    <script src="/js/libs/UserMedia.js"></script>
     <script src="https://unpkg.com/handsfree@8.5.1/build/lib/handsfree.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 
-    </script>
+    <script src="/js/libs/spotifyMoodColors.js"></script>
+    <script src="/js/landingpage.js"></script>
     <script>
       const app = new Artware({
         settings: '/js/settings.json',
@@ -58,6 +69,8 @@
           info: '#tool-info'
         }
       })
+
+      Sent.loadModels('/js/assets/models')
     </script>
   </body>
 </html>

@@ -1,16 +1,22 @@
-{
+ {
   "version": 1.0,
   "tools": [
     "airBrush",
     "pencil",
+    "highlighter",
     "oscCircles",
     "vignette",
+    "multiplePen",
     "eraser",
     "smile",
     "concentricCircle",
     "rippleCircle",
     "hackerText",
-    "bezier"
+    "bezier",
+    "flowers",
+    "ten_print",
+    "glitch",
+    "rainbow"
   ],
   "filters": [
     "invert",
@@ -22,11 +28,19 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
+    "recorder",
+    "handy",
+    "strokeOpacity",
+    "textOptions",
     "saturationValue",
-    "handy"
+    "colorfulAudio",
+    "randomizedAudio",
+    "paintData"
   ],
   "functions": [
     "export",
-    "addLayer"
+    "addLayer",
+    "spotifyColors"
   ]
 }
+

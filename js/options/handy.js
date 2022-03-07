@@ -50,7 +50,7 @@ window.options.handy = {
 
       const handsfree = new Handsfree({
         hands: true,
-        
+
         // The maximum number of hands to detect [0 - 4]
         maxNumHands: 1,
 
@@ -81,20 +81,18 @@ window.options.handy = {
 
         // Show a log of x,y coordinates or right index finger
         if (data.hands.landmarksVisible[1]) {
-          const x = (1- data.hands.landmarks[1][8].x) * C2D.width
+          const x = (1 - data.hands.landmarks[1][8].x) * C2D.width
           const y = data.hands.landmarks[1][8].y * C2D.height
-          handycursor.style.left = `${x-25}px`
-          handycursor.style.top = `${y-25}px`
-
-
+          handycursor.style.left = `${x - 25}px`
+          handycursor.style.top = `${y - 25}px`
 
           // console.log('x:', x, 'y:', y)
-          //console.log(data.hands.pinchState[1][0])
+           console.log(data.hands.pinchState[1][0])
 
           // if pinched down run mousedown
           if (data.hands.pinchState[1][0] == 'start') {
             state.tool.events.mousedown({ clientX: x, clientY: y })
-          
+
           // if released run mouseup
           } else if (data.hands.pinchState[1][0] == 'released') {
             state.tool.events.mouseup({ clientX: x, clientY: y })
@@ -102,7 +100,7 @@ window.options.handy = {
           // if released run mouse up
           } else {
             state.tool.events.mousemove({ clientX: x, clientY: y })
-            console.log(x,y)
+            console.log(x, y)
           }
         }
       })
