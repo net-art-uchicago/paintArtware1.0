@@ -222,6 +222,7 @@ z-index: 2;
   animation-timing-function: linear;
 }
 #tool-info {
+  display: none;
   float: right;
   animation: popup;
   animation-duration: 6s;
