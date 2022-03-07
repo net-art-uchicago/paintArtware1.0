@@ -31,7 +31,7 @@ function decideTheme () {
   // <link rel="stylesheet" href="/css/peacefulTheme.css">
   const linkTag = document.createElement('link')
   linkTag.setAttribute('rel', 'stylesheet')
-  linkTag.setAttribute('href', '/css/mehTheme.css') // recreating line 31, loads whatever css its instructed to
+  linkTag.setAttribute('href', '/css/joyTheme.css') // recreating line 31, loads whatever css its instructed to
   linkTag.addEventListener('load', () => {
     document.querySelector('#landingpage').remove()// remove the landing page
   }) // dont load whatever is in function until after line 38 loads
