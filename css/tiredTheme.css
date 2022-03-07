@@ -230,3 +230,7 @@ nav > .sub-menu > *:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+#tool-info {
+  display: none;
+}

@@ -127,6 +127,7 @@ class SpotifyMoodColors {
       console.log('this is ', mood)
     }
     console.log(color)
+    window.alert('your mood from your top song is' + mood)
   }
 }
 

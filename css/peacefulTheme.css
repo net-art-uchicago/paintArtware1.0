@@ -8,7 +8,7 @@ body {
   height: 100vh;
   font-family: "Akronim";
   font-size: 2em;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #paint-app {
@@ -31,7 +31,7 @@ header {
   border-radius: 20px 20px 20px 20px;
   align-items: center;
   display: flex;
-  
+
 }
 
 header > * {
@@ -69,6 +69,11 @@ nav > .menu-item {
 }
 
 nav > .sub-menu {
+  /* position: absolsute; */
+  /* z-index: 10; */
+  /* display: block; */
+  /* left: 2.58px; */
+  /* top: 92.3986px; */
   background-color: #76a176;
   padding: 10px;
   border: 2px solid #171717;
@@ -110,7 +115,7 @@ main {
   padding-left: 40px;
   padding-right: 30px;
 
-  
+
   animation: popup;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -206,6 +211,7 @@ main {
 }
 
 #tool-info {
+  display:none;
   width: 42px;
   height: 42px;
   padding-top: 8px;
