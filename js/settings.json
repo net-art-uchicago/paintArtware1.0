@@ -32,7 +32,8 @@
     "strokeOpacity",
     "textOptions",
     "saturationValue",
-    "colorfulAudio"
+    "colorfulAudio",
+    "randomizedAudio"
   ],
   "functions": [
     "export",

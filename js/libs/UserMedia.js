@@ -1,4 +1,5 @@
 class UserMedia {
+
   static async getStream (options) {
     // check if stream exists
     if (typeof this.stream !== 'undefined') { return this.stream } else {
@@ -16,8 +17,10 @@ class UserMedia {
     }
   }
 
-  static async recordAudio (inputAudioId, outputAudioId, record) {
-    if (typeof this.mediaRecorder !== 'undefined') {
+  static async recordAudio (inputAudioId, outputAudioId, record, option) {
+    if(typeof this.option == 'undefined')
+      this.option = option
+    if (typeof this.mediaRecorder !== 'undefined' && this.option == option) {
       if (record) { this.mediaRecorder.start() } else { this.mediaRecorder.stop() }
     } else {
       const stream = await this.getStream({ audio: true })
@@ -62,23 +65,32 @@ class UserMedia {
 
         savedAudio.src = audioSrc
       }
+
+      this.option = option
     }
   }
 
-  static async getAudioIntensity (savedAudio) {
+  static createContext(savedAudio){
+    let audioElement = document.getElementById(savedAudio)
+    if(audioElement.duration == 'Infinity')
+      return Error
+
     const context = new AudioContext()
-    const analyser = new AnalyserNode(context, { fftSize: 256 })
+    this.analyser = new AnalyserNode(context, { fftSize: 256 })
     const gain = new GainNode(context, { gain: 0.5 })
 
     // pass it into the audio context
-    const audioElement = document.getElementById(savedAudio)
     const source = context.createMediaElementSource(audioElement)
-    source.connect(gain).connect(analyser).connect(context.destination)
+    
+    source.connect(gain).connect(this.analyser).connect(context.destination)
+  }
 
+  static getAudioIntensity() {
+    
     // creating the array with intensities
-    const bufferLength = analyser.frequencyBinCount
+    const bufferLength = this.analyser.frequencyBinCount
     const inputArray = new Uint8Array(bufferLength)
-    analyser.getByteFrequencyData(inputArray)
+    this.analyser.getByteFrequencyData(inputArray)
 
     return inputArray
   }
