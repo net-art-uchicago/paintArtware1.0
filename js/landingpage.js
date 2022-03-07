@@ -24,6 +24,8 @@ async function connect1 () {
   const ActualHTML = await dataFromFile.text()
   document.querySelector('#landingpage').innerHTML = ActualHTML
   clock()
+  const video = document.getElementById('videoElement')
+  video.srcObject = await UserMedia.getStream()
 }// to get the contents in landingtemp on index
 connect1()
 
@@ -39,13 +41,18 @@ connect1()
 }*/
 
 async function decideTheme () {
-  Sent.loadModels('/js/assets')
-  const video = Document.getElementById('videoElement')
-  video.srcObject = await UserMedia.getStream()
-  console.log(video)
+  // Sent.loadModels('/js/assets/models')
+  const video = document.getElementById('videoElement')
+  // video.srcObject = await UserMedia.getStream()
   // for the non-verbose version
+  console.log(video.srcObject)
+  
+
   const emotionString = await Sent.readFacialExpression(video)
+  console.log(typeof Sent.readFacialExpression)
+
   // out: emotionString = 'happy'
+  console.log(emotionString)
 
   // <link rel="stylesheet" href="/css/peacefulTheme.css">
   const linkTag = document.createElement('link')
