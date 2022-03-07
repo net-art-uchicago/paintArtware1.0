@@ -28,6 +28,7 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
+    "recorder",
     "strokeOpacity",
     "textOptions",
     "saturationValue",
