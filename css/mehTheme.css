@@ -1,0 +1,214 @@
+/* 2:07 */
+/* @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap'); */
+@keyframes popup {
+0% { transform: translate(1px, 1px) rotate(0deg); }
+10% { transform: translate(-1px, -2px) rotate(-1deg); }
+20% { transform: translate(-3px, 0px) rotate(1deg); }
+30% { transform: translate(3px, 2px) rotate(0deg); }
+40% { transform: translate(1px, -1px) rotate(1deg); }
+50% { transform: translate(-1px, 2px) rotate(-1deg); }
+60% { transform: translate(-3px, 1px) rotate(0deg); }
+70% { transform: translate(3px, 1px) rotate(-1deg); }
+80% { transform: translate(-1px, -1px) rotate(1deg); }
+90% { transform: translate(1px, 2px) rotate(0deg); }
+100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+* {
+  box-sizing: border-box;
+  border-radius: 25px;
+  margin: 10px;
+  font-family: 'Abel', sans-serif;
+}
+body {
+background: #C6DBF0;
+}
+#paint-app {
+    width: 100vw;
+    height: 100vh;
+}
+
+@keyframes rainbow {
+  0% { background-position-x: -200%; }
+  100% { background-position-x: 0%; }
+}
+header {
+  float: center;
+  width: 90%;
+  height: 120px;
+  border-radius: 40% 14% 28% 30% / 27% 26% 34% 32%;
+  background: #CFE8EF;
+  background-size: 300%;
+  animation: popup;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+header h3 {
+  font-size: 40px;
+  text-align: center;
+}
+header h3:hover {
+  color: #B7CE63;
+}
+header > * {
+  margin: 4px 8px;
+}
+header img {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+nav {
+  float: left;
+  display: inline;
+  position: absolute;
+  top: 80px;
+  z-index: 2;
+}
+nav > .menu-item {
+  float: center;
+  display: inline;
+  border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
+  background-color: #ffff;
+}
+
+nav > .menu-item: hover{
+  background-color: #fffff;
+}
+
+nav > .sub-menu {
+  border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
+  background-color: rgb(170,150,116);
+}
+nav > .sub-menu > * {
+font-size: 20px;
+}
+
+nav > .sub-menu > *:hover {
+    text-decoration: underline white 5px;
+    cursor: pointer;
+}
+main {
+width: 100%;
+height: inherit;
+position: absolute;
+}
+main > #tool-bar {
+ background-color:#B7CE63;
+}
+#tool-bar {
+ float: right;
+ height: auto;
+ width: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+margin-right: 20px;
+position: absolute;
+right: 10px;
+z-index: 2;
+}
+/* #tool-bar:hover{ */
+
+/* } */
+#tool-bar img {
+  animation: popup;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: #FFFFFF;
+  border-radius: 30% 70% 70% 30% / 30% 42% 58% 70%;
+  width: 30px;
+  height: 30px;
+}
+#tool-bar img.selected {
+  border-top-color: #171717;
+  border-left-color: #171717;
+  border-bottom-color: #F3F3F3;
+  border-right-color: #F3F3F3;
+}
+/*
+  this bit could probably be written a little better,
+  trying to fill the remaining space while keeping things responsive.
+  44px = approximate height of header
+  41px = approximate height of nav bar
+  33px = approximate height of #tool-info
+  10px = just a little extra for comfort
+  44 + 41 + 33 + 10 = 128
+  17vh = #tool-options height
+  100vh - 17vh = 83vh
+*/
+#draw-area {
+  float: left;
+  border-radius: 20px;
+  margin-top: 60px;
+  position: relative;
+  top: -10%;
+  left: 0%;
+  width: 70%;
+  height: 83vh;
+  border: 4px inset #747B7A;
+  background-color: #FFFFFF;
+  border-width: 4px;
+  border-radius: 40% 50% 14% 73% / 27% 26% 34% 42%;
+  box-sizing: content-box;
+  /* background-image: */
+  background-size:10px 10px;
+  background-position:0 0, 0 0, -5px -5px, 5px 5px;
+  animation: popup;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#layer-select {
+    width: 0vw;
+    display: none;
+  }
+
+  #layer-select > * {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    cursor: pointer;
+  }
+
+  #layer-select > *.selected {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  #layer-select input[type="text"] {
+    width: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+#tool-options {
+  float: right;
+  margin: 50px;
+  width: 30%;
+  background: #586A6A;
+  top: 7%;
+  left: 60%;
+  border-radius: 61% 67% 47% 64% / 69% 96% 33% 55% ;
+  animation: popup;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#tool-info {
+  float: right;
+  animation: popup;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  font-size: 20px;
+  justify-content: center;
+  height: 100px;
+  border-radius: 81% 77% 82% 80% / 76% 92% 76% 86%;
+  background-color: #B7CE63;
+}
+/* white_check_mark */
+/* eyes */
+/* raised_hands */

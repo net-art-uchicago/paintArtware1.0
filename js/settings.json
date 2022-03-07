@@ -3,6 +3,7 @@
   "tools": [
     "airBrush",
     "pencil",
+    "highlighter",
     "oscCircles",
     "vignette",
     "multiplePen",
@@ -11,6 +12,7 @@
     "concentricCircle",
     "rippleCircle",
     "hackerText",
+    "bezier",
     "flowers",
     "ten_print",
     "glitch",
@@ -27,6 +29,7 @@
     "oldSchoolColors",
     "strokeWidth",
     "recorder",
+    "strokeOpacity",
     "textOptions",
     "saturationValue",
     "colorfulAudio"
