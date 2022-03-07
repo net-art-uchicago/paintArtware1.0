@@ -6,13 +6,14 @@ window.options.textOptions = {
   // and tentatively desiring to link the color of the overwhelm blobs to it's
   // contents
   state: {
-    text: 'doop!',
+    text: '',
     numberOfHorrors: 20 // the higher this number is, the greater the overwhelm
   },
 
   run: function () {
     const state = window.options.textOptions.state
-
+    // initialize doop if needed
+    if (state.text === '') state.text = 'doop!'
     // ---------~~~~~~~~~~~~~~~~~
     // --------| Rainbow Chaos |~
     // ---------~~~~~~~~~~~~~~~~~
