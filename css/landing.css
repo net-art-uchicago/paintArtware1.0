@@ -16,9 +16,9 @@ body{
   /* overflow-x: hidden; */
 }
 
-#videoElement{
-  display: hidden;
-}
+/* #videoElement{ */
+  /* display: hidden; */
+/* } */
 
 
 .font-time{
