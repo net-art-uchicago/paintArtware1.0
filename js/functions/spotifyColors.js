@@ -9,10 +9,10 @@ window.functions.spotifyColors = {
       const answer = window.confirm('Do you want to authenticate Spotify?')
       console.log(answer)
       if (answer) {
-        window.Sent.spotifyAuth('d41b83c2f2224356bd94fbf83924e6d4', 'https://artware.app')
+        window.SpotifyMoodColors.spotifyAuth('d41b83c2f2224356bd94fbf83924e6d4', 'https://artware.app')
       }
     } else {
-      const colors = await window.Sent.getColors()
+      const colors = await window.SpotifyMoodColors.getColors()
       window.options.oldSchoolColors.state.colors = colors
       app.displayOptionUI(window.options.oldSchoolColors)
     }
