@@ -3,6 +3,7 @@
   "tools": [
     "airBrush",
     "pencil",
+    "highlighter",
     "oscCircles",
     "vignette",
     "multiplePen",
@@ -27,6 +28,7 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
+    "strokeOpacity",
     "textOptions",
     "saturationValue",
     "colorfulAudio"
