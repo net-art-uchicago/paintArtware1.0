@@ -1,4 +1,4 @@
-{
+ {
   "version": 1.0,
   "tools": [
     "airBrush",
@@ -16,7 +16,8 @@
     "flowers",
     "ten_print",
     "glitch",
-    "rainbow"
+    "rainbow",
+    "reminder"
   ],
   "filters": [
     "invert",
@@ -29,6 +30,7 @@
     "oldSchoolColors",
     "strokeWidth",
     "recorder",
+    "handy",
     "strokeOpacity",
     "textOptions",
     "saturationValue",
@@ -41,3 +43,4 @@
     "spotifyColors"
   ]
 }
+

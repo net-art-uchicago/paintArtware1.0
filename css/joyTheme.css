@@ -1,4 +1,12 @@
-
+/*
+colors:
+yellow: #faf03c;
+green: #39db95;
+purple: #b669ff;
+pink: #f41cff;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
 @keyframes popup {
 0% { transform: translate(1px, 1px) rotate(0deg); }
 10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -16,12 +24,15 @@
 * {
   box-sizing: border-box;
   border-radius: 25px;
-  margin: 8px;
-  font-family: 'Abel', sans-serif;
+  padding: 3px;
+  margin: 2px;
+  font-family: 'Luxurious Roman', cursive;
+
 }
 
 body {
-background: #B0E298;
+
+background: #b669ff;
 }
 
 #paint-app {
@@ -29,31 +40,28 @@ background: #B0E298;
     height: 100vh;
 }
 
-@keyframes rainbow {
-  0% { background-position-x: -200%; }
-  100% { background-position-x: 0%; }
-}
 
 header {
   float: center;
   width: 90%;
-  height: 130px;
+  height: 150px;
   border-radius: 40% 14% 28% 30% / 27% 26% 34% 32%;
-  background: #F9F9F9;
+  background:#f41cff;
   background-size: 300%;
   animation: popup;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
 header h3 {
-  font-size: 40px;
+  font-family: 'Moo Lah Lah', cursive;
+  font-size: 70px;
   text-align: center;
 }
 
 header h3:hover {
-  color: #B0E298;
+  color: #faf03c;
 }
 
 header > * {
@@ -67,20 +75,35 @@ header img {
 }
 
 nav {
-  float: left;
+  animation: popup;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-radius: 77% 15% 31% 28% / 60% 52% 49% 29%;
+  background-color: #404240;
+  display: inline;
+  position: absolute;
+  padding: 25px;
+  margin-left: 1000px;
+  margin-top: 400px;
+  height: 250px;
+  width: 120px;
+  z-index: 3;
+  float: right;
   display: inline;
 }
 
 nav > .menu-item {
   float: left;
-  border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
-  color: #3D3B8E;
-  background-color: #000000;
+  font-size: 25px;
+  align-items: center;
+ color: #f41cff;
 }
 
 nav > .sub-menu {
   border-radius:40% 14% 28% 35% / 27% 26% 34% 42%;
-  background-color: rgb(170,150,116);
+  margin: 0px;
+  background-color: #39db95F2;
 }
 
 nav > .sub-menu > * {
@@ -89,8 +112,7 @@ font-size: 20px;
 
 nav > .menu-item:hover,
 nav > .sub-menu > *:hover  {
-    text-decoration: underline white 5px;
-    cursor: pointer; 
+  color: #faf03c;
 }
 
 
@@ -101,12 +123,11 @@ position: absolute;
 }
 
 main > #tool-bar {
-background-color: #F9F9F9;
+background-color: ##39db95F2
 }
 
 #tool-bar {
- background-color: #DFCC74;
- float: right;
+ float: left;
  height: auto;
  width: 60px;
   display: flex;
@@ -148,13 +169,14 @@ margin-right: 20px;
   float: left;
   border-radius: 20px;
   margin-top: 60px;
-  position: relative;
+  position: sticky;
   width: 70%;
   height: 83vh;
   border: 4px inset #747B7A;
   background-color: #FFFFFF;
   border-width: 4px;
-  border-radius: 40% 50% 14% 73% / 27% 26% 34% 42%;
+  overflow: auto;
+  border-radius: 87% 93% 53% 28% / 79% 30% 49% 87%;
   box-sizing: content-box;
   /* background-image: */
   background-size:10px 10px;
@@ -168,19 +190,21 @@ margin-right: 20px;
 #layer-select {
     width: 0vw;
     display: none;
-}
-  
+  }
+
+
 #layer-select > * {
     display: flex;
     align-items: center;
     padding: 0px;
     cursor: pointer;
-}
-  
-#layer-select > *.selected {
+  }
+
+  #layer-select > *.selected {
     background-color: rgba(0, 0, 0, 0.25);
-}
-  
+  }
+
+
 #layer-select input[type="text"] {
     width: 0px;
     white-space: nowrap;
@@ -190,10 +214,10 @@ margin-right: 20px;
 
 #tool-options {
   float: right;
-  margin: 50px;
+  margin: 20px;
   width: 30%;
-  background: #3D3B8E;
-  top: 7%;
+  background: #39db95F2;
+  top: 10%;
   left: 60%;
   border-radius: 61% 67% 47% 64% / 69% 96% 33% 55% ;
   animation: popup;
@@ -209,7 +233,15 @@ margin-right: 20px;
   animation-timing-function: linear;
   font-size: 20px;
   justify-content: center;
-  height: 100px;
+  height: 170px;
+  width: 200px;
   border-radius: 81% 77% 82% 80% / 76% 92% 76% 86%;
-  background-color: #DFCC74;
+  background-color: #faf03cF2;
+}
+
+#tool-info h4 {
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  color: #b669ff;
 }
