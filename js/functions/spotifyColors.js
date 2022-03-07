@@ -13,6 +13,8 @@ window.functions.spotifyColors = {
       }
     } else {
       const colors = await window.SpotifyMoodColors.getColors()
+      const mood = await window.SpotifyMoodColors.getMood()
+      window.alert('this is the mood of your top song in the last 6 weeks' + mood + 'check your color palette!')
       window.options.oldSchoolColors.state.colors = colors
       app.displayOptionUI(window.options.oldSchoolColors)
     }
