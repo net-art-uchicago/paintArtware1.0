@@ -255,7 +255,7 @@ class Artware {
       const subMenu = document.createElement('div')
       subMenu.className = 'sub-menu'
       subMenu.setAttribute('name', item)
-      subMenu.style.position = 'absolute'
+      subMenu.style.position = 'fixed'
       subMenu.style.zIndex = 10
       subMenu.style.display = 'none'
       this.ele.menu.appendChild(subMenu)

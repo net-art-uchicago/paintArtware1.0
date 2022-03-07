@@ -72,8 +72,8 @@ nav > .menu-item {
   background-color: #ffff;
 }
 
-nav > .menu-item: hover{
-  background-color: #fffff;
+nav > .menu-item > :hover{
+  background-color: #FFFFFF;
 }
 
 nav > .sub-menu {
