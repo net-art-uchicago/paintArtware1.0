@@ -34,8 +34,10 @@
     "strokeOpacity",
     "textOptions",
     "saturationValue",
-    "saturationValue",
-    "colorfulAudio"
+    "colorfulAudio",
+    "randomizedAudio",
+    "paintData",
+    "c2dFilters"
   ],
   "functions": [
     "export",
