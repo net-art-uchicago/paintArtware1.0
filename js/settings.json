@@ -34,7 +34,8 @@
     "saturationValue",
     "colorfulAudio",
     "randomizedAudio",
-    "paintData"
+    "paintData",
+    "c2dFilters"
   ],
   "functions": [
     "export",
