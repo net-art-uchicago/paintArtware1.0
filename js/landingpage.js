@@ -39,15 +39,13 @@ connect1()
 }*/
 
 async function decideTheme () {
-  Sent.loadModels()
+  Sent.loadModels('/js/assets')
   const video = Document.getElementById('videoElement')
-  video.srcObject = UserMedia.getStream
-
+  video.srcObject = await UserMedia.getStream()
+  console.log(video)
   // for the non-verbose version
   const emotionString = await Sent.readFacialExpression(video)
   // out: emotionString = 'happy'
-
-
 
   // <link rel="stylesheet" href="/css/peacefulTheme.css">
   const linkTag = document.createElement('link')

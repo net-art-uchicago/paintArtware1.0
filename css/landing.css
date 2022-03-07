@@ -1,7 +1,7 @@
-/* body{ */
-  /* overflow: hidden; */
+body{
+  overflow: hidden;
   /* background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);  */
-/* } */
+}
 
 #landingpage{
   position: fixed;
@@ -16,9 +16,9 @@
   /* overflow-x: hidden; */
 }
 
-#videoElement{
-  display: hidden;
-}
+/* #videoElement{ */
+  /* display: hidden; */
+/* } */
 
 
 .font-time{
