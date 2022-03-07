@@ -27,14 +27,66 @@ async function connect1 () {
 }// to get the contents in landingtemp on index
 connect1()
 
-function decideTheme () {
+/*async function facialScanner() {
+  Sent.loadModels()
+  const video = Document.getElementById('hypotheticalVideoID')
+ 
+  // for the non-verbose version
+  const emotionString = await Sent.readFacialExpression(video)
+  // out: emotionString = 'happy'
+
+
+}*/
+
+async function decideTheme () {
+  Sent.loadModels()
+  const video = Document.getElementById('videoElement')
+  video.srcObject = UserMedia.getStream
+
+  // for the non-verbose version
+  const emotionString = await Sent.readFacialExpression(video)
+  // out: emotionString = 'happy'
+
+
+
   // <link rel="stylesheet" href="/css/peacefulTheme.css">
   const linkTag = document.createElement('link')
   linkTag.setAttribute('rel', 'stylesheet')
-  linkTag.setAttribute('href', '/css/mehTheme.css') // recreating line 31, loads whatever css its instructed to
+
+  if(emotionString == 'happy'){ 
+  linkTag.setAttribute('href', '/css/joyTheme.css') // recreating line 31, loads whatever css its instructed to
+  } else if (emotionString == 'sad'){
+    linkTag.setAttribute('href', '/css/sadTheme.css') // recreating line 31, loads whatever css its instructed to
+  } else if (emotionString == 'neutral'){
+    linkTag.setAttribute('href', '/css/mehTheme.css') // recreating line 31, loads whatever css its instructed to
+  } else if (emotionString == 'surprised'){
+    linkTag.setAttribute('href', '/css/peacefulTheme.css') // recreating line 31, loads whatever css its instructed to
+  } else if(emotionString == 'angry'){
+    linkTag.setAttribute('href', '/css/angryTheme.css') // recreating line 31, loads whatever css its instructed to
+  } else if (emotionString == 'disgusted'){
+    linkTag.setAttribute('href', '/css/tiredTheme.css') // recreating line 31, loads whatever css its instructed to
+  } else if (emotionString == 'fearful'){//??
+    linkTag.setAttribute('href', '/css/peacefulTheme.css') // recreating line 31, loads whatever css its instructed to
+  }
+
   linkTag.addEventListener('load', () => {
     document.querySelector('#landingpage').remove()// remove the landing page
   }) // dont load whatever is in function until after line 38 loads
   // maes 38 happen b4 36
   document.head.appendChild(linkTag)// add linkTag to html file
 }
+
+/*function decideTheme () {
+
+
+
+  // <link rel="stylesheet" href="/css/peacefulTheme.css">
+  const linkTag = document.createElement('link')
+  linkTag.setAttribute('rel', 'stylesheet')
+  linkTag.setAttribute('href', '/css/peacefulTheme.css') // recreating line 31, loads whatever css its instructed to
+  linkTag.addEventListener('load', () => {
+    document.querySelector('#landingpage').remove()// remove the landing page
+  }) // dont load whatever is in function until after line 38 loads
+  // maes 38 happen b4 36
+  document.head.appendChild(linkTag)// add linkTag to html file
+}*/

@@ -168,25 +168,25 @@ margin-right: 20px;
 #layer-select {
     width: 0vw;
     display: none;
-  }
+}
   
-  #layer-select > * {
+#layer-select > * {
     display: flex;
     align-items: center;
     padding: 0px;
     cursor: pointer;
-  }
+}
   
-  #layer-select > *.selected {
+#layer-select > *.selected {
     background-color: rgba(0, 0, 0, 0.25);
-  }
+}
   
-  #layer-select input[type="text"] {
+#layer-select input[type="text"] {
     width: 0px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+}
 
 #tool-options {
   float: right;

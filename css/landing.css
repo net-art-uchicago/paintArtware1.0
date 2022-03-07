@@ -1,82 +1,87 @@
-  body{
-    overflow: hidden;
-    /* background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);  */
+/* body{ */
+  /* overflow: hidden; */
+  /* background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);  */
+/* } */
+
+#landingpage{
+  position: fixed;
+  background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+  height: 100vh;
+  width: 100vw;
+  left: 0px;
+  top: 0px;
+  z-index: 100;
+  overflow: hidden;
+  /* overflow-y: hidden; */
+  /* overflow-x: hidden; */
 }
-  
-  #landingpage{
-    position: fixed;
-    background: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
-    height: 100vh;
-    width: 100vw;
-    left: 0px;
-    top: 0px;
-    z-index: 100;
-    overflow: hidden;
-    /* overflow-y: hidden; */
-    /* overflow-x: hidden; */
-  }
+
+#videoElement{
+  display: hidden;
+}
 
 
-  .font-time{
+.font-time{
 	color: white;
   font-size: 5em;
   font-family: Helvetica, sans-serif;
 	text-align: center;
-    
+
 }
-  .font-date{
-    color: white;
-  	font-size: 2em;
-  	font-family: Helvetica, sans-serif;
-	text-align: center; 
-  }
-  
-  .font-d{
-    color: white;
-  	font-size: 2em;
-  	font-family: Helvetica, sans-serif;
-	  text-align: center; 
-  }
-  
-  .font-un{
-   	color: white;
-  	font-size: 1.4em;
-  	font-family: Helvetica, sans-serif;
-  	font-weight: bold;
-	text-align: center; 
-  }
-  
-  .font-new{
-   	color: black;
-/*     font-family: 'Flavors'; */
-    font-family: 'Frijole';
-    font-size: 2.5em;
+
+.font-date{
+  color: white;
+	font-size: 2em;
+  font-family: Helvetica, sans-serif;
 	text-align: center;
-    padding-top: 20px;
-  }
-  
-  .rect{
-    position: fixed;
-    width: 100vw;
-    height: 50vh;
-    }
-  
-  .semicircle{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    width: 25vw;
-    height: 50vh;
-    border-radius: 150px 150px 0 0;
-    transform: translate(-50%, -50%);
-		background: rgba(204, 223, 246, 0.9);
-  }
-  
-  @keyframes popup {
-  0%{
-    transform: scale(0.5);
-  }
-  50%{
+}
+
+.font-d{
+  color: white;
+	font-size: 2em;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+.font-un{
+  color: white;
+	font-size: 1.4em;
+  font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+.font-new{
+  color: black;
+/*     font-family: 'Flavors'; */
+  font-family: 'Frijole';
+  font-size: 2.5em;
+	text-align: center;
+  padding-top: 20px;
+}
+
+.rect{
+  position: fixed;
+  width: 100vw;
+  height: 50vh;
+}
+
+.semicircle{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 25vw;
+  height: 50vh;
+  border-radius: 150px 150px 0 0;
+  transform: translate(-50%, -50%);
+	background: rgba(204, 223, 246, 0.9);
+}
+
+@keyframes popup {
+0%{
+  transform: scale(0.5);
+}
+50%{
     transform: scale(1.2);
   }
   60%{
@@ -89,19 +94,19 @@
     transform: scale(1);
   }
   }
-  
+
   .phone{
    	position: absolute;
   	top: 10%;
     left: 32%;
     width: 35vw;
-    height: 80vh; 
+    height: 80vh;
     border-radius: 50px 50px 50px 50px;
 	background: rgba(189, 185, 183, 0.3);
     animation: popup;
     animation-duration: 5s;
   }
-  
+
   .strokes{
     position: absolute;
     top: 70%;
@@ -111,7 +116,7 @@
     transform: translate(-50%, -50%);
 	background: rgba(243, 232, 182, 0.6);
   }
-  
+
   .stroke1{
     position: absolute;
     top: 75%;
@@ -121,7 +126,7 @@
     transform: translate(-50%, -50%);
     background: pink;
   }
-  
+
   .stroke2{
     position: absolute;
     top: 80%;
@@ -131,7 +136,7 @@
     transform: translate(-50%, -50%);
 	background: rgba(192, 145, 233, 0.6);
   }
-  
+
   .dismiss{
     position: absolute;
     top: 83%;
@@ -142,14 +147,14 @@
 	background: rgba(189, 185, 183, 0.6);
   text-align: center;
   }
-  
+
   @keyframes upDown {
     0% { top: 0%;
       	 filter: blur(15px);}
     100% { top: calc(100% - 2vh);
       		filter: blur(15px);}
   }
-  
+
   .strokeAni{
     position: absolute;
     top: 80%;
@@ -158,7 +163,7 @@
     height: 2vh;
     transform: translate(-50%, -50%);
 	background: rgba(236, 174, 141, 0.6);
-    
+
     animation-name: upDown;
     animation-duration: 8s;
     animation-delay: 0s;
