@@ -33,7 +33,8 @@
     "textOptions",
     "saturationValue",
     "colorfulAudio",
-    "randomizedAudio"
+    "randomizedAudio",
+    "paintData"
   ],
   "functions": [
     "export",
