@@ -28,11 +28,11 @@ window.tools.ten_print = {
         desiredWidth = 5
       }
 
-      const x_var = 2 * desiredWidth
-      const y_var = 6 * desiredWidth
+      const xVar = 2 * desiredWidth
+      const yVar = 6 * desiredWidth
 
-      const mouse_x = Math.floor(mouse.x / x_var) * x_var
-      const mouse_y = Math.floor(mouse.y / y_var) * y_var
+      const mouseX = Math.floor(mouse.x / xVar) * xVar
+      const mouseY = Math.floor(mouse.y / yVar) * yVar
 
       let clearanceX = true
       let clearanceY = true
@@ -57,12 +57,12 @@ window.tools.ten_print = {
 
         if (Math.random() < 0.5) { add3 = desiredWidth } else { add3 = -desiredWidth }
 
-        C2D.line(mouse_x, mouse_y, (mouse_x + add1),
-          (mouse_y - 2 * desiredWidth))
-        C2D.line(mouse_x, mouse_y, (mouse_x + add2),
-          (mouse_y + 2 * desiredWidth))
-        C2D.line((mouse_x + add2), (mouse_y + 2 * desiredWidth),
-          (mouse_x + add2 + add3), (mouse_y + 4 * desiredWidth))
+        C2D.line(mouseX, mouseY, (mouseX + add1),
+          (mouseY - 2 * desiredWidth))
+        C2D.line(mouseX, mouseY, (mouseX + add2),
+          (mouseY + 2 * desiredWidth))
+        C2D.line((mouseX + add2), (mouseY + 2 * desiredWidth),
+          (mouseX + add2 + add3), (mouseY + 4 * desiredWidth))
       }
     }
   }
