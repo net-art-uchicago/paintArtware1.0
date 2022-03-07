@@ -37,6 +37,7 @@
   ],
   "functions": [
     "export",
-    "addLayer"
+    "addLayer",
+    "spotifyColors"
   ]
 }
