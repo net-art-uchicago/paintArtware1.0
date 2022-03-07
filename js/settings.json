@@ -5,12 +5,17 @@
     "pencil",
     "oscCircles",
     "vignette",
+    "multiplePen",
     "eraser",
     "smile",
     "concentricCircle",
     "rippleCircle",
     "hackerText",
-    "bezier"
+    "bezier",
+    "flowers",
+    "ten_print",
+    "glitch",
+    "rainbow"
   ],
   "filters": [
     "invert",
@@ -22,7 +27,9 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
-    "saturationValue"
+    "textOptions",
+    "saturationValue",
+    "colorfulAudio"
   ],
   "functions": [
     "export",
