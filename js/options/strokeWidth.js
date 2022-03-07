@@ -1,6 +1,6 @@
 /* global C2D */
 window.options.strokeWidth = {
-  name: 'stroke width',
+  name: 'stroke-width',
   state: {
     width: 1
   },

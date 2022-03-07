@@ -15,13 +15,11 @@ window.options.strokeOpacity = {
           align-items: center;
           margin: 0 10px;
         }
-
         .stroke-opacity > span {
           margin-right: 10px;
           width: 38px;
         }
       </style>
-
       <div class="stroke-opacity">
         <span>${opacity}</span>
         <input type="range" min="0" max="100" opacity="${opacity}">
@@ -36,8 +34,6 @@ window.options.strokeOpacity = {
       C2D.ctx.globalAlpha = num
       span.textContent = num
     })
-
-    // C2D.ctx.lineJoin = 'round'
 
     return div
   }
