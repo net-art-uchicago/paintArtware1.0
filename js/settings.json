@@ -3,6 +3,7 @@
   "tools": [
     "airBrush",
     "pencil",
+    "highlighter",
     "oscCircles",
     "vignette",
     "multiplePen",
@@ -11,6 +12,7 @@
     "concentricCircle",
     "rippleCircle",
     "hackerText",
+    "bezier",
     "flowers",
     "ten_print",
     "glitch",
@@ -26,12 +28,16 @@
   "options": [
     "oldSchoolColors",
     "strokeWidth",
+    "recorder",
+    "strokeOpacity",
     "textOptions",
     "saturationValue",
-    "colorfulAudio"
+    "colorfulAudio",
+    "randomizedAudio"
   ],
   "functions": [
     "export",
-    "addLayer"
+    "addLayer",
+    "spotifyColors"
   ]
 }

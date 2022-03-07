@@ -2,8 +2,7 @@
 window.options.colorfulAudio = {
   name: 'colorful audio',
   state: {
-    selected: false,
-    randomNum: 0
+    selected: false
   },
   run: function () {
     const div = document.createElement('div')
@@ -36,64 +35,64 @@ window.options.colorfulAudio = {
       </div>
     `
 
+    function subColToHex(c) {
+      let hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    function rgbToHex(r, g, b) {
+      return "#" + subColToHex(r) + subColToHex(g) + subColToHex(b)
+    }
+
     function soundtoColor(){
       const savedSound = document.getElementById('savedAudio')
-      const randomNum = window.options.colorfulAudio.state.randomNum
-      let time = savedSound.currentTime
-      const duration = savedSound.duration
-      const pixels = C2D.getPixels()
-      const screenWidth = C2D.width
-      const portion = (C2D.height / 100)
 
-      let partialRow = 1
-      let accumulator = 1
-      let currentColor = 3
+      //For some reason, the initial duration is always 'Infinity', so
+      // I added this exception handling
 
-      if (time > 0 < 1) { time = 1 }
-
-      const soundMultiplier = (savedSound.volume *
-        time / duration)
-
-      for (let i = 0; i < pixels.length; i++) {
-        if (i >= (screenWidth * partialRow)) {
-          partialRow++
-          if (accumulator >= portion) {
-            currentColor += 4
-            accumulator = 0
-          }
-          accumulator++
-        }
-
-        const colorList = [parseInt(currentColor * soundMultiplier),
-          parseInt(randomNum * currentColor * soundMultiplier),
-          parseInt((1 - randomNum) * currentColor * soundMultiplier)]
-
-        for (let i = 0; i < colorList.length; i++) {
-          if (colorList[i] > 255) { 
-            colorList[i] = 255 
-            window.options.colorfulAudio.state.randomNum = Math.random()
-          } 
-          else if (colorList[i] < 0) { 
-            colorList[i] = 0
-            window.options.colorfulAudio.state.randomNum = Math.random()
-          }
-        }
-
-        pixels[i].r = colorList[0]
-        pixels[i].g = colorList[1]
-        pixels[i].b = colorList[2]
-        pixels[i].a = 255
+      let intensities;
+      try{
+        intensities = UserMedia.getAudioIntensity()
+      }
+      catch{
+        intensities = UserMedia.getAudioIntensity()
       }
 
-      C2D.setPixels(pixels)
+      let total = 0
+      let parameters = 0
+      for(let i = 0; i < intensities.length; i++){
+        parameters++
+        total += intensities[i]
+      }
+
+      let screenColor = parseInt(2.2 * total / parameters)
+      if (screenColor > 255)
+        screenColor = 255
+      
+      console.log(screenColor)
+
+      const grd = C2D.ctx.createRadialGradient((C2D.width / 2), (C2D.height / 2), 
+          50, (C2D.width / 2), (C2D.height / 2), (C2D.width / 2))
+      
+
+      grd.addColorStop(0, rgbToHex(screenColor, 
+          parseInt((255 - screenColor) / 2), 255 - screenColor));
+      grd.addColorStop(1, "black");
+
+      C2D.ctx.fillStyle = grd
+      C2D.rect(0,0, C2D.width, C2D.height)
 
       if(!savedSound.paused){
-        setTimeout(soundtoColor, 400)
+        setTimeout(soundtoColor, 100)
       }
     }
 
     function colorSounds () {
+
       const savedSound = document.getElementById('savedAudio')
+      if(!UserMedia.analyser)
+        UserMedia.createContext('savedAudio')
+
       savedSound.onplaying = () => {
         soundtoColor()
       }
@@ -107,13 +106,12 @@ window.options.colorfulAudio = {
       if (window.options.colorfulAudio.state.selected) {
         btn.innerHTML = state1
         window.options.colorfulAudio.state.selected = false
-        UserMedia.recordAudio(null, null, false)
+        UserMedia.recordAudio(null, null, false, "c")
         colorSounds()
       } else {
         btn.innerHTML = state2
         window.options.colorfulAudio.state.selected = true
-        window.options.colorfulAudio.state.randomNum = Math.random()
-        UserMedia.recordAudio('inputAudio', 'savedAudio', true)
+        UserMedia.recordAudio('inputAudio', 'savedAudio', true, "c")
       }
     })
 
