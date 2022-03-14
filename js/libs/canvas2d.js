@@ -166,6 +166,11 @@ class C2D {
     this.ctx.putImageData(imageData, 0, 0)
   }
 
+  static setColors (x, y) {
+    C2D.fill = x
+    C2D.stroke = y
+  }
+
   static ellipse (x, y, w, h) {
     this.ctx.beginPath()
     this.ctx.ellipse(x, y, w, h || w, 0, 2 * Math.PI, false)
@@ -210,6 +215,117 @@ class C2D {
         throw new Error(`Expected style value of 'stroke', 'fill', 'both', or
         '-both', but was recieved ${style}.`)
     }
+  }
+
+  static save () {
+    const ctx = this.ctx
+    this._stack = []
+    const state = {}
+    for (const property in ctx) {
+      if (property === 'canvas') { continue }
+      if (typeof ctx[property] === 'function') { continue }
+      state[property] = ctx[property]
+    }
+    this._stack.push(state)
+  }
+
+  static restore () {
+    const state = this._stack.pop() || {}
+    for (const property in state) {
+      this.ctx[property] = state[property]
+    }
+  }
+
+  static resize (width, height) {
+    // create canvas copy
+    const canvasCopy = document.createElement('canvas')
+    canvasCopy.width = this.width
+    canvasCopy.height = this.height
+    const ctxCopy = canvasCopy.getContext('2d')
+    ctxCopy.drawImage(this.canvas, 0, 0)
+    // resize canvas
+    this.save()
+    this.width = width
+    this.height = height
+    // scale and draw copy back onto canvas
+    this.ctx.drawImage(canvasCopy, 0, 0, width, height)
+    this.restore()
+  }
+
+  static rgb2hsv (r, g, b) {
+    // convert rgb value to hsv
+    r /= 255
+    g /= 255
+    b /= 255
+
+    const max = Math.max(r, g, b)
+    const min = Math.min(r, g, b)
+    let h = max
+    let s = max
+    const v = max
+    const d = max - min
+    s = max === 0 ? 0 : d / max
+
+    if (max === min) {
+      h = 0 // achromatic
+    } else {
+      switch (max) {
+        case r:
+          h = (g - b) / d + (g < b ? 6 : 0)
+          break
+        case g:
+          h = (b - r) / d + 2
+          break
+        case b:
+          h = (r - g) / d + 4
+          break
+      }
+      h /= 6
+    }
+    return [h, s, v]
+  }
+
+  static hsv2rgb (h, s, v) {
+    // convert hsv value to rgb
+    let r, g, b
+    const i = Math.floor(h * 6)
+    const f = h * 6 - i
+    const p = v * (1 - s)
+    const q = v * (1 - f * s)
+    const t = v * (1 - (1 - f) * s)
+    switch (i % 6) {
+      case 0:
+        r = v
+        g = t
+        b = p
+        break
+      case 1:
+        r = q
+        g = v
+        b = p
+        break
+      case 2:
+        r = p
+        g = v
+        b = t
+        break
+      case 3:
+        r = p
+        g = q
+        b = v
+        break
+      case 4:
+        r = t
+        g = p
+        b = v
+        break
+      case 5:
+        r = v
+        g = p
+        b = q
+        break
+    }
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)]
   }
 }
 

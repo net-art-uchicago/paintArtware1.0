@@ -28,31 +28,34 @@ window.options.strokeOptions = {
         <span class = "spanOpacity">${opacity}</span>
         <input type="range" class = "inputOpacity" min="0" max="100" opacity="${opacity}">
 
-        <span class = "spanWidth>${width}</span>
+        <span class = "spanWidth">${width}</span>
         <input type="range" class = "inputWidth" min="1" max="100" value="${width}">
       </div>
     `
 
-    const spanOpacity = div.querySelector('.spanOpacity')
-    const sliderOpacity = div.querySelector('.inputOpacity')
-    sliderOpacity.addEventListener('.inputOpacity', (e) => {
+    const spanOpacity = div.getElementsByClassName('spanOpacity')
+    const sliderOpacity = div.getElementsByClassName('inputOpacity')
+
+    const spanWidth = div.getElementsByClassName('spanWidth')
+    const sliderWidth = div.getElementsByClassName('inputWidth')
+
+    sliderOpacity[0].addEventListener('input', (e) => {
       const numOpacity = (Number(e.target.value))/100
-      console.log(numOpacity)
+      // console.log(numOpacity)
       window.options.strokeOptions.state.opacity = numOpacity
       C2D.ctx.globalAlpha = numOpacity
-      spanOpacity.textContent = numOpacity
+      spanOpacity[0].textContent = numOpacity
+      console.log(numOpacity, spanOpacity.textContent)
     })
 
-    // const spanWidth = div.querySelector('.spanWidth')
-    // const sliderWidth = div.querySelector('.inputWidth')
-    // sliderWidth.addEventListener('.inputWidth', (e) => {
-    //   const numWidth = Number(e.target.value)
-    //   window.options.strokeWidth.state.width = numWidth
-    //   C2D.ctx.lineWidth = numWidth
-    //   spanWidth.textContent = numWidth
-    // })
-
-    // C2D.ctx.lineJoin = 'round'
+    sliderWidth[0].addEventListener('input', (e) => {
+      const numWidth = Number(e.target.value)
+      window.options.strokeOptions.state.width = numWidth
+      C2D.ctx.lineWidth = numWidth
+      spanWidth[0].textContent = numWidth
+      C2D.ctx.lineJoin = 'round'
+      console.log(numWidth, spanWidth[0].textContent)
+    })
 
     return div
 

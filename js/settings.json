@@ -1,18 +1,38 @@
 {
   "version": 1.0,
   "tools": [
+    "airBrush",
     "pencil",
     "highlighter",
     "oscCircles",
-    "vignette"
+    "vignette",
+    "multiplePen",
+    "eraser",
+    "smile",
+    "concentricCircle",
+    "rippleCircle",
+    "hackerText",
+    "bezier",
+    "flowers",
+    "ten_print",
+    "glitch",
+    "rainbow"
   ],
   "filters": [
     "invert",
-    "waves"
+    "waves",
+    "pixel",
+    "rotate",
+    "saturation"
   ],
   "options": [
     "oldSchoolColors",
-    "strokeOptions"
+    "strokeOptions",
+    "recorder",
+    "textOptions",
+    "saturationValue",
+    "colorfulAudio",
+    "randomizedAudio"
   ],
   "functions": [
     "export",
