@@ -28,10 +28,9 @@
   ],
   "options": [
     "oldSchoolColors",
-    "strokeWidth",
+    "strokeOptions",
     "recorder",
     "handy",
-    "strokeOpacity",
     "textOptions",
     "saturationValue",
     "colorfulAudio",
