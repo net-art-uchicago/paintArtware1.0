@@ -33,6 +33,7 @@ The primary purpose of option modules is to create custom UI (user interface) el
 
 You could use a more *declarative* approach like this:
 ```js
+/* global app */
 window.options.textField = {
   name: 'text options',
   state: {
@@ -61,7 +62,7 @@ window.options.textField = {
 
 Or a more *imperative* approach like this:
 ```js
-/* global C2D */
+/* global app */
 window.options.textField = {
   name: 'text options',
   state: {

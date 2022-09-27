@@ -15,8 +15,11 @@ Your filter's object should contain the following properties:
 
 | property | type | description |
 |:---:|:---:|:---:|
-| `name` | string | the display name as it will appear in the app's filters menu |
+| `name` | string | the display name as it will appear in the app's menu |
+| `menu` | string | the menu to place this function in, for example 'File' or 'Edit'  |
 | `run` | function | the function to execute when the user chooses this filter from the menu |
+
+**NOTE**: If you chosen a `menu` name which hasn't yet been declared in the Artware framework's constructor (declared at the bottom of the app's `index.html`) you will also need to make sure to define the new menu item there.
 
 Once you've finished creating your JavaScript file containing a filter object you can add it to the Artware app by updating the app's `/js/settings.json` file and adding your filter's name (which should also match your filename) as a string in the setting's `filters` array. Then refresh your app and you should see your new filter appear in the app's filters menu.
 
@@ -27,12 +30,12 @@ Once you've finished creating your JavaScript file containing a filter object yo
 While you can *technically* use this function to execute any arbitrary code when the user selects your filter from the menu, the purpose of these filter functions is to apply some algorithmic process to the pixels currently in the canvas, which can be done using the Canvas API directly (see MDN's docs on [Pixel manipulation with canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)), for example:
 
 ```js
+/* global app */
 window.filters.grayscale = {
   name: 'grayscale',
+  menu: 'Edit',
   run: function () {
-    const canvas = document.querySelector('canvas')
-    const ctx = canvas.getContext('2d')
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+    const imageData = app.ctx.getImageData(0, 0, app.canvas.width, app.canvas.height)
     const data = imageData.data
     for (let i = 0; i < data.length; i += 4) {
         const avg = (data[i] + data[i + 1] + data[i + 2]) / 3
@@ -40,23 +43,7 @@ window.filters.grayscale = {
         data[i + 1] = avg // green
         data[i + 2] = avg // blue
     }
-    ctx.putImageData(imageData, 0, 0)
-  }
-}
-```
-
-The same effect could also be accomplished with a little less code using the `C2D.getPixels()` and `C2D.setPixels()` methods in the [cavnas2d.js](https://github.com/net-art-uchicago/paintArtware1.0/blob/main/docs/C2D.md) library.
-
-```js
-window.filters.grayscale = {
-  name: 'grayscale',
-  run: function () {
-    const pixels = C2D.getPixels()
-    pixels.forEach(pxl => {
-      const avg = (pxl.r + pxl.b + pxl.g) / 3
-      pxl.r = pxl.g = pxl.b = avg
-    })
-    C2D.setPixels(pixels)
+    app.ctx.putImageData(imageData, 0, 0)
   }
 }
 ```
