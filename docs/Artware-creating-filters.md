@@ -20,11 +20,11 @@ Your filter's object should contain the following properties:
 | `menu` | string | the menu to place this function in, for example 'File' or 'Edit'  |
 | `run` | function | the function to execute when the user chooses this filter from the menu |
 
-**NOTE**: If you chosen a `menu` name which hasn't yet been declared in the Artware framework's constructor (declared at the bottom of the app's `index.html`) you will also need to make sure to define the new menu item there.
+**NOTE**: If you've chosen a `menu` name which hasn't yet been declared in the Artware framework's constructor (declared at the bottom of the app's `index.html`) you will also need to make sure to define the new menu item there.
 
 Once you've finished creating your JavaScript file containing a filter object you can add it to the Artware app by updating the app's `/js/settings.json` file and adding your filter's name (which should also match your filename) as a string in the setting's `filters` array. Then refresh your app and you should see your new filter appear in the app's filters menu.
 
-**NOTE**: your browser may cash the `/js/settings.json` file, if this happens you'll need to replace the cached file with the new one by requesting it directly in a separate tab in your browser, for example, by visiting: http://localhost:8000/js/settings.json (replacing '8000' with your local development server's port number)
+**NOTE**: your browser may cash the `/js/settings.json` file, if this happens you'll need to replace the cached file with the new one by requesting it directly in a separate tab in your browser, for example, by visiting: http://localhost:8000/js/settings.json (replacing '8000' with your local development server's port number, if you are running a server on the default port 80 than you can simply visit http://localhost/js/settings.json)
 
 ### the `run` function
 
