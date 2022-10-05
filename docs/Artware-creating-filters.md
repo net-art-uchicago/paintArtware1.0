@@ -4,6 +4,7 @@ Assuming you have an artware.js project setup, start by creating a new JavaScrip
 ```js
 window.filters.EXAMPLE = {
   name: 'my example filter',
+  menu: 'Edit',
   run: function () {
     // your code here
   }
