@@ -2,6 +2,7 @@
 
 Assuming you have an artware.js project setup, start by creating a new JavaScript file in the `/js/tools` directory which looks like this:
 ```js
+/* global app */
 window.tools.EXAMPLE = {
   name: 'my example tool',
   icon: '/images/EXAMPLE.png',
@@ -55,18 +56,18 @@ Where `EVENT_NAME` should be a valid [window event](https://developer.mozilla.or
 ```js
 events: {
   mousedown: function () {
-    window.tools.EXAMPLE.state.mousePressed = true
+    this.state.mousePressed = true
   },
   mouseup: function () {
-    window.tools.EXAMPLE.state.mousePressed = false
+    this.state.mousePressed = false
   },
   mousemove: function (e) {
-    const state = window.tools.EXAMPLE.state
-    if (state.selected && state.mousePressed) {
-      const mouse = C2D.eventToMouse(e)
-      C2D.ellipse(mouse.x, mouse.y, 50)
+    // if this tool is selected AND the mouse is pressed
+    if (this.state.selected && this.state.mousePressed) {
+      const mouse = app.eventToMouse(e)
+      // draw a box
+      app.ctx.rect(mouse.x, mouse.y, 10, 10)
     }
   }
 }
 ```
-*NOTE: the example above makes use so the `C2D` object, which assumes you're working on an Artware project that includes the [cavnas2d.js](https://github.com/net-art-uchicago/paintArtware1.0/blob/main/docs/C2D.md) library*

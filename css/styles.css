@@ -1,0 +1,80 @@
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+/* boiler plate CSS "reset" code */
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+/* menu styles */
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+
+nav {
+  margin: 10px;
+  border: 2px solid blue;
+  display: flex;
+}
+
+nav > .menu-item {
+  margin: 10px;
+}
+
+nav > .menu-item:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+nav > .sub-menu {
+  background: white;
+  border: 1px solid blue;
+  padding: 12px;
+}
+
+nav > .sub-menu > div:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+/* brushes/tool-bar styles */
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+
+#tools {
+  margin: 10px;
+  border: 2px solid red;
+}
+
+#tools > img {
+  width: 50px;
+}
+
+#tools > img:hover {
+  cursor: pointer;
+}
+
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+/* options UI styles         */
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+
+#options {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid purple;
+}
+
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+/* canvas parent element styles */
+/* •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*• */
+
+main {
+  margin: 10px;
+  border: 2px solid green;
+  height: 50vh;
+}

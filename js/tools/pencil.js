@@ -1,4 +1,4 @@
-/* global C2D */
+/* global app */
 window.tools.pencil = {
   name: 'pencil',
   icon: '/images/pencil-icon.png',
@@ -9,22 +9,26 @@ window.tools.pencil = {
   },
   events: {
     mousedown: function () {
-      const state = window.tools.pencil.state
-      state.mousePressed = true
+      this.state.mousePressed = true
     },
     mouseup: function () {
-      const state = window.tools.pencil.state
-      state.mousePressed = false
-      state.prevMouse = { x: null, y: null }
+      this.state.mousePressed = false
+      this.state.prevMouse = { x: null, y: null }
     },
     mousemove: function (e) {
-      const state = window.tools.pencil.state
-      if (state.selected && state.mousePressed) {
-        const mouse = C2D.eventToMouse(e)
-        const px = state.prevMouse.x || mouse.x
-        const py = state.prevMouse.y || mouse.y
-        C2D.line(mouse.x, mouse.y, px, py)
-        state.prevMouse = { x: mouse.x, y: mouse.y }
+      // if this tool is selected AND the mouse is pressed
+      if (this.state.selected && this.state.mousePressed) {
+        const mouse = app.eventToMouse(e)
+        const px = this.state.prevMouse.x || mouse.x
+        const py = this.state.prevMouse.y || mouse.y
+        // draw a line
+        app.ctx.beginPath()
+        app.ctx.moveTo(mouse.x, mouse.y)
+        app.ctx.lineTo(px, py)
+        app.ctx.closePath()
+        app.ctx.stroke()
+        // update prevMouse coordinates
+        this.state.prevMouse = { x: mouse.x, y: mouse.y }
       }
     }
   }
