@@ -7,7 +7,7 @@
     "pencil"
   ],
   "filters": [
-    "invert"
+    "invert", "lightFilter"
   ],
   "options": [
     "randomDog",
