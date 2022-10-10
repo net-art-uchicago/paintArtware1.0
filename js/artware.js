@@ -212,9 +212,9 @@ class Artware {
       const evs = tool.events
       for (const e in evs) {
         if (this.ele.main) {
-          this.ele.main.addEventListener(e, evs[e])
+          this.ele.main.addEventListener(e, (o) => evs[e](o, tool))
         } else {
-          window.addEventListener(e, evs[e])
+          window.addEventListener(e, (o) => evs[e](o, tool))
         }
       }
       // then create icon for too bar

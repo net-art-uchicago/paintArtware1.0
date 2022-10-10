@@ -52,18 +52,18 @@ events: {
   }
 }
 ```
-Where `EVENT_NAME` should be a valid [window event](https://developer.mozilla.org/en-US/docs/Web/API/Window#events) name. A common pattern is to create `mousedown`, `mouseup` and `mousemove` event functions where the `mousedown` and `mouseup` functions are used to change your tool's internal state's `mousePressed` property to `true` and `false` respectively. Your `mousemove` function can then check it's internal state to see if the user has this tool selected *and* if the mouse is currently pressed. If so, it can proceed to do whatever it is your tool does, in the example below our tool draws circles at the mouse's location.
+Where `EVENT_NAME` should be a valid [window event](https://developer.mozilla.org/en-US/docs/Web/Events) name. A common pattern is to create `mousedown`, `mouseup` and `mousemove` event functions where the `mousedown` and `mouseup` functions are used to change your tool's internal state's `mousePressed` property to `true` and `false` respectively. Your `mousemove` function can then check it's internal state to see if the user has this tool selected *and* if the mouse is currently pressed. If so, it can proceed to do whatever it is your tool does, in the example below our tool draws circles at the mouse's location.
 ```js
 events: {
-  mousedown: function () {
-    this.state.mousePressed = true
+  mousedown: function (e, self) {
+    self.state.mousePressed = true
   },
-  mouseup: function () {
-    this.state.mousePressed = false
+  mouseup: function (e, self) {
+    self.state.mousePressed = false
   },
-  mousemove: function (e) {
-    // if this tool is selected AND the mouse is pressed
-    if (this.state.selected && this.state.mousePressed) {
+  mousemove: function (e, self) {
+    // if self tool is selected AND the mouse is pressed
+    if (self.state.selected && self.state.mousePressed) {
       const mouse = app.eventToMouse(e)
       // draw a box
       app.ctx.rect(mouse.x, mouse.y, 10, 10)
@@ -71,3 +71,5 @@ events: {
   }
 }
 ```
+
+These event functions will give you access to two objects via it's arguments. The first (which I've defined as `e` above) is the standard [event object](https://developer.mozilla.org/en-US/docs/Web/API/Event) which is typically passed into any browser [window event](https://developer.mozilla.org/en-US/docs/Web/Events), the second (which I've defined as `self` above) is a reference to the tool itself. You can use this to access your tool's state like `self.state` or any other property in your tool like `self.icon` for example.
