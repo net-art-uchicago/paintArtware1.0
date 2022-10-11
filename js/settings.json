@@ -1,47 +1,18 @@
- {
-  "version": 1.0,
+{
+  "version": 2.0,
+  "functions": [
+    "export"
+  ],
   "tools": [
-    "airBrush",
-    "pencil",
-    "highlighter",
-    "oscCircles",
-    "vignette",
-    "multiplePen",
-    "eraser",
-    "smile",
-    "concentricCircle",
-    "rippleCircle",
-    "hackerText",
-    "bezier",
-    "flowers",
-    "ten_print",
-    "glitch",
-    "rainbow",
-    "reminder"
+    "pencil"
   ],
   "filters": [
     "invert",
-    "waves",
-    "pixel",
-    "rotate",
-    "saturation"
+    "sad"
   ],
   "options": [
-    "oldSchoolColors",
-    "strokeOptions",
-    "recorder",
-    "handy",
-    "textOptions",
-    "saturationValue",
-    "colorfulAudio",
-    "randomizedAudio",
-    "paintData",
-    "c2dFilters"
-  ],
-  "functions": [
-    "export",
-    "addLayer",
-    "spotifyColors"
+    "randomDog",
+    "lineWidth",
+    "randomColor"
   ]
 }
-

@@ -2,6 +2,7 @@
 
 Assuming you have an artware.js project setup, start by creating a new JavaScript file in the `/js/tools` directory which looks like this:
 ```js
+/* global app */
 window.tools.EXAMPLE = {
   name: 'my example tool',
   icon: '/images/EXAMPLE.png',
@@ -51,22 +52,24 @@ events: {
   }
 }
 ```
-Where `EVENT_NAME` should be a valid [window event](https://developer.mozilla.org/en-US/docs/Web/API/Window#events) name. A common pattern is to create `mousedown`, `mouseup` and `mousemove` event functions where the `mousedown` and `mouseup` functions are used to change your tool's internal state's `mousePressed` property to `true` and `false` respectively. Your `mousemove` function can then check it's internal state to see if the user has this tool selected *and* if the mouse is currently pressed. If so, it can proceed to do whatever it is your tool does, in the example below our tool draws circles at the mouse's location.
+Where `EVENT_NAME` should be a valid [window event](https://developer.mozilla.org/en-US/docs/Web/Events) name. A common pattern is to create `mousedown`, `mouseup` and `mousemove` event functions where the `mousedown` and `mouseup` functions are used to change your tool's internal state's `mousePressed` property to `true` and `false` respectively. Your `mousemove` function can then check it's internal state to see if the user has this tool selected *and* if the mouse is currently pressed. If so, it can proceed to do whatever it is your tool does, in the example below our tool draws circles at the mouse's location.
 ```js
 events: {
-  mousedown: function () {
-    window.tools.EXAMPLE.state.mousePressed = true
+  mousedown: function (e, self) {
+    self.state.mousePressed = true
   },
-  mouseup: function () {
-    window.tools.EXAMPLE.state.mousePressed = false
+  mouseup: function (e, self) {
+    self.state.mousePressed = false
   },
-  mousemove: function (e) {
-    const state = window.tools.EXAMPLE.state
-    if (state.selected && state.mousePressed) {
-      const mouse = C2D.eventToMouse(e)
-      C2D.ellipse(mouse.x, mouse.y, 50)
+  mousemove: function (e, self) {
+    // if self tool is selected AND the mouse is pressed
+    if (self.state.selected && self.state.mousePressed) {
+      const mouse = app.eventToMouse(e)
+      // draw a box
+      app.ctx.rect(mouse.x, mouse.y, 10, 10)
     }
   }
 }
 ```
-*NOTE: the example above makes use so the `C2D` object, which assumes you're working on an Artware project that includes the [cavnas2d.js](https://github.com/net-art-uchicago/paintArtware1.0/blob/main/docs/C2D.md) library*
+
+These event functions will give you access to two objects via it's arguments. The first (which I've defined as `e` above) is the standard [event object](https://developer.mozilla.org/en-US/docs/Web/API/Event) which is typically passed into any browser [window event](https://developer.mozilla.org/en-US/docs/Web/Events), the second (which I've defined as `self` above) is a reference to the tool itself. You can use this to access your tool's state like `self.state` or any other property in your tool like `self.icon` for example.

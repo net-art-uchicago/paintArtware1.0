@@ -2,75 +2,53 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>paintArtware</title>
-    <meta name="description" content="Experimental online drawing application by Media Art and Design students at the University of Chicago">
+    <title>PaintArtware 2.0</title>
+    <link rel="icon" href="images/app-icon.png">
 
-    <link href='https://fonts.googleapis.com/css?family=Frijole' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
-    <link href ='https://fonts.googleapis.com/css2?family=Abel&display=swap' rel = "stylesheet">
-
-    <!-- social media stuff -->
-    <meta property="og:title" content="paintArtware">
-    <meta property="og:description" content="Experimental online drawing application by Media Art and Design students at the University of Chicago">
-    <meta property="og:image" content="/images/app-icon.png">
-    <!-- <meta property="og:url" content="..."> -->
-    <meta name="twitter:card" content="summary_large_image">
-    <!-- <meta property="og:site_name" content="..."> -->
-    <meta name="twitter:site" content="@nbriz">
-
-    <link rel="icon" type="image/png" href="/images/app-icon.png">
-    <link rel="stylesheet" href="/css/landing.css">
-
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
 
-    <div id="landingpage"></div>
-    
-    <section id="paint-app">
-      <header>
+    <nav>
+      <!-- menu items will get inserted here by artware framework -->
+    </nav>
 
-        <h3>how are you feeling now?</h3>
-      </header>
-      <nav id="main-menu"></nav>
-      <main>
-        <section id="tool-bar"></section>
-        <section id="draw-area"></section>
-        <section id="layer-select"></section>
-      </main>
-      <section id="tool-options"></section>
-      <section id="tool-info"> <h4> hint: scroll further than u think</h4></section>
+    <section id="tools">
+      <!-- brushes/tools will get inserted here by artware framework -->
     </section>
 
-    <script src="/js/libs/Maths.js"></script>
-    <script src="/js/libs/canvas2d.js"></script>
-    <script src="/js/libs/artware.js"></script>
-    <script src="/js/libs/sentibot.js"></script>
-    <script src="/js/libs/UserMedia.js"></script>
-    <script src="https://unpkg.com/handsfree@8.5.1/build/lib/handsfree.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <section id="options">
+      <!-- options UI will get inserted here by artware framework -->
+    </section>
 
-    <script src="/js/libs/spotifyMoodColors.js"></script>
-    <script src="/js/landingpage.js"></script>
+
+    <main>
+      <!-- canvas will get inserted here by artware framework -->
+    </main>
+
+    <script src="/js/artware.js"></script>
     <script>
+      // ...........................................
+      // INSTANTIATE APP USING THE ARTWARE FRAMEWORK
+      // ...........................................
       const app = new Artware({
+        // path to settings file containing app metadata
         settings: '/js/settings.json',
+        // array of main menu items
+        menu: [
+          'File',
+          'Edit',
+          'Options'
+        ],
+        // CSS query selectors for elements to place artware components in
         elements: {
-          menu: '#main-menu',
-          tools: '#tool-bar',
-          main: '#draw-area',
-          layers: '#layer-select',
-          options: '#tool-options',
-          info: '#tool-info'
+          menu: 'nav',
+          tools: '#tools',
+          main: 'main',
+          options: '#options'
         }
       })
-
-      Sent.loadModels('/js/assets/models')
     </script>
   </body>
 </html>
